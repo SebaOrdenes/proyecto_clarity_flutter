@@ -1,0 +1,29 @@
+{
+    "nombreApp" : "Componentes",
+    "rutas" : [
+        {
+            "ruta" : "inicio",
+            "icon" : "add_alert",
+            "texto": "Inicio"
+        },
+        {
+            "ruta" : "signIn",
+            "icon" : "accessibility",
+            "texto": "Avatars"
+        },
+         {
+            "ruta" : "alert",
+            "icon" : "add_alert",
+            "texto": "Alertas"
+        },
+        {
+            "ruta" : "alert",
+            "icon" : "add_alert",
+            "texto": "Alertas"
+        }, {
+            "ruta" : "alert",
+            "icon" : "add_alert",
+            "texto": "Alertas"
+        }
+    ]
+}

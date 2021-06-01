@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:proyecto_clarity_flutter/src/screens/sign_in.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -17,7 +18,12 @@ class HomePage extends StatelessWidget {
       backgroundColor: Colors.deepOrange.shade100,
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.arrow_right_alt),
-        onPressed: () {}, //funcion anonima
+        onPressed: () {
+          final route = MaterialPageRoute(builder: (context) {
+            return SignIn();
+          });
+          Navigator.push(context, route);
+        },
       ),
       floatingActionButtonLocation:
           FloatingActionButtonLocation.miniCenterFloat,
