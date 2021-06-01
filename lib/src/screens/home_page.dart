@@ -10,11 +10,10 @@ class HomePage extends StatelessWidget {
         backgroundColor: Colors.deepOrange.shade300,
       ),
       body: Center(
-        child: Text(
-          'Bienvenida a Clarity',
-          style: TextStyle(fontSize: 30),
-        ),
-      ),
+          child: Image.asset(
+        'assets/LogoClarity.png',
+        width: 200,
+      )),
       backgroundColor: Colors.deepOrange.shade100,
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.arrow_right_alt),
