@@ -18,7 +18,7 @@ class Background extends StatelessWidget {
         alignment: Alignment.center,
         children: <Widget>[
           Positioned(
-            top: 90,
+            top: 70,
             left: 140,
             child: Image.asset(
               "assets/images/Claritylogo.png",
@@ -26,10 +26,19 @@ class Background extends StatelessWidget {
             ),
           ),
           Positioned(
-            bottom: 0,
+            top: 60,
             left: 0,
             child: Image.asset(
-              "assets/images/Flowers_edited.png",
+              "assets/images/Flowers.png",
+              width: size.width * 0.3,
+            ),
+          ),
+          Positioned(
+            top: 60,
+            left: 279,
+            child: Image.asset(
+              "assets/images/Flowers.png",
+              width: size.width * 0.3,
             ),
           ),
           child,
