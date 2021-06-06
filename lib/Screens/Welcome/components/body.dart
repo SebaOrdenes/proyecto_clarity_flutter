@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_auth/Screens/Login/login_screen.dart';
 //import 'package:flutter_auth/Screens/Signup/signup_screen.dart';
 import 'package:flutter_auth/Screens/Welcome/components/background.dart';
+//import 'package:flutter_auth/Screens/Welcome/components/horizontal_scroll.dart';
 import 'package:flutter_auth/components/rounded_button.dart';
 //import 'package:flutter_auth/constants.dart';
 //import 'package:flutter_svg/svg.dart';
@@ -16,6 +17,7 @@ class Body extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            //buildContent(),
             Text(
               "Clarity",
               style: TextStyle(fontWeight: FontWeight.bold),
