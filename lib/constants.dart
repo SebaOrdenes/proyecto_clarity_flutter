@@ -5,3 +5,4 @@ const kSecondaryColor = Color(0xFFFFAB91);
 const kThirdColor = Colors.black;
 const kPrimaryLightColor = Color(0xFFF1E6FF);
 const kWhiteColor = Colors.white;
+const kPinkcolor = Color(0xFFFFCCBC);
