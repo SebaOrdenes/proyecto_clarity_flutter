@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+//import 'package:flutter_auth/Screens/Informacion/components/list_images.dart';
 import 'package:flutter_auth/Screens/Informacion/informacion_screen.dart';
-//import 'package:flutter_auth/Screens/Login/login_screen.dart';
 import 'package:flutter_auth/Screens/Para_ti/components/background.dart';
 
 class Body extends StatelessWidget {

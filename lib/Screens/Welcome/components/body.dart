@@ -19,7 +19,7 @@ class Body extends StatelessWidget {
           children: <Widget>[
             //buildContent(),
             Text(
-              "Clarity",
+              "ola",
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             SizedBox(height: size.height * 0.05),
