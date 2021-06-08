@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+//import 'package:flutter_auth/Screens/Login/login_screen.dart';
+//import 'package:flutter_auth/components/rounded_button.dart';
 
 class Background extends StatelessWidget {
   final Widget child;
@@ -14,25 +16,22 @@ class Background extends StatelessWidget {
       height: size.height,
       width: double.infinity,
       child: Stack(
-        alignment: Alignment.center,
+        // alignment: Alignment.bottomCenter,
         children: <Widget>[
-          Positioned(
-            bottom: 0,
-            left: 0,
-            child: Image.asset(
-              "assets/images/main_bottom.png",
-              width: size.width * 0.2,
-            ),
-          ),
+          /* RoundedButton(
+            text: "Continue",
+            press: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return LoginScreen();
+                  },
+                ),
+              );
+            },
+          ),*/
           child,
-          Positioned(
-            top: 90,
-            left: 140,
-            child: Image.asset(
-              "assets/images/Claritylogo.png",
-              width: size.width * 0.3,
-            ),
-          ),
         ],
       ),
     );
