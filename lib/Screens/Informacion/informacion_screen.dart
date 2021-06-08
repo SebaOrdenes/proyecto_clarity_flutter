@@ -7,8 +7,11 @@ class InformacionScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Informacion para ti'),
-        backgroundColor: kPinkcolor,
+        title: Text(
+          'Informacion para ti',
+          style: TextStyle(color: Colors.black),
+        ),
+        backgroundColor: kDeepOrangeColor,
       ),
       body: Body(),
       backgroundColor: kWhiteColor,

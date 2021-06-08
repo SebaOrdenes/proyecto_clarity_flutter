@@ -7,8 +7,11 @@ class ParaTiScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home'),
-        backgroundColor: kPinkcolor,
+        title: Text(
+          '',
+          style: TextStyle(color: Colors.black),
+        ),
+        backgroundColor: kDeepOrangeColor,
       ),
       body: Body(),
       backgroundColor: kWhiteColor,

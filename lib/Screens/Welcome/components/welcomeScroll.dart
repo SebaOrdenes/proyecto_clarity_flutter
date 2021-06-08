@@ -13,14 +13,15 @@ class WelcomeScroll extends StatelessWidget {
           children: <Widget>[
             Stack(children: <Widget>[
               Container(
-                  padding: EdgeInsets.all(125.0),
+                  padding: EdgeInsets.all(50.0),
+                  width: 400,
                   child: Image.asset(
-                    'assets/images/Claritylogo.png', scale: 2,
+                    'assets/images/happy.png', scale: 1.5,
                     //width: 150.0,
                     // alignment: Alignment.bottomLeft,
                   )),
               Text(
-                'HOLASOYELSCROLL ',
+                'HOLA ',
                 textAlign: TextAlign.start,
               ),
             ]),
