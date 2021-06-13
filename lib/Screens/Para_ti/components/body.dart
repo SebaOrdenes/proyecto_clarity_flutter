@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_auth/Screens/Informacion/informacion_screen.dart';
 import 'package:flutter_auth/Screens/Medicion/medicion_screen.dart';
 import 'package:flutter_auth/Screens/Para_ti/components/background.dart';
+import 'package:flutter_auth/Screens/Revitalizar/revitalizar_screen.dart';
 import 'package:flutter_auth/Screens/Tratamiento/tratamiento_screen.dart';
 import 'package:flutter_auth/constants.dart';
 
@@ -67,7 +68,7 @@ class Body extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return InformacionScreen();
+                        return RevitalizarScreen();
                       },
                     ),
                   );
@@ -106,11 +107,10 @@ class Body extends StatelessWidget {
               )),
           Positioned(
               top: 550,
-              left: 30,
+              left: 20,
               child: Text(
                 ' "De nuestras vulnerabilidades vienen nuestras fortalezas" ',
-                style: TextStyle(
-                    color: kPrimaryColor, fontStyle: FontStyle.italic),
+                style: TextStyle(color: kPrimaryColor, fontFamily: 'Raleway'),
               )),
           Positioned(
               top: 30,
@@ -122,6 +122,26 @@ class Body extends StatelessWidget {
                   fontSize: 30,
                   fontFamily: 'Raleway',
                   fontWeight: FontWeight.w300,
+                ),
+              )),
+          Positioned(
+              top: 80,
+              left: 30,
+              child: Text(
+                'Tu bienestar está en tus manos y',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontFamily: 'Raleway',
+                ),
+              )),
+          Positioned(
+              top: 110,
+              left: 30,
+              child: Text(
+                'estamos aqui para acompañarte 24/7.',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontFamily: 'Raleway',
                 ),
               )),
         ],

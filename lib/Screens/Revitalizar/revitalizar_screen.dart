@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_auth/Screens/Informacion/components/body.dart';
 import 'package:flutter_auth/Screens/Para_ti/components/menu_lateral.dart';
+import 'package:flutter_auth/Screens/Revitalizar/components/body.dart';
+
 import '../../constants.dart';
 
-class InformacionScreen extends StatelessWidget {
+class RevitalizarScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          'Planes de lectura',
-          style: TextStyle(color: Colors.black),
+          'Revitalizar',
+          style: TextStyle(color: Colors.black, fontFamily: 'Raleway'),
         ),
         backgroundColor: kDeepOrangeColor,
       ),

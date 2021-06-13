@@ -8,7 +8,14 @@ class MedicionScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Medicion'),
+        centerTitle: true,
+        title: Text(
+          'Medicion',
+          style: TextStyle(
+            color: Colors.black,
+            fontFamily: 'Raleway',
+          ),
+        ),
         backgroundColor: kDeepOrangeColor,
       ),
       drawer: MenuLateral(),
