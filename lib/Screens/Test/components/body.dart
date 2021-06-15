@@ -22,7 +22,7 @@ class _BodyState extends State<Body> {
   void initState() {
     super.initState();
     selectedRadio = 0;
-    test = Test.getTests();
+    test = Test.getTest();
   }
 
   void setSelectedRadio(int val) {
@@ -56,7 +56,7 @@ class _BodyState extends State<Body> {
             print('Current Test ${currentTest.reply}');
             print(respuesta.response);
             setSelectedTest(currentTest);
-            //respuesta.getUsers();
+            respuesta.getPreguntas();
           },
           selected: selectedTest == respuesta,
           activeColor: Color.fromRGBO(255, 195, 177, 1)));

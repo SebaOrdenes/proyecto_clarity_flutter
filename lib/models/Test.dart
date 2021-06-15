@@ -3,46 +3,36 @@ import 'dart:convert' as convert;
 
 class Test {
   String id;
+  int item;
   String reply;
   List testData;
+  List<List<Test>> test = [];
+  List<Test> respuestas = [];
   http.Response response;
 
-  Test({
-    this.id,
-    this.reply,
-  });
-
-  static List<List<Test>> getTests() {
-    List<List<Test>> test = [];
-    List<Test> respuestas = [];
-
-    respuestas.add(Test(id: '1', reply: "respuesta 1"));
-    respuestas.add(Test(id: '2', reply: "respuesta 2"));
-    respuestas.add(Test(id: '3', reply: "respuesta 3"));
-    test.add(respuestas);
-    respuestas = [];
-    respuestas.add(Test(id: '4', reply: "respuesta 4"));
-    respuestas.add(Test(id: '5', reply: "respuesta 5"));
-    respuestas.add(Test(id: '6', reply: "respuesta 6"));
-    test.add(respuestas);
-    respuestas = [];
-    respuestas.add(Test(id: '7', reply: "respuesta 7"));
-    respuestas.add(Test(id: '8', reply: "respuesta 8"));
-    respuestas.add(Test(id: '9', reply: "respuesta 9"));
-    test.add(respuestas);
-
-    return test;
+  Test(String id, String reply, int item) {
+    this.id = id;
+    this.item = item;
+    this.reply = reply;
   }
 
-  var ruta = 'http://localhost:8000/api/options/';
-  getUsers() async {
-    List<List<Test>> test = [];
-    List<Test> respuestas = [];
+  static List<List<Test>> getTest() {}
 
-    http.Response response =
-        await http.get(Uri.http('10.0.2.2:3000', '/api/options'));
+  var ruta = 'http://localhost:8000';
+  getPreguntas() async {
+    http.Response response = await http
+        .get(Uri.http('10.0.2.2:8000', '/api/options/Test de depresión'));
     var jsonResponse =
         convert.jsonDecode(response.body) as Map<String, dynamic>;
     this.testData = jsonResponse['data'];
+    print(testData);
+
+    for (int i = 0; i < this.testData.length; i++) {
+      String id = this.testData[i]["_id"];
+      int item = this.testData[i]["item"];
+      String reply = this.testData[i]["reply"];
+      Test respuesta = new Test(id, reply, item);
+      respuestas.add(respuesta);
+    }
   }
 }

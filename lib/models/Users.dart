@@ -14,9 +14,24 @@ class Users {
     this.password = password;
     this.email = email;
   }
+
+  postUser(String name, String password, String username, String email) async {
+    http.Response response = await http
+        .post(Uri.http('10.0.2.2:8000', '/api/users/register'), body: {
+      'username': name,
+      'name': name,
+      'password': password,
+      'confirmPassword': password,
+      'email': email
+    });
+    var jsonResponse =
+        convert.jsonDecode(response.body) as Map<String, dynamic>;
+    print(jsonResponse);
+  }
+
   getUsers() async {
     http.Response response =
-        await http.get(Uri.http('10.0.2.2:3000', '/api/users'));
+        await http.get(Uri.http('10.0.2.2:8000', '/api/users'));
     var jsonResponse =
         convert.jsonDecode(response.body) as Map<String, dynamic>;
     this.usersData = jsonResponse['data'];
