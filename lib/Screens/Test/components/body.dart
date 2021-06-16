@@ -11,10 +11,17 @@ class Body extends StatefulWidget {
 
 class _BodyState extends State<Body> {
   String ruta = "assets/images/Flowers_edited.png";
-  List<List<Test>> test = [];
+  Test test;
+  List<List<Test>> testList = [];
+  //Atributos para seleccionar respuesta
   int selectedRadio;
   int selectedRadioTile;
   Test selectedTest;
+
+  //Atributos para modificar puntaje
+  int actualScore = 0; //Puntaje de la casilla actual seleccionada
+  int previousScore = 0; //Puntaje de la casilla anterior seleccionada
+  int finalScore = 0;
   int count = 0;
 
   //initState se ejecuta antes que se carguen todos los componentes
@@ -22,7 +29,10 @@ class _BodyState extends State<Body> {
   void initState() {
     super.initState();
     selectedRadio = 0;
-    test = Test.getTest();
+    test = new Test("0", "", "0", 0);
+
+    test.getPreguntas();
+    testList = test.getTest();
   }
 
   void setSelectedRadio(int val) {
@@ -43,20 +53,21 @@ class _BodyState extends State<Body> {
     });
   }
 
+  void createTest() {}
+
   //Wiget para crear lista de RadioButton
   List<Widget> createRadioListTests() {
     List<Widget> widgets = [];
-    List<Test> question = test[this.count]; //Obteniendo preguntas
+    List<Test> question = testList[this.count]; //Obteniendo preguntas
     for (Test respuesta in question) {
       widgets.add(RadioListTile(
           value: respuesta,
           groupValue: selectedTest,
           title: Text(respuesta.reply),
           onChanged: (currentTest) {
-            print('Current Test ${currentTest.reply}');
-            print(respuesta.response);
+            selectedRadio = 1;
             setSelectedTest(currentTest);
-            respuesta.getPreguntas();
+            actualScore = currentTest.score; //Guardar puntaje obtenido
           },
           selected: selectedTest == respuesta,
           activeColor: Color.fromRGBO(255, 195, 177, 1)));
@@ -71,29 +82,40 @@ class _BodyState extends State<Body> {
 
     //Si no se encuentra en la primera pregunta aparece el botón atrás
     if (count > 0) {
-      widgets.add(
-        RoundedButton(
-            text: "Atrás",
-            dimension: 0.4,
-            press: () {
-              setState(() => {count--});
-              //createRadioListTests(count);
-            }),
-      );
+      widgets.add(RoundedButton(
+          text: "Atrás",
+          dimension: 0.4,
+          press: () {
+            setState(() => {
+                  count--,
+                  selectedRadio = 0,
+                  finalScore = finalScore - actualScore, //Aumentar el puntaje
+                  actualScore =
+                      previousScore, //Se asigna el puntaje actual como anterior});
+                  //createRadioListTests(count);
+                });
+          }));
     }
     //Si no se encuentra en la última pregunta aparece el botón siguiente
-    if (count < test.length - 1) {
+    if (count < testList.length - 1 && selectedRadio != 0) {
       //Agregar el botón siguiente
       widgets.add(RoundedButton(
           text: "Siguiente",
           dimension: 0.4,
           press: () {
-            setState(() => {count++});
+            setState(() => {
+                  count++,
+                  selectedRadio = 0,
+                  finalScore = finalScore + actualScore, //Aumentar el puntaje
+                  previousScore =
+                      actualScore, //Se asigna el puntaje actual como anterior
+                });
+
             //createRadioListTests(count);
           }));
 
       //Si se encuentra en la últma pregunta aparece el botón de envío
-    } else {
+    } else if (count == testList.length - 1) {
       //Agregar el botón siguiente
       widgets.add(RoundedButton(
           text: "Enviar",

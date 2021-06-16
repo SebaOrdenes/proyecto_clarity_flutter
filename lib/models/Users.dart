@@ -8,6 +8,7 @@ class Users {
   String email;
   List usersData;
   List<Users> user = [];
+
   Users(String name, String username, String password, String email) {
     this.name = name;
     this.username = username;
@@ -15,6 +16,7 @@ class Users {
     this.email = email;
   }
 
+  //Registrar un usuario
   postUser(String name, String password, String username, String email) async {
     http.Response response = await http
         .post(Uri.http('10.0.2.2:8000', '/api/users/register'), body: {
@@ -29,6 +31,7 @@ class Users {
     print(jsonResponse);
   }
 
+  //Obtener listado de usuarios
   getUsers() async {
     http.Response response =
         await http.get(Uri.http('10.0.2.2:8000', '/api/users'));
@@ -43,5 +46,10 @@ class Users {
       Users userNew = new Users(name, username, password, email);
       this.user.add(userNew);
     }
+  }
+
+  //Entregar listado de usuarios
+  List<Users> getListUsers() {
+    return this.user;
   }
 }
