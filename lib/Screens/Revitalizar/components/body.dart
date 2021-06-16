@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 //import 'package:flutter_auth/Screens/Para_ti/para_ti_screen.dart';
 import 'package:flutter_auth/Screens/Revitalizar/components/background.dart';
-import 'package:flutter_auth/Screens/Revitalizar/revitalizar_screen.dart';
-import 'package:flutter_auth/components/rounded_button.dart';
-import '../../../constants.dart';
+import 'package:flutter_auth/Screens/Revitalizar/components/respirar_screeen.dart';
+
 //import 'package:flutter_auth/constants.dart';
 
 class Body extends StatelessWidget {
@@ -22,19 +21,6 @@ class Body extends StatelessWidget {
               style: TextStyle(fontSize: 30, fontFamily: 'Raleway'),
             ),
             SizedBox(height: size.height * 0.02),
-            RoundedButton(
-              text: "RESPIRA",
-              press: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return RevitalizarScreen();
-                    },
-                  ),
-                );
-              },
-            ),
             SizedBox(height: size.height * 0.05),
             Text(
               '¿Necesitas una herramienta simple que te permita relajarte rápidamente?',
@@ -44,54 +30,42 @@ class Body extends StatelessWidget {
             ),
             SizedBox(height: size.height * 0.03),
             Text(
-              '   La relajación es sin duda una de las claves más fáciles de aplicar, y eso requiere de un solo recurso que todos tenemos cuando vivimos, así que prepárate para escuchar las técnicas más efectivas para lograr la calma que necesitas y seguir con con los desafíos del día a día.',
-              style: TextStyle(fontSize: 18, fontFamily: 'Raleway'),
-              textAlign: TextAlign.justify,
-            ),
-            SizedBox(height: size.height * 0.05),
-            Text(
-              'Instrucciones',
-              style: TextStyle(fontSize: 30, color: Colors.black),
-              textAlign: TextAlign.justify,
+              'Ve las opciones que tenemos para ti',
+              style: TextStyle(
+                  fontSize: 20, fontFamily: 'Raleway', color: Colors.black),
+              textAlign: TextAlign.center,
             ),
             SizedBox(height: size.height * 0.03),
-            Text(
-              '   Prueba los diferentes ejercicios de respiración y encuentra el que te haga sentir más cómoda.',
-              style: TextStyle(fontSize: 18, fontFamily: 'Raleway'),
-              textAlign: TextAlign.justify,
-            ),
-            SizedBox(height: size.height * 0.03),
-            Text(
-              'Esta actividad puede ayudarte:                            ',
-              style: TextStyle(fontSize: 18, fontFamily: 'Raleway'),
-              textAlign: TextAlign.justify,
-            ),
-            SizedBox(height: size.height * 0.03),
-            Text(
-              '-Sentirte más relajada                                            ',
-              style: TextStyle(
-                  fontSize: 18, fontFamily: 'Raleway', color: kSecondaryColor),
-              textAlign: TextAlign.justify,
-            ),
-            Text(
-              '-Oxigenar tu cuerpo y calmar tu mente             ',
-              style: TextStyle(
-                  fontSize: 18, fontFamily: 'Raleway', color: kSecondaryColor),
-              textAlign: TextAlign.justify,
-            ),
-            Text(
-              '-Conectarte contigo misma y equilibrar             ',
-              style: TextStyle(
-                  fontSize: 18, fontFamily: 'Raleway', color: kSecondaryColor),
-              textAlign: TextAlign.justify,
-            ),
-            Text(
-              'tus emociones                                                      ',
-              style: TextStyle(
-                  fontSize: 18, fontFamily: 'Raleway', color: kSecondaryColor),
-              textAlign: TextAlign.justify,
-            ),
           ],
+        ),
+        Positioned(
+            top: 250,
+            left: 200,
+            child: InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return RespirarScreen();
+                    },
+                  ),
+                );
+              },
+              child: Container(
+                padding: EdgeInsets.all(12.0),
+                child: Image.asset(
+                  'assets/images/respira.png',
+                  width: 150,
+                  height: 150,
+                ),
+              ),
+            )),
+        Text(
+          'Respira',
+          style: TextStyle(
+              fontSize: 20, fontFamily: 'Raleway', color: Colors.black),
+          textAlign: TextAlign.center,
         ),
         Positioned(
             top: 250,
@@ -101,12 +75,18 @@ class Body extends StatelessWidget {
               child: Container(
                 padding: EdgeInsets.all(12.0),
                 child: Image.asset(
-                  'assets/images/Especialista.png',
+                  'assets/images/escucha.png',
                   width: 150,
                   height: 150,
                 ),
               ),
             )),
+        Text(
+          'Escucha',
+          style: TextStyle(
+              fontSize: 20, fontFamily: 'Raleway', color: Colors.black),
+          textAlign: TextAlign.center,
+        ),
         Positioned(
             top: 400,
             left: 200,
@@ -115,40 +95,19 @@ class Body extends StatelessWidget {
               child: Container(
                 padding: EdgeInsets.all(12.0),
                 child: Image.asset(
-                  'assets/images/Workshops.png',
+                  'assets/images/visualizar.png',
                   width: 150,
                   height: 150,
                 ),
               ),
             )),
-        Positioned(
-            top: -40,
-            left: 65,
-            child: Image.asset(
-              'assets/images/Tratamiento1.png',
-              width: 250,
-              height: 250,
-            )),
-        Positioned(
-            top: 170,
-            left: 20,
-            child: Text(
-              ' Hemos integrado diferentes alternativas psicoterapéuticas',
-              style: TextStyle(
-                color: kPrimaryColor,
-                fontFamily: 'Raleway',
-              ),
-            )),
-        Positioned(
-            top: 190,
-            left: 30,
-            child: Text(
-              ' para acompañarte en tu camino de transformación.',
-              style: TextStyle(
-                color: kPrimaryColor,
-                fontFamily: 'Raleway',
-              ),
-            ))
+        Text(
+          'Visualiza',
+          style: TextStyle(
+              fontSize: 20, fontFamily: 'Raleway', color: Colors.black),
+          textAlign: TextAlign.center,
+        ),
+        SizedBox(height: size.height * 0.05),
       ]),
     );
   }
