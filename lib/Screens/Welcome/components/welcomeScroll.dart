@@ -8,7 +8,7 @@ class WelcomeScroll extends StatelessWidget {
     // Size size = MediaQuery.of(context).size;
     // This size provide us total height and width of our screen
     return ListView(
-      scrollDirection: Axis.horizontal,
+      //scrollDirection: Axis.horizontal,
       children: <Widget>[
         Column(
           mainAxisSize: MainAxisSize.max,
@@ -26,6 +26,7 @@ class WelcomeScroll extends StatelessWidget {
               // textAlign: TextAlign.center,
               style: TextStyle(fontSize: 30, fontFamily: 'Raleway'),
             ),
+            SizedBox(height: size.height * 0.4),
           ],
         ),
         Column(

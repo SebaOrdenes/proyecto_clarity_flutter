@@ -1,15 +1,7 @@
 import 'package:flutter/material.dart';
-//import 'package:flutter_auth/Screens/Welcome/components/welcomeScroll.dart';
-import 'package:flutter_auth/Screens/Welcome/welcome_screen.dart';
-//import 'package:flutter_auth/Screens/Para_ti/para_ti_screen.dart';
-//import 'package:flutter_auth/Screens/Welcome/welcome_screen.dart';
-//import 'package:flutter_auth/Screens/Welcome/welcome_screen.dart';
+
 import 'package:flutter_auth/constants.dart';
 import 'package:flutter_auth/Screens/Welcome/splashScreen.dart';
-
-//import 'Screens/Welcome/welcome_screen.dart';
-
-//import 'Screens/Welcome/components/horizontal_scroll.dart';
 
 void main() => runApp(MyApp());
 
