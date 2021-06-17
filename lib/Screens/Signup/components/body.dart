@@ -22,10 +22,12 @@ class _BodyState extends State<Body> {
   String password;
   String username;
   String email;
+  String testResults = "0";
 
-  void createTest() {
-    user = new Users(this.name, this.username, this.password, this.email);
-    user.postUser(name, password, username, email);
+  void createUser() {
+    user = new Users(
+        this.name, this.username, this.password, this.email, this.testResults);
+    user.postUser(name, password, username, email, testResults);
   }
 
   @override
@@ -57,7 +59,7 @@ class _BodyState extends State<Body> {
             RoundedButton(
               text: "INGRESAR",
               press: () {
-                createTest();
+                createUser();
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(

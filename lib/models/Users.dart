@@ -3,32 +3,37 @@ import 'dart:convert' as convert;
 
 class Users {
   String name;
-  String username;
-  String password;
+  String username = "";
+  String password = "";
   String email;
+  String testResults;
   List usersData;
+  Map<String, dynamic> validationLog;
   List<Users> user = [];
+  http.Response response;
 
-  Users(String name, String username, String password, String email) {
+  Users(String name, String username, String password, String email,
+      String testResults) {
     this.name = name;
     this.username = username;
     this.password = password;
     this.email = email;
+    this.testResults = testResults;
   }
 
   //Registrar un usuario
-  postUser(String name, String password, String username, String email) async {
+  postUser(String name, String password, String username, String email,
+      String testResults) async {
     http.Response response = await http
         .post(Uri.http('10.0.2.2:8000', '/api/users/register'), body: {
       'username': name,
       'name': name,
       'password': password,
       'confirmPassword': password,
-      'email': email
+      'email': email,
+      'testResults': testResults
     });
-    var jsonResponse =
-        convert.jsonDecode(response.body) as Map<String, dynamic>;
-    print(jsonResponse);
+    print(response.body);
   }
 
   //Obtener listado de usuarios
@@ -43,7 +48,8 @@ class Users {
       String username = this.usersData[i]["username"];
       String password = this.usersData[i]["password"];
       String email = this.usersData[i]["email"];
-      Users userNew = new Users(name, username, password, email);
+      String testResults = this.usersData[i]["testResults"];
+      Users userNew = new Users(name, username, password, email, testResults);
       this.user.add(userNew);
     }
   }
@@ -51,5 +57,22 @@ class Users {
   //Entregar listado de usuarios
   List<Users> getListUsers() {
     return this.user;
+  }
+
+  //Login de usuario
+  Future login(String username, String password) async {
+    http.Response response =
+        await http.post(Uri.http('10.0.2.2:8000', '/api/users/login'), body: {
+      'username': username,
+      'password': password,
+    });
+    Map<String, dynamic> jsonResponse =
+        convert.jsonDecode(response.body) as Map<String, dynamic>;
+    this.validationLog = jsonResponse;
+  }
+
+  //Obtener validaciones de login
+  Map<String, dynamic> getValidation() {
+    return this.validationLog;
   }
 }

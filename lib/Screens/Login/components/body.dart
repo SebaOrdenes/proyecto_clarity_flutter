@@ -7,12 +7,28 @@ import 'package:flutter_auth/components/already_have_an_account_acheck.dart';
 import 'package:flutter_auth/components/rounded_button.dart';
 import 'package:flutter_auth/components/rounded_input_field.dart';
 import 'package:flutter_auth/components/rounded_password_field.dart';
+import 'package:flutter_auth/models/Users.dart';
 //import 'package:flutter_svg/svg.dart';
 
-class Body extends StatelessWidget {
-  const Body({
-    Key key,
-  }) : super(key: key);
+class Body extends StatefulWidget {
+  @override
+  _BodyState createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
+  String username;
+  String password;
+  Users user;
+  int state = 0; //Verifica si el usuario se ha podido loguear
+  String menssage = ""; //Mensaje al intentar logear
+
+  void loginUser() async {
+    user = new Users("", "", "", "", "0");
+    await user.login(this.username,
+        this.password); //Se debe esperar a hacer la consulta al back
+    state = user.getValidation()["validation"];
+    menssage = user.getValidation()["menssage"];
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,23 +41,33 @@ class Body extends StatelessWidget {
             SizedBox(height: size.height * 0.5),
             SizedBox(height: size.height * 0.03),
             RoundedInputField(
-              hintText: "Your Email",
-              onChanged: (value) {},
+              hintText: "Tu nombre de usuario",
+              helperText: "$menssage",
+              onChanged: (value) {
+                setState(() => {this.username = value});
+              },
             ),
             RoundedPasswordField(
-              onChanged: (value) {},
+              onChanged: (value) {
+                {
+                  setState(() => {this.password = value});
+                }
+              },
             ),
             RoundedButton(
               text: "LOGIN",
               press: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return ParaTiScreen();
-                    },
-                  ),
-                );
+                loginUser(); //Login Usuario
+                if (state != 0) {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return ParaTiScreen();
+                      },
+                    ),
+                  );
+                }
               },
             ),
             SizedBox(height: size.height * 0.03),
