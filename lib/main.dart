@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_auth/Screens/Admin/admin_screen.dart';
 
 import 'package:flutter_auth/constants.dart';
 import 'package:flutter_auth/Screens/Welcome/splashScreen.dart';

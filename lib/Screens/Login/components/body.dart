@@ -42,7 +42,7 @@ class _BodyState extends State<Body> {
             SizedBox(height: size.height * 0.03),
             RoundedInputField(
               hintText: "Tu nombre de usuario",
-              helperText: "$menssage",
+              //             helperText: "$menssage",
               onChanged: (value) {
                 setState(() => {this.username = value});
               },

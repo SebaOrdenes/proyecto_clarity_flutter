@@ -11,10 +11,12 @@ class WelcomeScroll extends StatelessWidget {
       //scrollDirection: Axis.horizontal,
       children: <Widget>[
         Column(
+          // alignment: AlignmentDirectional.centerEnd,
+
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
+            //SizedBox(height: size.height * 0.1),
             Positioned(
                 child: Image.asset(
               'assets/images/Claritylogo.png',
@@ -26,7 +28,6 @@ class WelcomeScroll extends StatelessWidget {
               // textAlign: TextAlign.center,
               style: TextStyle(fontSize: 30, fontFamily: 'Raleway'),
             ),
-            SizedBox(height: size.height * 0.4),
           ],
         ),
         Column(
