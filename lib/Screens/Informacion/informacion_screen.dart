@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_auth/Screens/Informacion/components/body.dart';
-import 'package:flutter_auth/Screens/Para_ti/components/menu_lateral.dart';
+import 'package:flutter_auth/Screens/Layout/menu_lateral.dart';
 import '../../constants.dart';
 
 class InformacionScreen extends StatelessWidget {

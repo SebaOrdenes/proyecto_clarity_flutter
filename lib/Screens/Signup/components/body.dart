@@ -24,10 +24,25 @@ class _BodyState extends State<Body> {
   String email;
   String testResults = "0";
 
-  void createUser() {
-    user = new Users(
-        this.name, this.username, this.password, this.email, this.testResults);
-    user.postUser(name, password, username, email, testResults);
+  bool loading = false; //circulo de carga
+
+  //Se crea el usuario y se guarda en la base de datos
+  void createUser() async {
+    setState(() {
+      loading = true;
+    });
+    user = new Users(this.name, this.username, this.password, this.email,
+        this.testResults, this.testResults);
+    await guardarUserData();
+  }
+
+  //Se guarda el usuario en la base de datos
+  Future<void> guardarUserData() async {
+    await user.postUser(name, password, username, email, testResults);
+    setState(() {
+      loading = false;
+    });
+    //user.getUsers();
   }
 
   @override
@@ -40,13 +55,13 @@ class _BodyState extends State<Body> {
           children: <Widget>[
             SizedBox(height: size.height * 0.43),
             RoundedInputField(
-              hintText: "User name",
+              hintText: "Nombre de Usuario",
               onChanged: (value) {
                 setState(() => {this.name = value, this.username = value});
               },
             ),
             RoundedInputField(
-              hintText: "Your Email",
+              hintText: "Tu Email",
               onChanged: (value) {
                 setState(() => {this.email = value});
               },
@@ -57,7 +72,8 @@ class _BodyState extends State<Body> {
               },
             ),
             RoundedButton(
-              text: "INGRESAR",
+              text: "Registrar",
+              loading: loading,
               press: () {
                 createUser();
                 Navigator.pushReplacement(

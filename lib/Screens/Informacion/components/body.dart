@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_auth/Screens/Informacion/components/background.dart';
+import 'package:flutter_auth/Screens/Layout/components/background.dart';
 //import 'package:flutter_auth/Screens/Login/login_screen.dart';
 
 class Body extends StatefulWidget {

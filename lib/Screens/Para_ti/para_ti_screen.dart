@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_auth/Screens/Para_ti/components/body.dart';
 import '../../constants.dart';
-import 'components/menu_lateral.dart';
+import 'package:flutter_auth/Screens/Layout/menu_lateral.dart';
 
 class ParaTiScreen extends StatelessWidget {
   @override

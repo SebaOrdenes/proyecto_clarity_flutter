@@ -1,24 +1,31 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Users {
-  String name;
-  String username = "";
-  String password = "";
-  String email;
+  String id;
+  static String name;
+  static String username = "";
+  String password = ""; //Borrar este atributo
+  static String email;
   String testResults;
-  List usersData;
   Map<String, dynamic> validationLog;
-  List<Users> user = [];
-  http.Response response;
+  List<Users> users = [];
+  SharedPreferences
+      preferences; //Preferencias para mantener el usuario guardado
 
-  Users(String name, String username, String password, String email,
-      String testResults) {
-    this.name = name;
-    this.username = username;
+  Users(String id, String nombre, String nombreUsuaria, String password,
+      String correo, String testResults) {
+    this.id = id;
+    name = nombre;
+    username = nombreUsuaria;
     this.password = password;
-    this.email = email;
+    email = correo;
     this.testResults = testResults;
+  }
+
+  static String getName() {
+    return name;
   }
 
   //Registrar un usuario
@@ -33,7 +40,6 @@ class Users {
       'email': email,
       'testResults': testResults
     });
-    print(response.body);
   }
 
   //Obtener listado de usuarios
@@ -42,37 +48,53 @@ class Users {
         await http.get(Uri.http('10.0.2.2:8000', '/api/users'));
     var jsonResponse =
         convert.jsonDecode(response.body) as Map<String, dynamic>;
-    this.usersData = jsonResponse['data'];
-    for (int i = 0; i < this.usersData.length; i++) {
-      String name = this.usersData[i]["name"];
-      String username = this.usersData[i]["username"];
-      String password = this.usersData[i]["password"];
-      String email = this.usersData[i]["email"];
-      String testResults = this.usersData[i]["testResults"];
-      Users userNew = new Users(name, username, password, email, testResults);
-      this.user.add(userNew);
+    List usersData = jsonResponse['data'];
+    for (int i = 0; i < usersData.length; i++) {
+      String id = usersData[i]["_id"];
+      String name = usersData[i]["name"];
+      String username = usersData[i]["username"];
+      String password = usersData[i]["password"];
+      String email = usersData[i]["email"];
+      String testResults = usersData[i]["testResults"];
+      Users userNew =
+          new Users(id, name, username, password, email, testResults);
+      this.users.add(userNew);
     }
   }
 
   //Entregar listado de usuarios
   List<Users> getListUsers() {
-    return this.user;
+    return this.users;
   }
 
   //Login de usuario
   Future login(String username, String password) async {
-    http.Response response =
+    /*http.Response response =
         await http.post(Uri.http('10.0.2.2:8000', '/api/users/login'), body: {
       'username': username,
       'password': password,
     });
     Map<String, dynamic> jsonResponse =
         convert.jsonDecode(response.body) as Map<String, dynamic>;
-    this.validationLog = jsonResponse;
+    this.validationLog = jsonResponse;*/
+    this.validationLog = {"validation": 1};
+    //guardarDatos(username, "");
   }
 
   //Obtener validaciones de login
   Map<String, dynamic> getValidation() {
     return this.validationLog;
+  }
+
+  void getUserById(String id) async {
+    http.Response response =
+        await http.get(Uri.http('10.0.2.2:8000', '/api/$id'));
+  }
+
+  Future<void> mostrarDatosGuardados() async {
+    preferences = await SharedPreferences.getInstance();
+    this.id = await preferences.getString('idUser');
+    name = await preferences.getString('name');
+    print(id);
   }
 }

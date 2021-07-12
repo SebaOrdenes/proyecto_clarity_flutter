@@ -8,26 +8,84 @@ import 'package:flutter_auth/components/rounded_button.dart';
 import 'package:flutter_auth/components/rounded_input_field.dart';
 import 'package:flutter_auth/components/rounded_password_field.dart';
 import 'package:flutter_auth/models/Users.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert' as convert;
 //import 'package:flutter_svg/svg.dart';
 
+//Widget Login
 class Body extends StatefulWidget {
   @override
   _BodyState createState() => _BodyState();
 }
 
 class _BodyState extends State<Body> {
-  String username;
-  String password;
-  Users user;
-  int state = 0; //Verifica si el usuario se ha podido loguear
-  String menssage = ""; //Mensaje al intentar logear
+  String username = "";
+  String password = "";
+  bool state = false; //Verifica si la usuaria ha podido iniciar sesión
+  String menssage = ""; //Mensaje al intentar iniciar sesión
+  bool isActivated = false;
+  bool loading = false; //Permite mostrar circulo de carga
 
-  void loginUser() async {
-    user = new Users("", "", "", "", "0");
-    await user.login(this.username,
-        this.password); //Se debe esperar a hacer la consulta al back
-    state = user.getValidation()["validation"];
-    menssage = user.getValidation()["menssage"];
+  //Método para iniciar sesión de la usuaria
+  loginUser() async {
+    setLoading(true); //Modificando pantalla de carga
+    Map<String, dynamic> validationLog = await checkUser(); //Verificando user
+    setValidation(validationLog); //Modificando datos de login
+    //Si la usuaria existe
+    if (state != false && state != null) {
+      newUser(); //Instanciar usuaria para mostrar datos en front
+      setLoading(false); //Modificando pantalla de carga
+      showViews(); //Cambiando vista
+    }
+    setLoading(false); //Modificando pantalla de carga
+  }
+
+  //Comprobar usuaria existente
+  Future<Map<String, dynamic>> checkUser() async {
+    http.Response response =
+        await http.post(Uri.http('10.0.2.2:8000', '/api/users/login'), body: {
+      'username': username,
+      'password': password,
+    });
+    Map<String, dynamic> jsonResponse =
+        convert.jsonDecode(response.body) as Map<String, dynamic>;
+    Map<String, dynamic> validationLog = jsonResponse;
+    return validationLog;
+  }
+
+  //Instanciando usuaria
+  void newUser() {
+    new Users(this.username, this.username, this.password, "", "", "");
+  }
+
+  //Mostrar vistas tras iniciar sesión
+  void showViews() {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) {
+          return ParaTiScreen();
+        },
+      ),
+    );
+  }
+
+  //----- Métodos con setState ------
+
+  //Modificar circulo de carga
+  setLoading(booleanVariable) {
+    setState(() {
+      loading = booleanVariable;
+    });
+  }
+
+  //Modificar validaciones de inicio de sesión
+  setValidation(validationLog) {
+    setState(() {
+      state = validationLog["validate"];
+      menssage = validationLog["menssage"];
+      print("Mensaje: $menssage");
+    });
   }
 
   @override
@@ -48,6 +106,7 @@ class _BodyState extends State<Body> {
               },
             ),
             RoundedPasswordField(
+              helperText: "$menssage",
               onChanged: (value) {
                 {
                   setState(() => {this.password = value});
@@ -55,19 +114,10 @@ class _BodyState extends State<Body> {
               },
             ),
             RoundedButton(
-              text: "LOGIN",
+              text: "Iniciar sesión",
+              loading: loading,
               press: () {
-                loginUser(); //Login Usuario
-                if (state != 0) {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return ParaTiScreen();
-                      },
-                    ),
-                  );
-                }
+                loginUser(); //Login Usuaria
               },
             ),
             SizedBox(height: size.height * 0.03),

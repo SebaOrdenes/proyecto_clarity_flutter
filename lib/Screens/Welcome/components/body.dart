@@ -6,10 +6,8 @@ import 'package:flutter_auth/components/rounded_button.dart';
 
 class Body extends StatelessWidget {
   @override
+  //Widget de bienvenida que permite acceder al login
   Widget build(BuildContext context) {
-    //Size size = MediaQuery.of(context).size;
-    // This size provide us total height and width of our screen
-
     return Background(
       child: Stack(
         //mainAxisAlignment: MainAxisAlignment.center,
@@ -23,7 +21,7 @@ class Body extends StatelessWidget {
               child: RoundedButton(
                   text: "Continue",
                   press: () {
-                    Navigator.push(
+                    Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
                         builder: (context) {

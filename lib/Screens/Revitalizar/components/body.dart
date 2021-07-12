@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 //import 'package:flutter_auth/Screens/Para_ti/para_ti_screen.dart';
-import 'package:flutter_auth/Screens/Revitalizar/components/background.dart';
+import 'package:flutter_auth/Screens/Layout/components/background.dart';
 import 'package:flutter_auth/Screens/Revitalizar/components/respirar_screeen.dart';
 
 //import 'package:flutter_auth/constants.dart';

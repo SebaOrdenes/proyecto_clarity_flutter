@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_auth/Screens/Informacion/components/background.dart';
+import 'package:flutter_auth/Screens/Layout/components/background.dart';
 import 'package:flutter_auth/components/rounded_button.dart';
 import 'package:flutter_auth/models/Test.dart';
 
@@ -12,7 +12,7 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   String ruta = "assets/images/Flowers_edited.png";
   Test test;
-  List<List<Test>> testList = [];
+  static List<List<Test>> testList = [];
   //Atributos para seleccionar respuesta
   int selectedRadio;
   int selectedRadioTile;
@@ -28,11 +28,8 @@ class _BodyState extends State<Body> {
   @override
   void initState() {
     super.initState();
+    testList = Test.getTest();
     selectedRadio = 0;
-    test = new Test("0", "", "0", 0);
-
-    test.getPreguntas();
-    testList = test.getTest();
   }
 
   void setSelectedRadio(int val) {
@@ -58,7 +55,11 @@ class _BodyState extends State<Body> {
   //Wiget para crear lista de RadioButton
   List<Widget> createRadioListTests() {
     List<Widget> widgets = [];
-    List<Test> question = testList[this.count]; //Obteniendo preguntas
+    List<Test> question = [];
+    if (testList[this.count] != null) {
+      question = testList[this.count]; //Obteniendo preguntas
+    }
+
     for (Test respuesta in question) {
       widgets.add(RadioListTile(
           value: respuesta,

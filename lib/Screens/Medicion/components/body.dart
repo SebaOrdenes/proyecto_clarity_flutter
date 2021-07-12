@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_auth/Screens/Medicion/components/background.dart';
+import 'package:flutter_auth/Screens/Layout/components/background.dart';
 import 'package:flutter_auth/Screens/Test/test_screen.dart';
 import 'package:flutter_auth/components/rounded_button.dart';
 
-class Body extends StatelessWidget {
-  const Body({
-    Key key,
-  }) : super(key: key);
-
+class Body extends StatefulWidget {
   @override
+  _BodyState createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;

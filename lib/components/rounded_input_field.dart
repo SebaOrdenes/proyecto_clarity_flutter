@@ -4,6 +4,7 @@ import 'package:flutter_auth/constants.dart';
 
 class RoundedInputField extends StatelessWidget {
   final String hintText;
+  final String helperText;
   final IconData icon;
   final ValueChanged<String> onChanged;
   const RoundedInputField({
@@ -11,6 +12,7 @@ class RoundedInputField extends StatelessWidget {
     this.hintText,
     this.icon = Icons.person,
     this.onChanged,
+    this.helperText,
   }) : super(key: key);
 
   @override
@@ -20,6 +22,7 @@ class RoundedInputField extends StatelessWidget {
         onChanged: onChanged,
         cursorColor: kPrimaryColor,
         decoration: InputDecoration(
+          helperText: helperText,
           icon: Icon(
             icon,
             color: kPrimaryColor,

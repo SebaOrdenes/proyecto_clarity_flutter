@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_auth/Screens/Tratamiento/components/background.dart';
+import 'package:flutter_auth/Screens/Layout/components/background.dart';
 
 import '../../../constants.dart';
 //import 'package:flutter_auth/constants.dart';

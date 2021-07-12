@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 //import 'package:flutter_auth/Screens/Para_ti/components/menu_lateral.dart';
 //import 'package:flutter_auth/Screens/Para_ti/para_ti_screen.dart';
-import 'package:flutter_auth/Screens/Revitalizar/components/background.dart';
+import 'package:flutter_auth/Screens/Layout/components/background.dart';
 import 'package:flutter_auth/components/rounded_button.dart';
 
 import '../../../constants.dart';
