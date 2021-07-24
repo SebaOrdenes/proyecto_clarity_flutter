@@ -2,13 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_auth/Screens/Layout/components/background.dart';
 import 'package:flutter_auth/Screens/Test/test_screen.dart';
 import 'package:flutter_auth/components/rounded_button.dart';
+import 'package:flutter_auth/services/testService.dart';
 
 class Body extends StatefulWidget {
   @override
   _BodyState createState() => _BodyState();
 }
 
+//cambiando el nombre del test en el servicio
 class _BodyState extends State<Body> {
+  void setNameTest(String nameTest) {
+    TestService.name = nameTest;
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -32,6 +38,7 @@ class _BodyState extends State<Body> {
         RoundedButton(
           text: "Test de Evaluación de Depresión",
           press: () {
+            setNameTest("Test de depresión");
             Navigator.push(
               context,
               MaterialPageRoute(
@@ -52,6 +59,7 @@ class _BodyState extends State<Body> {
         RoundedButton(
           text: "Evalua el avance de tu estado de ánimo",
           press: () {
+            setNameTest("Test quincenal");
             Navigator.push(
               context,
               MaterialPageRoute(

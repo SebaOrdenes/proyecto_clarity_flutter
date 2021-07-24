@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_auth/Screens/Welcome/welcome_screen.dart';
 import 'package:flutter_auth/models/Test.dart';
+import 'package:flutter_auth/services/testService.dart';
 
 //Clase SplashScreen del tipo Stateful
 //Utilizar para verificar si la usuaria se encuentra registrada y otros datos
@@ -22,7 +23,9 @@ class _SplashScreenState extends State<SplashScreen> {
 
   //Obteniendo datos antes de cargar la aplicación
   Future<void> getData() async {
-    await Test.getPreguntas(); //Petición a back de los tests
+    TestService testService = new TestService();
+    await testService.getPreguntas("Test de depresión");
+    await testService.getPreguntas("Test quincenal");
     setText("Obteniendo Tests");
     setScreen();
   }

@@ -7,10 +7,8 @@ import 'package:flutter_auth/components/already_have_an_account_acheck.dart';
 import 'package:flutter_auth/components/rounded_button.dart';
 import 'package:flutter_auth/components/rounded_input_field.dart';
 import 'package:flutter_auth/components/rounded_password_field.dart';
-import 'package:flutter_auth/models/Users.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert' as convert;
-//import 'package:flutter_svg/svg.dart';
+import 'package:flutter_auth/services/loginService.dart';
+import 'package:flutter_auth/services/testService.dart';
 
 //Widget Login
 class Body extends StatefulWidget {
@@ -28,34 +26,19 @@ class _BodyState extends State<Body> {
 
   //Método para iniciar sesión de la usuaria
   loginUser() async {
+    LoginService login = new LoginService();
     setLoading(true); //Modificando pantalla de carga
-    Map<String, dynamic> validationLog = await checkUser(); //Verificando user
+    Map<String, dynamic> validationLog =
+        await login.checkUser(this.username, this.password); //Verificando user
     setValidation(validationLog); //Modificando datos de login
     //Si la usuaria existe
     if (state != false && state != null) {
-      newUser(); //Instanciar usuaria para mostrar datos en front
+      await login.newUser(
+          this.username); //Instanciar usuaria para mostrar datos en front
       setLoading(false); //Modificando pantalla de carga
       showViews(); //Cambiando vista
     }
     setLoading(false); //Modificando pantalla de carga
-  }
-
-  //Comprobar usuaria existente
-  Future<Map<String, dynamic>> checkUser() async {
-    http.Response response =
-        await http.post(Uri.http('10.0.2.2:8000', '/api/users/login'), body: {
-      'username': username,
-      'password': password,
-    });
-    Map<String, dynamic> jsonResponse =
-        convert.jsonDecode(response.body) as Map<String, dynamic>;
-    Map<String, dynamic> validationLog = jsonResponse;
-    return validationLog;
-  }
-
-  //Instanciando usuaria
-  void newUser() {
-    new Users(this.username, this.username, this.password, "", "", "");
   }
 
   //Mostrar vistas tras iniciar sesión
@@ -68,6 +51,10 @@ class _BodyState extends State<Body> {
         },
       ),
     );
+  }
+
+  void setNameTest(String nameTest) {
+    TestService.name = nameTest;
   }
 
   //----- Métodos con setState ------
@@ -136,6 +123,7 @@ class _BodyState extends State<Body> {
             SizedBox(height: size.height * 0.03),
             GestureDetector(
               onTap: () {
+                setNameTest("Test de depresión");
                 Navigator.push(
                   context,
                   MaterialPageRoute(

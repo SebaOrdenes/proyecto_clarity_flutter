@@ -1,8 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_auth/Screens/Layout/components/background.dart';
+import 'package:flutter_auth/Screens/ResultadoTest/resultadoTest_screen.dart';
 import 'package:flutter_auth/components/rounded_button.dart';
+import 'package:flutter_auth/models/Question.dart';
 import 'package:flutter_auth/models/Test.dart';
+import 'package:flutter_auth/models/TestAnswer.dart';
+import 'package:flutter_auth/services/testAnswerService.dart';
+import 'package:flutter_auth/services/testService.dart';
 
 class Body extends StatefulWidget {
   @override
@@ -11,66 +16,91 @@ class Body extends StatefulWidget {
 
 class _BodyState extends State<Body> {
   String ruta = "assets/images/Flowers_edited.png";
-  Test test;
-  static List<List<Test>> testList = [];
+  TestAnswer testAnswer;
+  static Test test;
+  List<Question> questions;
+  String query; //Consulta en pantalla
+
   //Atributos para seleccionar respuesta
   int selectedRadio;
   int selectedRadioTile;
-  Test selectedTest;
+  String selectedTest;
 
   //Atributos para modificar puntaje
-  int actualScore = 0; //Puntaje de la casilla actual seleccionada
-  int previousScore = 0; //Puntaje de la casilla anterior seleccionada
-  int finalScore = 0;
+  String actualAnswer;
+  List<String> answers = [];
   int count = 0;
 
   //initState se ejecuta antes que se carguen todos los componentes
   @override
   void initState() {
     super.initState();
-    testList = Test.getTest();
+    test = TestService.getTestByName(); //Obteniendo test por el nombre
+    questions = test.getQuestions(); //Obteniendo pregutnas del test
     selectedRadio = 0;
+    setQuery(questions[count].query);
   }
 
-  void setSelectedRadio(int val) {
+  //Guarda las respuestas del test
+  storeResultUserTest() async {
+    TestAnswerService testService = new TestAnswerService();
+    String nameTest = TestService.name;
+    String typeTest = "1";
+    if (nameTest == "Test quincenal") typeTest = "2";
+    //Guardando los resultados de las respuestas
+    await testService.storeTestAnswerUser(typeTest, answers);
+    List testResult = await testService.getResultadoTest(nameTest);
+
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) {
+          return ResultadoTestScreen(testResult: testResult);
+        },
+      ),
+    );
+    //Enviar a otra vista
+  }
+
+  void setSelectedTest(String question) {
     setState(() {
-      selectedRadio = val;
+      selectedTest = question;
     });
   }
 
-  void setSelectedRadioTile(int val) {
-    setState(() {
-      selectedRadioTile = val;
-    });
+  void setQuery(String query) {
+    if (query != null) {
+      setState(() {
+        this.query = query;
+      });
+    } else {
+      setState(() {
+        this.query = "Escoge una de las \n siguientes opciones:";
+      });
+    }
   }
-
-  void setSelectedTest(Test test) {
-    setState(() {
-      selectedTest = test;
-    });
-  }
-
-  void createTest() {}
 
   //Wiget para crear lista de RadioButton
   List<Widget> createRadioListTests() {
     List<Widget> widgets = [];
-    List<Test> question = [];
-    if (testList[this.count] != null) {
-      question = testList[this.count]; //Obteniendo preguntas
+    Question question;
+    if (questions[this.count] != null) {
+      question = questions[this.count]; //Obteniendo preguntas
+
     }
 
-    for (Test respuesta in question) {
+    //for (String respuesta in question.listaId) {
+    for (int i = 0; i < question.listaId.length; i++) {
       widgets.add(RadioListTile(
-          value: respuesta,
+          value: question.listaId[i],
           groupValue: selectedTest,
-          title: Text(respuesta.reply),
+          title: Text(question.alternatives[i]),
           onChanged: (currentTest) {
             selectedRadio = 1;
             setSelectedTest(currentTest);
-            actualScore = currentTest.score; //Guardar puntaje obtenido
+            this.actualAnswer = question.listaId[i]; //Guardar puntaje obtenido
           },
-          selected: selectedTest == respuesta,
+          selected: selectedTest == question.listaId[i],
           activeColor: Color.fromRGBO(255, 195, 177, 1)));
     }
 
@@ -90,15 +120,14 @@ class _BodyState extends State<Body> {
             setState(() => {
                   count--,
                   selectedRadio = 0,
-                  finalScore = finalScore - actualScore, //Aumentar el puntaje
-                  actualScore =
-                      previousScore, //Se asigna el puntaje actual como anterior});
-                  //createRadioListTests(count);
+                  answers.removeLast(), //Eliminando ultima respuesta escogida
+                  setQuery(questions[count].query),
                 });
+            print(answers);
           }));
     }
     //Si no se encuentra en la última pregunta aparece el botón siguiente
-    if (count < testList.length - 1 && selectedRadio != 0) {
+    if (count < questions.length - 1 && selectedRadio != 0) {
       //Agregar el botón siguiente
       widgets.add(RoundedButton(
           text: "Siguiente",
@@ -107,22 +136,24 @@ class _BodyState extends State<Body> {
             setState(() => {
                   count++,
                   selectedRadio = 0,
-                  finalScore = finalScore + actualScore, //Aumentar el puntaje
-                  previousScore =
-                      actualScore, //Se asigna el puntaje actual como anterior
+                  answers.add(actualAnswer),
+                  setQuery(questions[count].query),
                 });
+            print(answers);
 
             //createRadioListTests(count);
           }));
 
       //Si se encuentra en la últma pregunta aparece el botón de envío
-    } else if (count == testList.length - 1) {
+    } else if (count == questions.length - 1) {
       //Agregar el botón siguiente
       widgets.add(RoundedButton(
           text: "Enviar",
           dimension: 0.4,
           press: () {
             setState(() => {count = 0});
+            answers.add(actualAnswer);
+            storeResultUserTest();
           }));
     }
 
@@ -144,7 +175,7 @@ class _BodyState extends State<Body> {
                   image: AssetImage(this.ruta), fit: BoxFit.cover)),
           padding: EdgeInsets.only(top: 50.0),
           child: Text(
-            "Escoge una de las \n siguientes opciones:",
+            "${this.query}",
             style: TextStyle(
               fontSize: 30.0,
               height: 1.4,
