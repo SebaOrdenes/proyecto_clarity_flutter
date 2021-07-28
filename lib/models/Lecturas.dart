@@ -24,6 +24,26 @@ class Lectura {
     if (id == 0) {
       name = "Amor propio";
       return name;
+    }
+    if (id == 1) {
+      name = "Resignificando mi identidad";
+      return name;
+    }
+    if (id == 2) {
+      name = "El valor de la integridad";
+      return name;
+    }
+    if (id == 3) {
+      name = "Perdonar es ganar libertad";
+      return name;
+    }
+    if (id == 4) {
+      name = "Creencias limitantes en las mujeres";
+      return name;
+    }
+    if (id == 5) {
+      name = "Equilibrar las cargas";
+      return name;
     } else
       name = "Amor propio";
     return name;
