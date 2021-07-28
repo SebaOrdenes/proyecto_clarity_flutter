@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_auth/Screens/Admin/admin_screen.dart';
 import 'package:flutter_auth/Screens/Login/components/background.dart';
 import 'package:flutter_auth/Screens/Para_ti/para_ti_screen.dart';
 import 'package:flutter_auth/Screens/Signup/signup_screen.dart';
@@ -7,6 +8,7 @@ import 'package:flutter_auth/components/already_have_an_account_acheck.dart';
 import 'package:flutter_auth/components/rounded_button.dart';
 import 'package:flutter_auth/components/rounded_input_field.dart';
 import 'package:flutter_auth/components/rounded_password_field.dart';
+import 'package:flutter_auth/models/Users.dart';
 import 'package:flutter_auth/services/loginService.dart';
 import 'package:flutter_auth/services/testService.dart';
 
@@ -47,7 +49,10 @@ class _BodyState extends State<Body> {
       context,
       MaterialPageRoute(
         builder: (context) {
-          return ParaTiScreen();
+          if (Users.username == "Shamyra") {
+            return AdminScreen();
+          } else
+            return ParaTiScreen();
         },
       ),
     );

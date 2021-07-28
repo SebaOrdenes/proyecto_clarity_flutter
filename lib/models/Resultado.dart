@@ -8,9 +8,9 @@ class Resultado {
   var categoryFour = [];
   var scores = [];
   String menssageCategoryOne;
-  static String menssageCategoryTwo;
-  static String menssageCategoryThree;
-  static String menssageCategoryFour;
+  String menssageCategoryTwo;
+  String menssageCategoryThree;
+  String menssageCategoryFour;
 
   var scoreSum = 0;
   var averageScore = 0;

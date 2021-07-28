@@ -56,23 +56,6 @@ class MenuLateral extends StatelessWidget {
           },
         ),
         ListTile(
-          leading: Icon(Icons.text_snippet_rounded),
-          title: Text(
-            'Estadísticas',
-            style: TextStyle(fontSize: 18, fontFamily: 'Raleway'),
-          ),
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) {
-                  return EstadisticasScreen();
-                },
-              ),
-            );
-          },
-        ),
-        ListTile(
           leading: Icon(Icons.info_outline_rounded),
           title: Text(
             'Informacion',

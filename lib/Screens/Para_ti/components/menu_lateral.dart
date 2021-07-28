@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_auth/Screens/Informacion/informacion_screen.dart';
+import 'package:flutter_auth/Screens/Login/login_screen.dart';
 import 'package:flutter_auth/Screens/Medicion/medicion_screen.dart';
 import 'package:flutter_auth/Screens/Para_ti/para_ti_screen.dart';
 import 'package:flutter_auth/Screens/Revitalizar/revitalizar_screen.dart';
 import 'package:flutter_auth/Screens/Tratamiento/tratamiento_screen.dart';
+import 'package:flutter_auth/Screens/Welcome/splashScreen.dart';
 import 'package:flutter_auth/constants.dart';
 
 class MenuLateral extends StatelessWidget {
@@ -130,7 +132,16 @@ class MenuLateral extends StatelessWidget {
             'Logout',
             style: TextStyle(fontSize: 18, fontFamily: 'Raleway'),
           ),
-          onTap: null,
+          onTap: () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return LoginScreen();
+                },
+              ),
+            );
+          },
         )
       ],
     ));

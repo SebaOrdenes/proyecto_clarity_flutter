@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_auth/Screens/Layout/components/background.dart';
+import 'package:flutter_auth/Screens/Tratamiento/components/videos.dart';
 
 import '../../../constants.dart';
 //import 'package:flutter_auth/constants.dart';
@@ -28,7 +29,16 @@ class Body extends StatelessWidget {
               top: 250,
               left: 30,
               child: InkWell(
-                onTap: null,
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return VideoPlayerScreen();
+                      },
+                    ),
+                  );
+                },
                 child: Container(
                   padding: EdgeInsets.all(12.0),
                   child: Image.asset(
