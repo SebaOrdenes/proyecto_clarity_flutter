@@ -4,84 +4,74 @@ class WelcomeScroll extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-
-    // Size size = MediaQuery.of(context).size;
-    // This size provide us total height and width of our screen
-    return ListView(
-      //scrollDirection: Axis.horizontal,
+    return SafeArea(
+        child: Center(
+            child: ListView(
+      scrollDirection: Axis.horizontal,
       children: <Widget>[
         Column(
-          // alignment: AlignmentDirectional.centerEnd,
-
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             //SizedBox(height: size.height * 0.1),
-            Positioned(
+            Container(
+                width: MediaQuery.of(context).size.width,
                 child: Image.asset(
-              'assets/images/Claritylogo.png',
-              scale: 1.5,
-            )),
-            SizedBox(height: size.height * 0.1),
+                  'assets/images/Claritylogo.png',
+                  scale: 1.5,
+                )),
             Text(
               'Bienvenida a Clarity.',
-              // textAlign: TextAlign.center,
+              textAlign: TextAlign.center,
               style: TextStyle(fontSize: 30, fontFamily: 'Raleway'),
             ),
           ],
         ),
         Column(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Positioned(
+            SizedBox(height: size.height * 0.2),
+            Container(
+                width: MediaQuery.of(context).size.width,
                 child: Image.asset(
-              'assets/images/happy.png',
-              scale: 1,
-            )),
-            SizedBox(height: size.height * 0.1),
+                  'assets/images/happy.png',
+                  scale: 0.05,
+                )),
+            SizedBox(height: size.height * 0.2),
             Text(
-              'Tu bienestar esta en tus manos.',
-              // textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 20, fontFamily: 'Raleway'),
+              'Tu bienestar esta en tus manos',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 16, fontFamily: 'Raleway'),
             ),
             Text(
-              'y nosotros estamos para acompañarte.',
-              // textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 20, fontFamily: 'Raleway'),
+              'y nosotros estamos para ayudarte',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 16, fontFamily: 'Raleway'),
             ),
           ],
         ),
         Column(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Positioned(
-                child: Image.asset(
-              'assets/images/Flowers.png',
-              scale: 8.5,
-            )),
             SizedBox(height: size.height * 0.1),
+            Container(
+                width: MediaQuery.of(context).size.width,
+                child: Image.asset('assets/images/woman_draw.png', scale: 2.5)),
+            SizedBox(height: size.height * 0.05),
             Text(
               'Clarity es una solución simple y altamente efectiva',
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 20, fontFamily: 'Raleway'),
+              style: TextStyle(fontSize: 15, fontFamily: 'Raleway'),
             ),
             Text(
-              '  para el manejo de la depresión en mujeres',
-              // textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 20, fontFamily: 'Raleway'),
+              ' para el manejo de la depresión en mujeres que deseen',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 15, fontFamily: 'Raleway'),
             ),
             Text(
-              ' que deseen experimentar bienestar y felicidad en sus vidas.',
-              // textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 20, fontFamily: 'Raleway'),
+              'experimentar bienestar y felicidad en sus vidas',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 15, fontFamily: 'Raleway'),
             ),
           ],
         ),
       ],
-    );
+    )));
   }
 }

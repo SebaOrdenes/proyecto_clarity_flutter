@@ -1,13 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_auth/Screens/Admin/components/menu_lateral.dart';
-import 'package:flutter_auth/Screens/Layout/components/background.dart';
 import 'package:flutter_auth/Screens/Lecturas/lectura_screen.dart';
-import 'package:flutter_auth/Screens/Tratamiento/tratamiento_screen.dart';
 import 'package:flutter_auth/models/Lecturas.dart';
-
-import '../../../constants.dart';
-
-//import 'package:flutter_auth/Screens/Login/login_screen.dart';
 
 class Body extends StatefulWidget {
   @override
@@ -53,7 +46,7 @@ class _BodyState extends State<Body> {
 
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    //return SafeArea(child: Center(child: ListView(children: [])));
+    //return SafeArea(child: Center(child: ListView(children: []))); <-----------------------------------
     return SafeArea(
         child: Center(
       child: ListView.builder(
