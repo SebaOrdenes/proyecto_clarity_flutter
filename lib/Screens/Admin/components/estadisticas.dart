@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_auth/Screens/Admin/components/menu_lateral.dart';
+import 'package:flutter_auth/models/Resultado.dart';
 
 import '../../../constants.dart';
 
@@ -20,7 +21,9 @@ class EstadisticasScreen extends StatelessWidget {
         width: double.infinity,
         child: Stack(
           alignment: Alignment.center,
-          children: <Widget>[Text('HOLA SOY UNA ESTADÍSTICA')],
+          children: <Widget>[
+            Text('HOLA SOY UNA ESTADÍSTICA'),
+          ],
         ),
       ),
       backgroundColor: kWhiteColor,

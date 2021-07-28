@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_auth/Screens/Layout/components/background.dart';
+import 'package:flutter_auth/Screens/Lecturas/lectura_screen.dart';
+import 'package:flutter_auth/models/Lecturas.dart';
+
 //import 'package:flutter_auth/Screens/Login/login_screen.dart';
 
 class Body extends StatefulWidget {
@@ -10,12 +13,29 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   @override
   List<int> images = [];
+  Lectura lectura = new Lectura('', '', '', null, null);
+  //metodo para llamar a getlectura con un await
+  void getLect(int index) async {
+    await lectura.getLecturas(index);
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) {
+          return LecturaScreen();
+        },
+      ),
+    );
+  }
 
   //initState se ejecuta antes que se carguen todos los componentes
   @override
   void initState() {
     super.initState();
     _addImagen();
+  }
+
+  void dondeClickeo(int index) {
+    print(index);
   }
 
   Widget build(BuildContext context) {
@@ -27,13 +47,22 @@ class _BodyState extends State<Body> {
         itemBuilder: (BuildContext context, int index) {
           //POR AHORA se pondrán imagenes de referencia solamente
           return Container(
-            //DESPUES hay que cambiarlo por boton hacia una vista correspondiente a cada lectura
-            padding: EdgeInsets.all(20.0),
-            child: Image.asset(
-              'assets/images/Banner${images[index]}.jpg',
-              height: 300,
-            ),
-          );
+              //DESPUES hay que cambiarlo por boton hacia una vista correspondiente a cada lectura
+              padding: EdgeInsets.all(20.0),
+              child: Positioned(
+                child: InkWell(
+                  onTap: () {
+                    //dondeClickeo(index);
+                    getLect(index);
+                  },
+                  child: Container(
+                    child: Image.asset(
+                      'assets/images/Banner${images[index]}.jpg',
+                      height: 300,
+                    ),
+                  ),
+                ),
+              ));
         },
       ),
     );

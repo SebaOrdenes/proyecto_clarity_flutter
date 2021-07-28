@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_auth/models/Resultado.dart';
+import 'package:flutter_auth/models/Lecturas.dart';
 
 class Body extends StatefulWidget {
   @override
@@ -8,18 +8,11 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  Resultado res =
-      new Resultado(null, null, null, null, null, null, null, null, null);
   //initState se ejecuta antes que se carguen todos los componentes
-  void getResult() async {
-    await res.getResultado();
-  }
 
   @override
   void initState() {
     super.initState();
-    getResult();
-    print(res.menssageCategoryOne);
     //print(Lectura.readingByDay[0].reading);
   }
 
@@ -28,7 +21,12 @@ class _BodyState extends State<Body> {
   Widget build(BuildContext context) {
     return ListView(children: <Widget>[
       Text(
-        ("${res.categoryFour}"),
+        "Día 0, ${Lectura.titlesByDay[0].titulo}",
+        style: TextStyle(fontSize: 20, fontFamily: 'Raleway'),
+        textAlign: TextAlign.justify,
+      ),
+      Text(
+        "${Lectura.readingByDay[0].reading}",
         style: TextStyle(fontSize: 17, fontFamily: 'Raleway'),
         textAlign: TextAlign.justify,
       )
