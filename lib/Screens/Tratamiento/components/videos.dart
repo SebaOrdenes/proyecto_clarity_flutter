@@ -62,7 +62,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
           'Tratamiento',
           style: TextStyle(color: Colors.black, fontFamily: 'Raleway'),
         ),
-        backgroundColor: kDeepOrangeColor,
+        backgroundColor: kPinkOscuro,
       ),
 
       // Usa un FutureBuilder para visualizar un spinner de carga mientras espera a que
@@ -81,11 +81,15 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
           } else {
             // Si el VideoPlayerController todavía se está inicializando, muestra un
             // spinner de carga
-            return Center(child: CircularProgressIndicator());
+            return Center(
+                child: CircularProgressIndicator(
+              color: kPinkcolor,
+            ));
           }
         },
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: kPinkcolor,
         onPressed: () {
           // Envuelve la reproducción o pausa en una llamada a `setState`. Esto asegura
           // que se muestra el icono correcto

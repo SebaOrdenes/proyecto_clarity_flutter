@@ -1,5 +1,4 @@
 import 'package:flutter_auth/models/Test.dart';
-import 'package:flutter_auth/models/TestAnswer.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
 
@@ -29,8 +28,8 @@ class TestService {
       //Verificando que se revisó el item
       if (itemAux != int.parse(testData[i]["item"])) {
         itemAux = int.parse(testData[i]["item"]);
-        test.addQuestion(
-            item, listId,alternatives,query); //Se almacenan las primeras preguntas
+        test.addQuestion(item, listId, alternatives,
+            query); //Se almacenan las primeras preguntas
         alternatives = [];
         listId = [];
       }
@@ -38,7 +37,7 @@ class TestService {
       String id = testData[i]["_id"];
       item = testData[i]["item"];
       String reply = testData[i]["reply"];
-      if(nameTest == "Test quincenal"){
+      if (nameTest == "Test quincenal") {
         query = testData[i]["question"];
       }
       alternatives.add(reply);
@@ -46,8 +45,8 @@ class TestService {
 
       //En caso de estar en la última posición
       if (i == testData.length - 1) {
-        test.addQuestion(
-            item, listId,alternatives,query); //Se alamcenan últimas  preguntas
+        test.addQuestion(item, listId, alternatives,
+            query); //Se alamcenan últimas  preguntas
         alternatives = [];
         listId = [];
       }

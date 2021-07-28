@@ -16,7 +16,7 @@ class MedicionScreen extends StatelessWidget {
             fontFamily: 'Raleway',
           ),
         ),
-        backgroundColor: kDeepOrangeColor,
+        backgroundColor: kPinkOscuro,
       ),
       drawer: MenuLateral(),
       body: Body(),

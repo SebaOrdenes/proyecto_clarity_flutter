@@ -7,3 +7,4 @@ const kPrimaryLightColor = Color(0xFFF1E6FF);
 const kWhiteColor = Colors.white;
 const kPinkcolor = Color(0xFFFFCCBC);
 const kDeepOrangeColor = Color(0xFFFBE9E7);
+const kPinkOscuro = Color(0xFFEF9A9A);

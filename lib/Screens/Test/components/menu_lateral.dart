@@ -14,7 +14,7 @@ class MenuLateral extends StatelessWidget {
         Container(
           width: double.infinity,
           padding: EdgeInsets.all(20),
-          color: kDeepOrangeColor,
+          color: kPinkOscuro,
           child: Center(
             child: Column(
               children: <Widget>[

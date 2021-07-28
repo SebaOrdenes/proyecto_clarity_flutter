@@ -8,8 +8,14 @@ class TestScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Test'),
-        backgroundColor: kDeepOrangeColor,
+        title: Text(
+          'Test',
+          style: TextStyle(
+            color: Colors.black,
+            fontFamily: 'Raleway',
+          ),
+        ),
+        backgroundColor: kPinkOscuro,
       ),
       drawer: MenuLateral(),
       body: Body(),

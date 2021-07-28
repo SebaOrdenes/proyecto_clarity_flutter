@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_auth/Screens/Welcome/welcome_screen.dart';
-import 'package:flutter_auth/models/Test.dart';
 import 'package:flutter_auth/services/testService.dart';
 
 //Clase SplashScreen del tipo Stateful

@@ -45,7 +45,7 @@ class _BodyState extends State<Body> {
   }
 
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    //Size size = MediaQuery.of(context).size;
     //return SafeArea(child: Center(child: ListView(children: []))); <-----------------------------------
     return SafeArea(
         child: Center(

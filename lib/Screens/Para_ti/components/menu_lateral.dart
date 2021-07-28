@@ -5,7 +5,6 @@ import 'package:flutter_auth/Screens/Medicion/medicion_screen.dart';
 import 'package:flutter_auth/Screens/Para_ti/para_ti_screen.dart';
 import 'package:flutter_auth/Screens/Revitalizar/revitalizar_screen.dart';
 import 'package:flutter_auth/Screens/Tratamiento/tratamiento_screen.dart';
-import 'package:flutter_auth/Screens/Welcome/splashScreen.dart';
 import 'package:flutter_auth/constants.dart';
 
 class MenuLateral extends StatelessWidget {
@@ -17,7 +16,7 @@ class MenuLateral extends StatelessWidget {
         Container(
           width: double.infinity,
           padding: EdgeInsets.all(20),
-          color: kDeepOrangeColor,
+          color: kPinkOscuro,
           child: Center(
             child: Column(
               children: <Widget>[

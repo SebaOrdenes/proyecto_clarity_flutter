@@ -8,7 +8,7 @@ class AdminScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: kDeepOrangeColor,
+        backgroundColor: kPinkOscuro,
       ),
       drawer: MenuLateral(),
       body: Body(),

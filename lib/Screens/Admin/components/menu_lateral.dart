@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_auth/Screens/Admin/admin_screen.dart';
-import 'package:flutter_auth/Screens/Admin/components/estadisticas.dart';
 import 'package:flutter_auth/Screens/Informacion/informacion_screen.dart';
-import 'package:flutter_auth/Screens/Para_ti/para_ti_screen.dart';
 import 'package:flutter_auth/constants.dart';
 
 class MenuLateral extends StatelessWidget {
@@ -14,7 +12,7 @@ class MenuLateral extends StatelessWidget {
         Container(
           width: double.infinity,
           padding: EdgeInsets.all(20),
-          color: kDeepOrangeColor,
+          color: kPinkOscuro,
           child: Center(
             child: Column(
               children: <Widget>[

@@ -13,7 +13,7 @@ class InformacionScreen extends StatelessWidget {
           'Planes de lectura',
           style: TextStyle(color: Colors.black),
         ),
-        backgroundColor: kDeepOrangeColor,
+        backgroundColor: kPinkOscuro,
       ),
       drawer: MenuLateral(),
       body: Body(),

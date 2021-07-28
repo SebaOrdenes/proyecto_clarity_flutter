@@ -13,7 +13,7 @@ class TratamientoScreen extends StatelessWidget {
           'Tratamiento',
           style: TextStyle(color: Colors.black, fontFamily: 'Raleway'),
         ),
-        backgroundColor: kDeepOrangeColor,
+        backgroundColor: kPinkOscuro,
       ),
       drawer: MenuLateral(),
       body: Body(),

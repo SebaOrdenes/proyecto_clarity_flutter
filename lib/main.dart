@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_auth/constants.dart';
 import 'package:flutter_auth/Screens/Welcome/splashScreen.dart';
 
+import 'Screens/Admin/admin_screen.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -15,8 +17,8 @@ class MyApp extends StatelessWidget {
         primaryColor: kPrimaryColor,
         scaffoldBackgroundColor: Colors.white,
       ),
-      home: SplashScreen(),
-      //home: AdminScreen(),
+      //home: SplashScreen(),
+      home: AdminScreen(),
       //home: TratamientoScreen(),
       //home: ParaTiScreen(),
     );
