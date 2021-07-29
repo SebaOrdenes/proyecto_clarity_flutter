@@ -37,6 +37,49 @@ class _BodyState extends State<Body> {
   //Mostrar Todos los widgets en pantalla
   @override
   Widget build(BuildContext context) {
+    //return SafeArea(child: Center(child: ListView(children: []))); <-----------------------------------
+    Size size = MediaQuery.of(context).size;
+    return SafeArea(
+      child: Center(
+        child: ListView(
+          children: <Widget>[
+            SizedBox(height: size.height * 0.05),
+            Text(
+              ' Bienvenida Admin ${Users.name}',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: kPrimaryColor,
+                fontFamily: 'Raleway',
+                fontSize: 30,
+              ),
+            ),
+            SizedBox(height: size.height * 0.05),
+            GestureDetector(
+              onTap: () {
+                //dondeClickeo(index);
+                getResult();
+              },
+              child: Container(
+                child: Image.asset(
+                  'assets/images/estadisticas.png',
+                  height: 150,
+                ),
+              ),
+            ),
+            Text(
+              'Ver estadisticas de depresión',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: kPrimaryColor,
+                fontFamily: 'Raleway',
+                fontSize: 20,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+/*
     return Column(
       children: <Widget>[
         Flexible(
@@ -74,6 +117,6 @@ class _BodyState extends State<Body> {
           ])),
         ),
       ],
-    );
+    );*/
   }
 }
