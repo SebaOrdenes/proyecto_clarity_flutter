@@ -1,11 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_auth/Screens/Especialistas/especialistas_screen.dart';
 import 'package:flutter_auth/Screens/Layout/components/background.dart';
 import 'package:flutter_auth/Screens/Tratamiento/components/videos.dart';
+import 'package:flutter_auth/services/especialistaService.dart';
 
 import '../../../constants.dart';
-//import 'package:flutter_auth/constants.dart';
 
-class Body extends StatelessWidget {
+//import 'package:flutter_auth/constants.dart';
+class Body extends StatefulWidget {
+  @override
+  _BodyState createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
+  EspecialistaService especialistaService;
+
+  //Cambiar a vista especialistas
+  getEspecialistas() async {
+    especialistaService = new EspecialistaService();
+    print(EspecialistaService.listaEspecialistas);
+    if (EspecialistaService.state == false) {
+      await especialistaService.getEspecialistas();
+      EspecialistaService.state = true;
+    }
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) {
+          return EspecialistasScreen();
+        },
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Background(
@@ -52,7 +79,9 @@ class Body extends StatelessWidget {
               top: 250,
               left: 200,
               child: InkWell(
-                onTap: null,
+                onTap: () {
+                  getEspecialistas();
+                },
                 child: Container(
                   padding: EdgeInsets.all(12.0),
                   child: Image.asset(
