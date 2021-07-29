@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_auth/Screens/Lecturas/lectura_screen.dart';
 import 'package:flutter_auth/models/Lecturas.dart';
+import 'package:flutter_auth/models/Users.dart';
 
 class Body extends StatefulWidget {
   @override
@@ -45,67 +46,54 @@ class _BodyState extends State<Body> {
   }
 
   Widget build(BuildContext context) {
-    //Size size = MediaQuery.of(context).size;
-    //return SafeArea(child: Center(child: ListView(children: []))); <-----------------------------------
-    return SafeArea(
-        child: Center(
-      child: ListView.builder(
-        itemCount: images.length,
-        itemBuilder: (BuildContext context, int index) {
-          return Container(
-            padding: EdgeInsets.all(20.0),
-            child: GestureDetector(
-              onTap: () {
-                //dondeClickeo(index);
-                getLect(index);
-              },
-              child: Container(
-                child: Image.asset(
-                  'assets/images/Banner${images[index]}.jpg',
-                  height: 300,
+    String membresia = Users.name;
+
+    if (membresia == 'carla') {
+      return SafeArea(
+          child: Center(
+        child: ListView.builder(
+          itemCount: images.length,
+          itemBuilder: (BuildContext context, int index) {
+            return Container(
+              padding: EdgeInsets.all(20.0),
+              child: GestureDetector(
+                onTap: () {
+                  getLect(index);
+                },
+                child: Container(
+                  child: Image.asset(
+                    'assets/images/Banner${images[index]}.jpg',
+                    height: 300,
+                  ),
                 ),
               ),
-            ),
-          );
-        },
-      ),
-    ));
-
-    // This size provide us total height and width of our screen
-    /*
-    return Scaffold(
-      drawer: MenuLateral(),
-      body: Column(
-        children: <Widget>[
-          Flexible(
-            child: Container(
-              //width: double.infinity,
-              child: ListView.builder(
-                itemCount: images.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return Container(
-                      padding: EdgeInsets.all(20.0),
-                      child: Positioned(
-                        child: InkWell(
-                          onTap: () {
-                            //dondeClickeo(index);
-                            getLect(index);
-                          },
-                          child: Container(
-                            child: Image.asset(
-                              'assets/images/Banner${images[index]}.jpg',
-                              height: 300,
-                            ),
-                          ),
-                        ),
-                      ));
+            );
+          },
+        ),
+      ));
+    } else {
+      return SafeArea(
+          child: Center(
+        child: ListView.builder(
+          itemCount: 1,
+          itemBuilder: (BuildContext context, int index) {
+            return Container(
+              padding: EdgeInsets.all(20.0),
+              child: GestureDetector(
+                onTap: () {
+                  getLect(index);
                 },
+                child: Container(
+                  child: Image.asset(
+                    'assets/images/Banner${images[0]}.jpg',
+                    height: 300,
+                  ),
+                ),
               ),
-            ),
-          ),
-        ],
-      ),
-      backgroundColor: kWhiteColor,
-    );*/
+            );
+          },
+        ),
+      ));
+    }
   }
 }

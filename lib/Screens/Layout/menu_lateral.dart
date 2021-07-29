@@ -3,6 +3,7 @@ import 'package:flutter_auth/Screens/Informacion/informacion_screen.dart';
 import 'package:flutter_auth/Screens/Medicion/medicion_screen.dart';
 import 'package:flutter_auth/Screens/Para_ti/para_ti_screen.dart';
 import 'package:flutter_auth/Screens/Tratamiento/tratamiento_screen.dart';
+import 'package:flutter_auth/Screens/Welcome/welcome_screen.dart';
 import 'package:flutter_auth/constants.dart';
 import 'package:flutter_auth/models/Users.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -156,7 +157,16 @@ class _MenuLateralState extends State<MenuLateral> {
             'Logout',
             style: TextStyle(fontSize: 18, fontFamily: 'Raleway'),
           ),
-          onTap: null,
+          onTap: () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return WelcomeScreen();
+                },
+              ),
+            );
+          },
         )
       ],
     ));

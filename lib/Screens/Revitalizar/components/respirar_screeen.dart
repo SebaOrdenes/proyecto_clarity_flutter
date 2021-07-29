@@ -17,6 +17,40 @@ class RespirarScreen extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
+          'Respirar',
+          style: TextStyle(color: Colors.black, fontFamily: 'Raleway'),
+        ),
+        backgroundColor: kPinkOscuro,
+      ),
+      body: SafeArea(
+        child: Container(
+          margin: EdgeInsets.all(20),
+          child: ListView(
+            children: [
+              SizedBox(height: size.height * 0.02),
+              Text(
+                '¿Necesitas una herramienta simple que te permita relajarte rápidamente?',
+                style: TextStyle(
+                    fontSize: 20, fontFamily: 'Raleway', color: Colors.black),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(height: size.height * 0.02),
+              Text(
+                'La relajación es sin duda una de las claves más fáciles de aplicar, y eso requiere de un solo recurso que todos tenemos cuando vivimos, así que prepárate para escuchar las técnicas más efectivas para lograr la calma que necesitas y seguir con con los desafíos del día a día.',
+                style: TextStyle(fontSize: 18, fontFamily: 'Raleway'),
+                textAlign: TextAlign.justify,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+
+    /*
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(
           'Revitalizar',
           style: TextStyle(color: Colors.black, fontFamily: 'Raleway'),
         ),
@@ -172,6 +206,6 @@ class RespirarScreen extends StatelessWidget {
         ]),
       ),
       backgroundColor: kWhiteColor,
-    );
+    );*/
   }
 }

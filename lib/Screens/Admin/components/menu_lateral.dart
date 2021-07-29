@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_auth/Screens/Admin/admin_screen.dart';
+import 'package:flutter_auth/Screens/Admin/components/estadisticas.dart';
 import 'package:flutter_auth/Screens/Informacion/informacion_screen.dart';
+import 'package:flutter_auth/Screens/Login/login_screen.dart';
+import 'package:flutter_auth/Screens/Welcome/welcome_screen.dart';
 import 'package:flutter_auth/constants.dart';
 
 class MenuLateral extends StatelessWidget {
@@ -54,29 +57,21 @@ class MenuLateral extends StatelessWidget {
           },
         ),
         ListTile(
-          leading: Icon(Icons.info_outline_rounded),
-          title: Text(
-            'Informacion',
-            style: TextStyle(fontSize: 18, fontFamily: 'Raleway'),
-          ),
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) {
-                  return InformacionScreen();
-                },
-              ),
-            );
-          },
-        ),
-        ListTile(
           leading: Icon(Icons.arrow_back),
           title: Text(
             'Logout',
             style: TextStyle(fontSize: 18, fontFamily: 'Raleway'),
           ),
-          onTap: null,
+          onTap: () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return WelcomeScreen();
+                },
+              ),
+            );
+          },
         )
       ],
     ));

@@ -13,10 +13,10 @@ class Body extends StatefulWidget {
 
 class _BodyState extends State<Body> {
   Resultado res =
-      new Resultado(null, null, null, null, null, null, null, null, null);
+      new Resultado(null, null, null, null, null, null, null, null, null, null);
   //initState se ejecuta antes que se carguen todos los componentes
   void getResult() async {
-    await res.getResultado();
+    await res.getResultado2();
     //print(res.menssageCategoryOne);
     Navigator.push(
       context,

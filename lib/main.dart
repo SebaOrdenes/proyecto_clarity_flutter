@@ -17,8 +17,8 @@ class MyApp extends StatelessWidget {
         primaryColor: kPrimaryColor,
         scaffoldBackgroundColor: Colors.white,
       ),
-      //home: SplashScreen(),
-      home: AdminScreen(),
+      home: SplashScreen(),
+      //home: AdminScreen(),
       //home: TratamientoScreen(),
       //home: ParaTiScreen(),
     );

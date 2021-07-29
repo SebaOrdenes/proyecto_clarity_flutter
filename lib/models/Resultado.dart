@@ -11,6 +11,7 @@ class Resultado {
   String menssageCategoryTwo;
   String menssageCategoryThree;
   String menssageCategoryFour;
+  String menssageScore1;
 
   var scoreSum = 0;
   var averageScore = 0;
@@ -24,12 +25,14 @@ class Resultado {
       String menssageCategoryOne,
       String menssageCategoryTwo,
       String menssageCategoryThree,
-      String menssageCategoryFour) {
+      String menssageCategoryFour,
+      String menssageScore1) {
     categoryOne = categoryOne;
     categoryTwo = categoryTwo;
     categoryThree = categoryThree;
     categoryFour = categoryFour;
     scoreSum = scoreSum;
+    menssageScore1 = menssageScore1;
   }
 
   Future<Resultado> getResultado() async {
@@ -45,5 +48,19 @@ class Resultado {
     menssageCategoryFour = usersData['menssageCategoryFour'];
 
     //print(menssageCategoryThree);
+  }
+
+  Future<Resultado> getResultado2() async {
+    http.Response response = await http
+        .post(Uri.http('10.0.2.2:8000', 'api/users/statisticalMeasures2'));
+
+    Map<String, dynamic> usersData =
+        new Map<String, dynamic>.from(json.decode(response.body));
+    //categoryOne = usersData['category'];
+    menssageCategoryOne = usersData['menssageCategoryOne'];
+    menssageCategoryTwo = usersData['menssageCategoryTwo'];
+    menssageCategoryThree = usersData['menssageCategoryThree'];
+    menssageCategoryFour = usersData['menssageCategoryFour'];
+    menssageScore1 = usersData['menssageScore1'];
   }
 }

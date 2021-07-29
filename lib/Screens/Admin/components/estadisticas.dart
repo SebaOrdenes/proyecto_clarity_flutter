@@ -31,41 +31,46 @@ class EstadisticasScreen extends StatelessWidget {
                 children: <Widget>[
                   SizedBox(height: size.height * 0.05),
                   Text(
-                    '${this.res.menssageCategoryOne}',
+                    '- ${this.res.menssageCategoryOne}',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: kPrimaryColor,
-                      fontFamily: 'Raleway',
                       fontSize: 20,
                     ),
                   ),
                   SizedBox(height: size.height * 0.05),
                   Text(
-                    '${this.res.menssageCategoryTwo}',
+                    '- ${this.res.menssageCategoryTwo}',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: kPrimaryColor,
-                      fontFamily: 'Raleway',
                       fontSize: 20,
                     ),
                   ),
                   SizedBox(height: size.height * 0.05),
                   Text(
-                    '${this.res.menssageCategoryThree}',
+                    '- ${this.res.menssageCategoryThree}',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: kPrimaryColor,
-                      fontFamily: 'Raleway',
                       fontSize: 20,
                     ),
                   ),
                   SizedBox(height: size.height * 0.05),
                   Text(
-                    '${this.res.menssageCategoryFour}',
+                    '- ${this.res.menssageCategoryFour}',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: kPrimaryColor,
-                      fontFamily: 'Raleway',
+                      fontSize: 20,
+                    ),
+                  ),
+                  SizedBox(height: size.height * 0.05),
+                  Text(
+                    '- ${this.res.menssageScore1}',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: kPrimaryColor,
                       fontSize: 20,
                     ),
                   ),

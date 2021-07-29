@@ -19,17 +19,27 @@ class _BodyState extends State<Body> {
   //Mostrar Todos los widgets en pantalla
   @override
   Widget build(BuildContext context) {
-    return ListView(children: <Widget>[
-      Text(
-        "Día 0, ${Lectura.titlesByDay[0].titulo}",
-        style: TextStyle(fontSize: 20, fontFamily: 'Raleway'),
-        textAlign: TextAlign.justify,
-      ),
-      Text(
-        "${Lectura.readingByDay[0].reading}",
-        style: TextStyle(fontSize: 17, fontFamily: 'Raleway'),
-        textAlign: TextAlign.justify,
-      )
-    ]);
+    return Container(
+      color: Colors.deepPurple.shade50,
+      child: ListView(children: <Widget>[
+        Center(
+          child: Text(
+            "Día 0, ${Lectura.titlesByDay[0].titulo}",
+            style: TextStyle(fontSize: 20),
+            textAlign: TextAlign.center,
+          ),
+        ),
+        Container(
+          color: Colors.indigo.shade50,
+          //padding: EdgeInsets.all(20.0),
+          margin: EdgeInsets.all(20),
+          child: Text(
+            "${Lectura.readingByDay[0].reading}",
+            style: TextStyle(fontSize: 17, fontFamily: 'Raleway'),
+            textAlign: TextAlign.justify,
+          ),
+        ),
+      ]),
+    );
   }
 }
