@@ -36,9 +36,10 @@ class LoginService {
         jsonResponse['data']['testResults'];
     int categoryInitialTest = jsonResponse['data']['categoryInitialTest'];
     int scoreInitialTest = jsonResponse['data']['scoreInitialTest'];
+    int membership = jsonResponse['data']['membership'];
 
     Users user = new Users(name, username, email, testResults,
-        categoryInitialTest, scoreInitialTest);
+        categoryInitialTest, scoreInitialTest, membership);
     user.setId(id);
   }
 }

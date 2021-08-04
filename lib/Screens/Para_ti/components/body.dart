@@ -6,10 +6,17 @@ import 'package:flutter_auth/Screens/Layout/components/background.dart';
 import 'package:flutter_auth/Screens/Revitalizar/revitalizar_screen.dart';
 import 'package:flutter_auth/Screens/Tratamiento/tratamiento_screen.dart';
 import 'package:flutter_auth/constants.dart';
+import 'package:flutter_auth/models/Users.dart';
 
 class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    String membresia;
+    if (Users.membership == 0) {
+      membresia = 'Usuario free';
+    } else {
+      membresia = 'Usuario premium';
+    }
     return Background(
       child: Stack(
         children: <Widget>[
@@ -107,7 +114,14 @@ class Body extends StatelessWidget {
               )),
           Positioned(
               top: 550,
-              left: 20,
+              left: 10,
+              child: Text(
+                ' $membresia ',
+                style: TextStyle(color: kPrimaryColor, fontFamily: 'Raleway'),
+              )),
+          Positioned(
+              top: 150,
+              left: 10,
               child: Text(
                 ' "De nuestras vulnerabilidades vienen nuestras fortalezas" ',
                 style: TextStyle(color: kPrimaryColor, fontFamily: 'Raleway'),

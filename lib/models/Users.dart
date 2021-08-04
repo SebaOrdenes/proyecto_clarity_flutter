@@ -10,6 +10,7 @@ class Users {
   static List<Map<String, dynamic>> testResults;
   static int categoryInitialTest;
   static int scoreInitialTest;
+  static int membership;
 
   Map<String, dynamic> validationLog;
   List<Users> users = [];
@@ -22,13 +23,15 @@ class Users {
       String correo,
       List<Map<String, dynamic>> resultadoTest,
       int categoriaTestInicial,
-      int puntajeTestInicial) {
+      int puntajeTestInicial,
+      int membresia) {
     name = nombre;
     username = nombreUsuaria;
     email = correo;
     testResults = resultadoTest;
     categoryInitialTest = categoriaTestInicial;
     scoreInitialTest = puntajeTestInicial;
+    membership = membresia;
   }
 
   setId(String newId) {
@@ -66,10 +69,11 @@ class Users {
       String email = usersData[i]["email"];
       int categoryInitialTest = usersData[i]["categoryInitialTest"];
       int scoreInitialTest = usersData[i]["ScoreInitialTest"];
+      int membership = usersData[i]["membership"];
 
       List<Map<String, dynamic>> testResults = usersData[i]["testResults"];
       Users userNew = new Users(name, username, email, testResults,
-          categoryInitialTest, scoreInitialTest);
+          categoryInitialTest, scoreInitialTest, membership);
       this.users.add(userNew);
     }
   }

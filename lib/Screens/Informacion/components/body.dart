@@ -46,9 +46,7 @@ class _BodyState extends State<Body> {
   }
 
   Widget build(BuildContext context) {
-    String membresia = Users.name;
-
-    if (membresia == 'carla') {
+    if (Users.membership == 1) {
       return SafeArea(
           child: Center(
         child: ListView.builder(

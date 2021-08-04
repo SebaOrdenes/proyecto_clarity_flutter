@@ -1,9 +1,6 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_auth/Screens/Para_ti/components/menu_lateral.dart';
 import 'package:video_player/video_player.dart';
-
 import '../../../constants.dart';
 
 class VideoPlayerApp extends StatelessWidget {
@@ -33,7 +30,11 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
     // ofrece distintos constructores diferentes para reproducir videos desde assets, archivos,
     // o internet.
     _controller = VideoPlayerController.network(
-      'https://storage.googleapis.com/clarity-t/SESI%C3%93N%201.%20.mp4',
+      //'https://storage.googleapis.com/clarity-t/SESI%C3%93N%201.%20.mp4',
+      'https://storage.googleapis.com/clarity-t/Videos%20Acompa%C3%B1amiento/SESI%C3%93N%201.%20.mp4',
+      //'https://storage.googleapis.com/clarity-t/Videos%20Acompa%C3%B1amiento/VID_20200729_172330.mp4',
+      //'https://storage.googleapis.com/clarity-t/Videos%20Acompa%C3%B1amiento/d2c57a9e-e85c-433d-8b43-92f6fd3e7664%20(1).MP4',
+      //'https://storage.googleapis.com/clarity-t/Videos%20Acompa%C3%B1amiento/video%20redes.mp4',
     );
 
     // Inicializa el controlador y almacena el Future para utilizarlo luego
@@ -55,6 +56,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -67,26 +69,31 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
 
       // Usa un FutureBuilder para visualizar un spinner de carga mientras espera a que
       // la inicialización de VideoPlayerController finalice.
-      body: FutureBuilder(
-        future: _initializeVideoPlayerFuture,
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.done) {
-            // Si el VideoPlayerController ha finalizado la inicialización, usa
-            // los datos que proporciona para limitar la relación de aspecto del VideoPlayer
-            return AspectRatio(
-              aspectRatio: _controller.value.aspectRatio,
-              // Usa el Widget VideoPlayer para mostrar el vídeo
-              child: VideoPlayer(_controller),
-            );
-          } else {
-            // Si el VideoPlayerController todavía se está inicializando, muestra un
-            // spinner de carga
-            return Center(
-                child: CircularProgressIndicator(
-              color: kPinkcolor,
-            ));
-          }
-        },
+      body: Column(
+        children: [
+          SizedBox(height: size.height * 0.25),
+          FutureBuilder(
+            future: _initializeVideoPlayerFuture,
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.done) {
+                // Si el VideoPlayerController ha finalizado la inicialización, usa
+                // los datos que proporciona para limitar la relación de aspecto del VideoPlayer
+                return AspectRatio(
+                  aspectRatio: _controller.value.aspectRatio,
+                  // Usa el Widget VideoPlayer para mostrar el vídeo
+                  child: VideoPlayer(_controller),
+                );
+              } else {
+                // Si el VideoPlayerController todavía se está inicializando, muestra un
+                // spinner de carga
+                return Center(
+                    child: CircularProgressIndicator(
+                  color: kPinkcolor,
+                ));
+              }
+            },
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: kPinkcolor,
