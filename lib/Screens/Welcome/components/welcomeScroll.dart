@@ -28,28 +28,6 @@ class WelcomeScroll extends StatelessWidget {
         ),
         Column(
           children: <Widget>[
-            SizedBox(height: size.height * 0.2),
-            Container(
-                width: MediaQuery.of(context).size.width,
-                child: Image.asset(
-                  'assets/images/happy.png',
-                  scale: 0.05,
-                )),
-            SizedBox(height: size.height * 0.2),
-            Text(
-              'Tu bienestar esta en tus manos',
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 16, fontFamily: 'Raleway'),
-            ),
-            Text(
-              'y nosotros estamos para ayudarte',
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 16, fontFamily: 'Raleway'),
-            ),
-          ],
-        ),
-        Column(
-          children: <Widget>[
             SizedBox(height: size.height * 0.1),
             Container(
                 width: MediaQuery.of(context).size.width,
@@ -69,6 +47,28 @@ class WelcomeScroll extends StatelessWidget {
               'experimentar bienestar y felicidad en sus vidas',
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 15, fontFamily: 'Raleway'),
+            ),
+          ],
+        ),
+        Column(
+          children: <Widget>[
+            SizedBox(height: size.height * 0.2),
+            Container(
+                width: MediaQuery.of(context).size.width,
+                child: Image.asset(
+                  'assets/images/happy.png',
+                  scale: 0.05,
+                )),
+            SizedBox(height: size.height * 0.2),
+            Text(
+              'Tu bienestar esta en tus manos',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 16, fontFamily: 'Raleway'),
+            ),
+            Text(
+              'y nosotros estamos para ayudarte',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 16, fontFamily: 'Raleway'),
             ),
           ],
         ),

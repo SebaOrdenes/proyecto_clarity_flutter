@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_auth/Screens/Especialistas/especialistas_screen.dart';
 import 'package:flutter_auth/Screens/Layout/components/background.dart';
 import 'package:flutter_auth/Screens/Tratamiento/components/videos.dart';
+import 'package:flutter_auth/Screens/Videos/components/lista_videos_screen.dart';
+import 'package:flutter_auth/Screens/Videos/videos_screen.dart';
 import 'package:flutter_auth/services/especialistaService.dart';
+import 'package:video_player/video_player.dart';
 
 import '../../../constants.dart';
 
@@ -61,7 +64,8 @@ class _BodyState extends State<Body> {
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return VideoPlayerScreen();
+                        return VideoScreen();
+                        //return VideoListScreen();
                       },
                     ),
                   );
