@@ -11,7 +11,7 @@ class TratamientoScreen extends StatelessWidget {
         centerTitle: true,
         title: Text(
           'Tratamiento',
-          style: TextStyle(color: Colors.black, fontFamily: 'Raleway'),
+          style: TextStyle(color: Colors.white, fontFamily: 'Raleway'),
         ),
         backgroundColor: kPinkOscuro,
       ),

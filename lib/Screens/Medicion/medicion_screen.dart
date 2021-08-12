@@ -12,7 +12,7 @@ class MedicionScreen extends StatelessWidget {
         title: Text(
           'Medicion',
           style: TextStyle(
-            color: Colors.black,
+            color: Colors.white,
             fontFamily: 'Raleway',
           ),
         ),

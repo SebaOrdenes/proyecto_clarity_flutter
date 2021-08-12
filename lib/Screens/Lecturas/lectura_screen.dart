@@ -9,14 +9,15 @@ class LecturaScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: Text(
           'Lectura diaria',
           textAlign: TextAlign.center,
-          style: TextStyle(color: Colors.black, fontFamily: 'Raleway'),
+          style: TextStyle(color: Colors.white, fontFamily: 'Raleway'),
         ),
         backgroundColor: kPinkOscuro,
       ),
-      drawer: MenuLateral(),
+      //drawer: MenuLateral(),
       body: Body(),
       backgroundColor: kWhiteColor,
     );
