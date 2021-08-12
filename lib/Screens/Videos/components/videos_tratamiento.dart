@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:better_player/better_player.dart';
+import 'package:flutter_auth/models/Videos.dart';
 
 import '../../../constants.dart';
 
@@ -27,7 +28,7 @@ class VideoPlayer extends StatelessWidget {
           centerTitle: true,
           title: Text(
             'Tratamiento',
-            style: TextStyle(color: Colors.black, fontFamily: 'Raleway'),
+            style: TextStyle(color: Colors.white, fontFamily: 'Raleway'),
           ),
           backgroundColor: kPinkOscuro,
         ),
@@ -68,20 +69,14 @@ class VideoPlayer extends StatelessWidget {
 }
 
 List<BetterPlayerDataSource> createDataSet() {
+  Video video = listaVideos[0];
+  String url = video.url;
   List dataSourceList = List<BetterPlayerDataSource>();
   dataSourceList.add(
     BetterPlayerDataSource(
       BetterPlayerDataSourceType.network,
-      'https://storage.googleapis.com/clarity-t/Videos%20Acompa%C3%B1amiento/SESI%C3%93N%201.%20.mp4',
+      url,
     ),
   );
-  /* dataSourceList.add(
-    BetterPlayerDataSource(BetterPlayerDataSourceType.network,
-        "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"),
-  );
-  dataSourceList.add(
-    BetterPlayerDataSource(BetterPlayerDataSourceType.network,
-        "http://sample.vodobox.com/skate_phantom_flex_4k/skate_phantom_flex_4k.m3u8"),
-  );*/
   return dataSourceList;
 }

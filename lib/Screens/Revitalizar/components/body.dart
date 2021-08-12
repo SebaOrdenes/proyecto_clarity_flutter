@@ -41,16 +41,7 @@ class Body extends StatelessWidget {
       ),
       SizedBox(height: size.height * 0.01),
       GestureDetector(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) {
-                return TratamientoScreen();
-              },
-            ),
-          );
-        },
+        onTap: null,
         child: Image.asset(
           'assets/images/escucha.png',
           width: 150,
@@ -64,16 +55,7 @@ class Body extends StatelessWidget {
       ),
       SizedBox(height: size.height * 0.03),
       GestureDetector(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) {
-                return TratamientoScreen();
-              },
-            ),
-          );
-        },
+        onTap: null,
         child: Image.asset(
           'assets/images/visualizar.png',
           width: 150,
