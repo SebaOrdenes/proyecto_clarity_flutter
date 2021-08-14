@@ -48,48 +48,63 @@ class _BodyState extends State<Body> {
   Widget build(BuildContext context) {
     if (Users.membership == 1) {
       return SafeArea(
-          child: Center(
-        child: ListView.builder(
-          itemCount: images.length,
-          itemBuilder: (BuildContext context, int index) {
-            return Container(
-              padding: EdgeInsets.all(20.0),
-              child: GestureDetector(
-                onTap: () {
-                  getLect(index);
-                },
-                child: Container(
-                  child: Image.asset(
-                    'assets/images/Banner${images[index]}.jpg',
-                    height: 300,
+          child: Container(
+        padding: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage('assets/images/fondo.jpeg'), fit: BoxFit.none),
+        ),
+        child: Center(
+          child: ListView.builder(
+            itemCount: images.length,
+            itemBuilder: (BuildContext context, int index) {
+              return Container(
+                padding: const EdgeInsets.all(10),
+                child: GestureDetector(
+                  onTap: () {
+                    getLect(index);
+                  },
+                  child: Container(
+                    child: Image.asset(
+                      'assets/images/Banner${images[index]}.jpg',
+                      height: 200,
+                    ),
                   ),
                 ),
-              ),
-            );
-          },
+              );
+            },
+          ),
         ),
       ));
     } else {
       return SafeArea(
-          child: Center(
-        child: ListView.builder(
-          itemCount: 1,
-          itemBuilder: (BuildContext context, int index) {
-            return Container(
-              padding: EdgeInsets.all(20.0),
-              child: GestureDetector(
-                onTap: () {
-                  getLect(index);
-                },
-                child: Container(
-                  child: Image.asset(
-                    'assets/images/Banner${images[0]}.jpg',
-                    height: 300,
+          child: Container(
+        padding: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage('assets/images/fondo.jpeg'), fit: BoxFit.none),
+        ),
+        child: Center(
+          child: ListView.builder(
+            padding: const EdgeInsets.all(10),
+            itemCount: 1,
+            itemBuilder: (BuildContext context, int index) {
+              return Container(
+                padding: const EdgeInsets.all(10),
+                child: GestureDetector(
+                  onTap: () {
+                    getLect(index);
+                  },
+                  child: Container(
+                    child: Image.asset(
+                      'assets/images/Banner${images[0]}.jpg',
+                      height: 200,
+                    ),
                   ),
                 ),
-              ),
-            );
-          },
+              );
+            },
+          ),
         ),
       ));
     }

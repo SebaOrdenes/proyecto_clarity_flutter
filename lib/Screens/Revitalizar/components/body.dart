@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_auth/Screens/Revitalizar/components/respirar_screeen.dart';
-import 'package:flutter_auth/Screens/Tratamiento/tratamiento_screen.dart';
 
 class Body extends StatelessWidget {
   @override

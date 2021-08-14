@@ -8,12 +8,13 @@ class InformacionScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.black),
         centerTitle: true,
         title: Text(
-          'Planes de lectura',
-          style: TextStyle(color: Colors.white, fontFamily: 'Raleway'),
+          'Mis planes de lectura',
+          style: TextStyle(color: Colors.black, fontFamily: 'Raleway'),
         ),
-        backgroundColor: kPinkOscuro,
+        backgroundColor: Colors.white,
       ),
       drawer: MenuLateral(),
       body: Body(),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_auth/Screens/Lecturas/components/body.dart';
-import 'package:flutter_auth/Screens/Para_ti/components/menu_lateral.dart';
 
 import '../../constants.dart';
 

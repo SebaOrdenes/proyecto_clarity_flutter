@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_auth/Screens/Admin/admin_screen.dart';
-import 'package:flutter_auth/Screens/Admin/components/estadisticas.dart';
-import 'package:flutter_auth/Screens/Informacion/informacion_screen.dart';
-import 'package:flutter_auth/Screens/Login/login_screen.dart';
 import 'package:flutter_auth/Screens/Welcome/welcome_screen.dart';
 import 'package:flutter_auth/constants.dart';
 

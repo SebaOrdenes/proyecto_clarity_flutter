@@ -2,7 +2,6 @@ import 'package:better_player/better_player.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_auth/Screens/Layout/menu_lateral.dart';
-import 'package:flutter_auth/Screens/Videos/components/videos_tratamiento.dart';
 import 'package:flutter_auth/models/Users.dart';
 import 'package:flutter_auth/models/Videos.dart';
 import '../../../constants.dart';
