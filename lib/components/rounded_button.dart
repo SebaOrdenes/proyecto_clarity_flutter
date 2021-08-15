@@ -11,8 +11,8 @@ class RoundedButton extends StatelessWidget {
     Key key,
     this.text,
     this.press,
-    this.color = kSecondaryColor,
-    this.textColor = Colors.white,
+    this.color = kDeepOrangeColor,
+    this.textColor = Colors.black,
     this.dimension = 0.8,
     this.loading = false,
   }) : super(key: key);
@@ -35,7 +35,7 @@ class RoundedButton extends StatelessWidget {
               children: [
                 Text(
                   text,
-                  style: TextStyle(color: textColor),
+                  style: TextStyle(color: textColor, fontFamily: 'Raleway'),
                 ),
                 //Si se ha realizado alguna busqueda
                 if (loading)

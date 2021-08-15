@@ -52,14 +52,15 @@ class _BodyState extends State<Body> {
                               backgroundColor: kDeepOrangeColor,
                               //drawer: MenuLateral(),
                               appBar: AppBar(
+                                iconTheme: IconThemeData(color: Colors.black),
                                 centerTitle: true,
                                 title: Text(
                                   'Lectura diaria',
                                   style: TextStyle(
-                                      color: Colors.white,
+                                      color: Colors.black,
                                       fontFamily: 'Raleway'),
                                 ),
-                                backgroundColor: kPinkOscuro,
+                                backgroundColor: kDeepOrangeColor,
                               ),
                               body: Container(
                                 // color: kDeepOrangeColor,

@@ -35,7 +35,110 @@ class _BodyState extends State<Body> {
 
   @override
   Widget build(BuildContext context) {
-    return Background(
+    Size size = MediaQuery.of(context).size;
+    return SafeArea(
+        child: Center(
+            child: ListView(children: [
+      SizedBox(height: size.height * 0.05),
+      Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage('assets/images/fondo.jpeg'), fit: BoxFit.cover),
+        ),
+        child: Column(
+          children: [
+            Image.asset(
+              'assets/images/Tratamiento1.png',
+              width: 200,
+              height: 110,
+            ),
+            Text(
+              'Hemos integrado diferentes alternativas psicoterapéuticas '
+              'para acompañarte en tu camino de transformación.',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: kPrimaryColor,
+                fontFamily: 'Raleway',
+                fontSize: 15,
+              ),
+            ),
+          ],
+        ),
+      ),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return VideoScreen();
+                  },
+                ),
+              );
+            },
+            child: Container(
+              padding: EdgeInsets.all(5.0),
+              child: Image.asset(
+                'assets/images/Individual.png',
+                width: 150,
+                height: 150,
+              ),
+            ),
+          ),
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return getEspecialistas();
+                  },
+                ),
+              );
+            },
+            child: Container(
+              padding: EdgeInsets.all(5.0),
+              child: Image.asset(
+                'assets/images/Especialista.png',
+                width: 150,
+                height: 150,
+              ),
+            ),
+          ),
+        ],
+      ),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          InkWell(
+            onTap: () {},
+            child: Container(
+              padding: EdgeInsets.all(5.0),
+              child: Image.asset(
+                'assets/images/Grupos.png',
+                width: 150,
+                height: 150,
+              ),
+            ),
+          ),
+          InkWell(
+            onTap: () {},
+            child: Container(
+              padding: EdgeInsets.all(5.0),
+              child: Image.asset(
+                'assets/images/Workshops.png',
+                width: 150,
+                height: 150,
+              ),
+            ),
+          ),
+        ],
+      ),
+    ])));
+    /*Background(
       child: Stack(
         children: <Widget>[
           Positioned(
@@ -123,7 +226,8 @@ class _BodyState extends State<Body> {
                   color: kPrimaryColor,
                   fontFamily: 'Raleway',
                 ),
-              )),
+              ),
+              ),
           Positioned(
               top: 190,
               left: 30,
@@ -136,6 +240,6 @@ class _BodyState extends State<Body> {
               ))
         ],
       ),
-    );
+    );*/
   }
 }

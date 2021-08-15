@@ -15,82 +15,94 @@ class VideoListScreen extends StatelessWidget {
         backgroundColor: kDeepOrangeColor,
         //drawer: MenuLateral(),
         appBar: AppBar(
+          iconTheme: IconThemeData(color: Colors.black),
           centerTitle: true,
           title: Text(
             'Tratamiento premium',
-            style: TextStyle(color: Colors.white, fontFamily: 'Raleway'),
+            style: TextStyle(color: Colors.black, fontFamily: 'Raleway'),
           ),
-          backgroundColor: kPinkOscuro,
+          backgroundColor: Colors.white,
         ),
-        drawer: MenuLateral(),
+
         body: ListView.builder(
             itemCount: listaVideos.length,
             itemBuilder: (context, index) {
               Video video = listaVideos[index];
               return Card(
-                child: ListTile(
-                  title: Text(video.titulo),
-                  //leading: Image.network(video.url),
-                  trailing: Icon(Icons.arrow_forward_rounded),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          //return VideoPlayer();
-                          return Scaffold(
-                            backgroundColor: kDeepOrangeColor,
-                            //drawer: MenuLateral(),
-                            appBar: AppBar(
-                              centerTitle: true,
-                              title: Text(
-                                'Tratamiento premium',
-                                style: TextStyle(
-                                    color: Colors.white, fontFamily: 'Raleway'),
+                child: Container(
+                  padding: const EdgeInsets.all(5),
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage('assets/images/fondo.jpeg'),
+                        fit: BoxFit.cover),
+                  ),
+                  child: ListTile(
+                    title: Text(video.titulo),
+                    //leading: Image.network(video.url),
+                    trailing: Icon(Icons.arrow_forward_rounded),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            //return VideoPlayer();
+                            return Scaffold(
+                              //drawer: MenuLateral(),
+                              appBar: AppBar(
+                                iconTheme: IconThemeData(color: Colors.black),
+                                centerTitle: true,
+                                title: Text(
+                                  'Tratamiento premium',
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontFamily: 'Raleway'),
+                                ),
+                                backgroundColor: kDeepOrangeColor,
                               ),
-                              backgroundColor: kPinkOscuro,
-                            ),
-                            body: ListView(
-                              children: [
-                                SizedBox(height: size.height * 0.015),
-                                AspectRatio(
-                                  aspectRatio: 16 / 9,
-                                  child: BetterPlayerPlaylist(
-                                      betterPlayerConfiguration:
-                                          BetterPlayerConfiguration(),
-                                      betterPlayerPlaylistConfiguration:
-                                          BetterPlayerPlaylistConfiguration(),
-                                      betterPlayerDataSourceList:
-                                          createDataSet(index)),
-                                ),
-                                Container(
-                                  child: Text(
-                                    'Plan de Tratamiento: ${video.titulo}',
-                                    style: TextStyle(
-                                        color: Colors.black,
-                                        fontFamily: 'Raleway',
-                                        fontSize: 20,
-                                        height: 2),
+                              body: ListView(
+                                children: [
+                                  //SizedBox(height: size.height * 0.015),
+                                  AspectRatio(
+                                    aspectRatio: 16 / 9,
+                                    child: BetterPlayerPlaylist(
+                                        betterPlayerConfiguration:
+                                            BetterPlayerConfiguration(),
+                                        betterPlayerPlaylistConfiguration:
+                                            BetterPlayerPlaylistConfiguration(),
+                                        betterPlayerDataSourceList:
+                                            createDataSet(index)),
                                   ),
-                                ),
-                                Container(
-                                  child: Text(
-                                    '${video.descripcion}',
-                                    textAlign: TextAlign.justify,
-                                    style: TextStyle(
-                                        color: Colors.black,
-                                        fontFamily: 'Raleway',
-                                        fontSize: 15,
-                                        height: 1.3),
+                                  Container(
+                                    child: Text(
+                                      'Plan de Tratamiento: ${video.titulo}',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontFamily: 'Raleway',
+                                          fontSize: 20,
+                                          height: 2),
+                                    ),
                                   ),
-                                ),
-                              ],
-                            ),
-                          );
-                        },
-                      ),
-                    );
-                  },
+                                  Container(
+                                    padding: const EdgeInsets.all(20),
+                                    child: Text(
+                                      '${video.descripcion}',
+                                      textAlign: TextAlign.justify,
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontFamily: 'Raleway',
+                                          fontSize: 15,
+                                          height: 1.3),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            );
+                          },
+                        ),
+                      );
+                    },
+                  ),
                 ),
               );
             }),
@@ -100,82 +112,94 @@ class VideoListScreen extends StatelessWidget {
         backgroundColor: kDeepOrangeColor,
         //drawer: MenuLateral(),
         appBar: AppBar(
+          iconTheme: IconThemeData(color: Colors.black),
           centerTitle: true,
           title: Text(
-            'Tratamiento free',
-            style: TextStyle(color: Colors.white, fontFamily: 'Raleway'),
+            'Tratamiento premium',
+            style: TextStyle(color: Colors.black, fontFamily: 'Raleway'),
           ),
-          backgroundColor: kPinkOscuro,
+          backgroundColor: Colors.white,
         ),
-        drawer: MenuLateral(),
+
         body: ListView.builder(
             itemCount: 1,
             itemBuilder: (context, index) {
               Video video = listaVideos[index];
               return Card(
-                child: ListTile(
-                  title: Text(video.titulo),
-                  //leading: Image.network(video.url),
-                  trailing: Icon(Icons.arrow_forward_rounded),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          //return VideoPlayer();
-                          return Scaffold(
-                            backgroundColor: kDeepOrangeColor,
-                            //drawer: MenuLateral(),
-                            appBar: AppBar(
-                              centerTitle: true,
-                              title: Text(
-                                'Tratamiento free',
-                                style: TextStyle(
-                                    color: Colors.white, fontFamily: 'Raleway'),
+                child: Container(
+                  padding: const EdgeInsets.all(5),
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage('assets/images/fondo.jpeg'),
+                        fit: BoxFit.cover),
+                  ),
+                  child: ListTile(
+                    title: Text(video.titulo),
+                    //leading: Image.network(video.url),
+                    trailing: Icon(Icons.arrow_forward_rounded),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            //return VideoPlayer();
+                            return Scaffold(
+                              //drawer: MenuLateral(),
+                              appBar: AppBar(
+                                iconTheme: IconThemeData(color: Colors.black),
+                                centerTitle: true,
+                                title: Text(
+                                  'Tratamiento premium',
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontFamily: 'Raleway'),
+                                ),
+                                backgroundColor: kDeepOrangeColor,
                               ),
-                              backgroundColor: kPinkOscuro,
-                            ),
-                            body: ListView(
-                              children: [
-                                SizedBox(height: size.height * 0.015),
-                                AspectRatio(
-                                  aspectRatio: 16 / 9,
-                                  child: BetterPlayerPlaylist(
-                                      betterPlayerConfiguration:
-                                          BetterPlayerConfiguration(),
-                                      betterPlayerPlaylistConfiguration:
-                                          BetterPlayerPlaylistConfiguration(),
-                                      betterPlayerDataSourceList:
-                                          createDataSet(index)),
-                                ),
-                                Container(
-                                  child: Text(
-                                    'Plan de Tratamiento: ${video.titulo}',
-                                    style: TextStyle(
-                                        color: Colors.black,
-                                        fontFamily: 'Raleway',
-                                        fontSize: 20,
-                                        height: 2),
+                              body: ListView(
+                                children: [
+                                  //SizedBox(height: size.height * 0.015),
+                                  AspectRatio(
+                                    aspectRatio: 16 / 9,
+                                    child: BetterPlayerPlaylist(
+                                        betterPlayerConfiguration:
+                                            BetterPlayerConfiguration(),
+                                        betterPlayerPlaylistConfiguration:
+                                            BetterPlayerPlaylistConfiguration(),
+                                        betterPlayerDataSourceList:
+                                            createDataSet(index)),
                                   ),
-                                ),
-                                Container(
-                                  child: Text(
-                                    '${video.descripcion}',
-                                    textAlign: TextAlign.justify,
-                                    style: TextStyle(
-                                        color: Colors.black,
-                                        fontFamily: 'Raleway',
-                                        fontSize: 15,
-                                        height: 1.3),
+                                  Container(
+                                    child: Text(
+                                      'Plan de Tratamiento: ${video.titulo}',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontFamily: 'Raleway',
+                                          fontSize: 20,
+                                          height: 2),
+                                    ),
                                   ),
-                                ),
-                              ],
-                            ),
-                          );
-                        },
-                      ),
-                    );
-                  },
+                                  Container(
+                                    padding: const EdgeInsets.all(20),
+                                    child: Text(
+                                      '${video.descripcion}',
+                                      textAlign: TextAlign.justify,
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontFamily: 'Raleway',
+                                          fontSize: 15,
+                                          height: 1.3),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            );
+                          },
+                        ),
+                      );
+                    },
+                  ),
                 ),
               );
             }),

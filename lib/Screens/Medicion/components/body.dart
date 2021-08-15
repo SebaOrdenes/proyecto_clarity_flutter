@@ -22,56 +22,72 @@ class _BodyState extends State<Body> {
         child: ListView(
           children: <Widget>[
             SizedBox(height: size.height * 0.05),
-            Image.asset(
-              'assets/images/Acomp.png',
-              width: 100,
-              height: 100,
-            ),
-            SizedBox(height: size.height * 0.05),
-            Text(
-              'Te sugerimos iniciar tu proceso respondiendo a un cuestionario, que te ayudará a contar con una guía para iniciar  tu plan de transformación y bienestar. ',
-              style: TextStyle(fontSize: 20, fontFamily: 'Raleway'),
-              textAlign: TextAlign.center,
-            ),
-            SizedBox(height: size.height * 0.05),
-            GestureDetector(
-              onTap: () {},
-              child: RoundedButton(
-                text: "Test de Evaluación de Depresión inicial",
-                press: () {
-                  setNameTest("Test de depresión");
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return TestScreen();
-                      },
-                    ),
-                  );
-                },
+            Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage('assets/images/fondo.jpeg'),
+                    fit: BoxFit.cover),
+              ),
+              child: Image.asset(
+                'assets/images/Acomp.png',
+                width: 100,
+                height: 100,
               ),
             ),
-            SizedBox(height: size.height * 0.05),
-            Text(
-              'Cada dos semanas, puedes obtener tu última puntuación de felicidad realizando esta evaluación.  ',
-              style: TextStyle(fontSize: 20, fontFamily: 'Raleway'),
-              textAlign: TextAlign.center,
+            Container(
+              padding: const EdgeInsets.all(30),
+              child: Text(
+                'Te sugerimos iniciar tu proceso respondiendo a un cuestionario, que te ayudará a contar con una guía para iniciar  tu plan de transformación y bienestar. ',
+                style: TextStyle(fontSize: 15, fontFamily: 'Raleway'),
+                textAlign: TextAlign.justify,
+              ),
             ),
-            GestureDetector(
-              onTap: () {},
-              child: RoundedButton(
-                text: "Evalua tu avance de estado de ánimo",
-                press: () {
-                  setNameTest("Test quincenal");
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return TestScreen();
-                      },
-                    ),
-                  );
-                },
+            Container(
+              padding: const EdgeInsets.all(30),
+              child: GestureDetector(
+                onTap: () {},
+                child: RoundedButton(
+                  text: "Test de Evaluación de Depresión inicial",
+                  press: () {
+                    setNameTest("Test de depresión");
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return TestScreen();
+                        },
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.all(30),
+              child: Text(
+                'Cada dos semanas, puedes obtener tu última puntuación de felicidad realizando esta evaluación.  ',
+                style: TextStyle(fontSize: 15, fontFamily: 'Raleway'),
+                textAlign: TextAlign.justify,
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.all(20),
+              child: GestureDetector(
+                onTap: () {},
+                child: RoundedButton(
+                  text: "Evalua tu avance de estado de ánimo",
+                  press: () {
+                    setNameTest("Test quincenal");
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return TestScreen();
+                        },
+                      ),
+                    );
+                  },
+                ),
               ),
             ),
           ],

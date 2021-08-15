@@ -14,7 +14,7 @@ class ParaTiScreen extends StatelessWidget {
           'Inicio',
           style: TextStyle(color: Colors.black, fontFamily: 'Raleway'),
         ),
-        backgroundColor: kWhiteColor,
+        backgroundColor: kDeepOrangeColor,
         iconTheme: IconThemeData(color: Colors.black),
       ),
       drawer: MenuLateral(),

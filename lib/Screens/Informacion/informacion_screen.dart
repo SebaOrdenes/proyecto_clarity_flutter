@@ -14,7 +14,7 @@ class InformacionScreen extends StatelessWidget {
           'Mis planes de lectura',
           style: TextStyle(color: Colors.black, fontFamily: 'Raleway'),
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: kDeepOrangeColor,
       ),
       drawer: MenuLateral(),
       body: Body(),
