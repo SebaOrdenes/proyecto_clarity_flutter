@@ -49,54 +49,54 @@ class _BodyState extends State<Body> {
                         builder: (context) {
                           //return VideoPlayer();
                           return Scaffold(
-                              backgroundColor: kDeepOrangeColor,
-                              //drawer: MenuLateral(),
-                              appBar: AppBar(
-                                iconTheme: IconThemeData(color: Colors.black),
-                                centerTitle: true,
-                                title: Text(
-                                  'Lectura diaria',
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontFamily: 'Raleway'),
-                                ),
-                                backgroundColor: kDeepOrangeColor,
+                            backgroundColor: kDeepOrangeColor,
+                            //drawer: MenuLateral(),
+                            appBar: AppBar(
+                              iconTheme: IconThemeData(color: Colors.black),
+                              centerTitle: true,
+                              title: Text(
+                                'Lectura diaria',
+                                style: TextStyle(
+                                    color: Colors.black, fontFamily: 'Raleway'),
                               ),
-                              body: Container(
-                                // color: kDeepOrangeColor,
-                                padding: const EdgeInsets.all(30),
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                      image: AssetImage(
-                                          'assets/images/fondo.jpeg'),
-                                      fit: BoxFit.fill),
+                              backgroundColor: kDeepOrangeColor,
+                            ),
+                            body: Container(
+                              // color: kDeepOrangeColor,
+                              padding: const EdgeInsets.all(30),
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    image:
+                                        AssetImage('assets/images/fondo.jpeg'),
+                                    fit: BoxFit.fill),
+                              ),
+                              child: ListView(children: <Widget>[
+                                Center(
+                                  child: Text(
+                                    "Día $indexmasuno, ${Lectura.titlesByDay[index].titulo}",
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      fontFamily: 'Raleway',
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
                                 ),
-                                child: ListView(children: <Widget>[
-                                  Center(
-                                    child: Text(
-                                      "Día $indexmasuno, ${Lectura.titlesByDay[index].titulo}",
-                                      style: TextStyle(
-                                        fontSize: 20,
+                                Container(
+                                  color: Colors.white,
+                                  //padding: EdgeInsets.all(20.0),
+                                  margin: EdgeInsets.all(20),
+                                  child: Text(
+                                    "${Lectura.readingByDay[index].reading}",
+                                    style: TextStyle(
+                                        fontSize: 17,
                                         fontFamily: 'Raleway',
-                                      ),
-                                      textAlign: TextAlign.center,
-                                    ),
+                                        height: 1.6),
+                                    textAlign: TextAlign.justify,
                                   ),
-                                  Container(
-                                    color: Colors.white,
-                                    //padding: EdgeInsets.all(20.0),
-                                    margin: EdgeInsets.all(20),
-                                    child: Text(
-                                      "${Lectura.readingByDay[index].reading}",
-                                      style: TextStyle(
-                                          fontSize: 17,
-                                          fontFamily: 'Raleway',
-                                          height: 1.6),
-                                      textAlign: TextAlign.justify,
-                                    ),
-                                  ),
-                                ]),
-                              ));
+                                ),
+                              ]),
+                            ),
+                          );
                         },
                       ),
                     );

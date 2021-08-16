@@ -15,7 +15,7 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  String ruta = "assets/images/Flowers_edited.png";
+  String ruta = "assets/images/fondo.jpeg";
   TestAnswer testAnswer;
   static Test test;
   List<Question> questions;
@@ -75,7 +75,7 @@ class _BodyState extends State<Body> {
       });
     } else {
       setState(() {
-        this.query = "Escoge una de las \n siguientes opciones:";
+        this.query = "Escoge una de las siguientes opciones:";
       });
     }
   }
@@ -94,7 +94,12 @@ class _BodyState extends State<Body> {
       widgets.add(RadioListTile(
           value: question.listaId[i],
           groupValue: selectedTest,
-          title: Text(question.alternatives[i]),
+          title: Text(
+            question.alternatives[i],
+            style: TextStyle(
+              fontFamily: 'Raleway',
+            ),
+          ),
           onChanged: (currentTest) {
             selectedRadio = 1;
             setSelectedTest(currentTest);
@@ -169,18 +174,20 @@ class _BodyState extends State<Body> {
       children: <Widget>[
         Container(
           width: double.infinity,
-          height: 200.0,
+          height: 150.0,
           decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage(this.ruta), fit: BoxFit.cover)),
-          padding: EdgeInsets.only(top: 50.0),
+            image: DecorationImage(
+                image: AssetImage(this.ruta), fit: BoxFit.cover),
+          ),
+          margin: EdgeInsets.only(right: 10, left: 10, top: 5, bottom: 1),
           child: Text(
             "${this.query}",
             style: TextStyle(
-              fontSize: 30.0,
+              fontFamily: 'Raleway',
+              fontSize: 20.0,
               height: 1.4,
             ),
-            textAlign: TextAlign.center,
+            textAlign: TextAlign.justify,
           ),
         ),
         Container(

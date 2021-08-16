@@ -1,3 +1,4 @@
+import 'package:flutter_auth/constants.dart';
 import 'package:flutter_auth/models/Users.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
@@ -9,7 +10,7 @@ class LoginService {
   Future<Map<String, dynamic>> checkUser(
       String username, String password) async {
     http.Response response =
-        await http.post(Uri.http('10.0.2.2:8000', '/api/users/login'), body: {
+        await http.post(Uri.http(ip, '/api/users/login'), body: {
       'username': username,
       'password': password,
     });
@@ -21,8 +22,8 @@ class LoginService {
 
   //Instanciando usuaria
   Future<void> newUser(String nameUser) async {
-    http.Response response = await http
-        .post(Uri.http('10.0.2.2:8000', '/api/users/getUserByUserName'), body: {
+    http.Response response =
+        await http.post(Uri.http(ip, '/api/users/getUserByUserName'), body: {
       'username': nameUser,
     });
     Map<String, dynamic> jsonResponse =

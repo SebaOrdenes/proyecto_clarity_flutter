@@ -6,21 +6,26 @@ import 'package:flutter_auth/Screens/Tratamiento/tratamiento_screen.dart';
 import 'package:flutter_auth/constants.dart';
 import 'package:flutter_auth/models/Users.dart';
 
-Widget textSection = Container(
-  padding: const EdgeInsets.all(30),
-  decoration: BoxDecoration(
-    image: DecorationImage(
-        image: AssetImage('assets/images/fondo.jpeg'), fit: BoxFit.cover),
-  ),
-  child: Text(
-    'Hola, ${Users.name} ♥\n'
-    'Bienvenida a Clarity ! \n'
-    'Tu bienestar está en tus manos y estamos aquí para acompañarte',
-    style: TextStyle(
-        color: Colors.black, fontFamily: 'Raleway', fontSize: 20, height: 1.3),
-    softWrap: true,
-  ),
-);
+texto() {
+  return Container(
+    padding: const EdgeInsets.all(30),
+    decoration: BoxDecoration(
+      image: DecorationImage(
+          image: AssetImage('assets/images/fondo.jpeg'), fit: BoxFit.cover),
+    ),
+    child: Text(
+      'Hola, ${Users.name} ♥\n'
+      'Bienvenida a Clarity ! \n'
+      'Tu bienestar está en tus manos y estamos aquí para acompañarte',
+      style: TextStyle(
+          color: Colors.black,
+          fontFamily: 'Raleway',
+          fontSize: 20,
+          height: 1.3),
+      softWrap: true,
+    ),
+  );
+}
 
 class Body extends StatelessWidget {
   @override
@@ -36,7 +41,7 @@ class Body extends StatelessWidget {
       child: Center(
         child: ListView(
           children: [
-            textSection,
+            texto(),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

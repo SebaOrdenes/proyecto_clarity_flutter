@@ -2,6 +2,7 @@
 //
 //     final lectura = lecturaFromJson(jsonString);
 import 'dart:convert';
+import 'package:flutter_auth/constants.dart';
 import 'package:http/http.dart' as http;
 
 class Lectura {
@@ -54,7 +55,7 @@ class Lectura {
     var n = nombreLectura(index, nombre);
 
     http.Response response =
-        await http.get(Uri.http('10.0.2.2:8000', 'api/readingPlans/$n'));
+        await http.get(Uri.http(ip, 'api/readingPlans/$n'));
 
     Map<String, dynamic> usersData =
         new Map<String, dynamic>.from(json.decode(response.body));

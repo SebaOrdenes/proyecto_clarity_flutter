@@ -1,3 +1,4 @@
+import 'package:flutter_auth/constants.dart';
 import 'package:flutter_auth/models/Especialista.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -8,8 +9,7 @@ class EspecialistaService {
   static bool state = false; //permite verificar si se han guardado los especia.
 
   getEspecialistas() async {
-    http.Response response =
-        await http.get(Uri.http('10.0.2.2:8000', '/api/collaborators'));
+    http.Response response = await http.get(Uri.http(ip, '/api/collaborators'));
     var jsonResponse = jsonDecode(response.body) as Map<String, dynamic>;
     List<dynamic> resultadoTest = jsonResponse['data'];
 
@@ -37,7 +37,7 @@ class EspecialistaService {
     }
   }
 
-  static setEspecialista(Especialista esp){
+  static setEspecialista(Especialista esp) {
     especialista = esp;
   }
 }

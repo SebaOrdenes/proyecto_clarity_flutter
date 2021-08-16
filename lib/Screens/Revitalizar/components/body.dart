@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_auth/Screens/Revitalizar/components/escuchar_screen.dart';
 import 'package:flutter_auth/Screens/Revitalizar/components/respirar_screeen.dart';
 
 class Body extends StatelessWidget {
@@ -6,67 +7,93 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return SafeArea(
-        child: Center(
-            child: ListView(children: [
-      SizedBox(height: size.height * 0.05),
-      Text(
-        'Date un minuto para renovar tu energía.',
-        textAlign: TextAlign.center,
-        style: TextStyle(fontSize: 30, fontFamily: 'Raleway'),
-      ),
-      SizedBox(height: size.height * 0.03),
-      GestureDetector(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) {
-                return RespirarScreen();
-              },
+      child: Center(
+        child: ListView(
+          children: [
+            Container(
+              padding: EdgeInsets.all(10.0),
+              child: Column(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage('assets/images/fondo.jpeg'),
+                          fit: BoxFit.cover),
+                    ),
+                    child: Text(
+                      'Date un minuto para renovar tu energía.',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 30, fontFamily: 'Raleway'),
+                    ),
+                  ),
+                  SizedBox(height: size.height * 0.01),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return RespirarScreen();
+                          },
+                        ),
+                      );
+                    },
+                    child: Image.asset(
+                      'assets/images/respira.png',
+                      width: 100,
+                      height: 100,
+                    ),
+                  ),
+                  Text(
+                    'Respirar',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 20, fontFamily: 'Raleway'),
+                  ),
+                  SizedBox(height: size.height * 0.01),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return EscucharScreen();
+                          },
+                        ),
+                      );
+                    },
+                    child: Image.asset(
+                      'assets/images/escucha.png',
+                      width: 100,
+                      height: 100,
+                    ),
+                  ),
+                  Text(
+                    'Escucha',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 20, fontFamily: 'Raleway'),
+                  ),
+                  SizedBox(height: size.height * 0.01),
+                  GestureDetector(
+                    onTap: null,
+                    child: Image.asset(
+                      'assets/images/visualizar.png',
+                      width: 100,
+                      height: 100,
+                    ),
+                  ),
+                  Text(
+                    'Visualiza',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 20, fontFamily: 'Raleway'),
+                  ),
+                ],
+              ),
             ),
-          );
-        },
-        child: Image.asset(
-          'assets/images/respira.png',
-          width: 150,
-          height: 150,
+          ],
         ),
       ),
-      SizedBox(height: size.height * 0.01),
-      Text(
-        'Respirar',
-        textAlign: TextAlign.center,
-        style: TextStyle(fontSize: 20, fontFamily: 'Raleway'),
-      ),
-      SizedBox(height: size.height * 0.01),
-      GestureDetector(
-        onTap: null,
-        child: Image.asset(
-          'assets/images/escucha.png',
-          width: 150,
-          height: 150,
-        ),
-      ),
-      Text(
-        'Escucha',
-        textAlign: TextAlign.center,
-        style: TextStyle(fontSize: 20, fontFamily: 'Raleway'),
-      ),
-      SizedBox(height: size.height * 0.03),
-      GestureDetector(
-        onTap: null,
-        child: Image.asset(
-          'assets/images/visualizar.png',
-          width: 150,
-          height: 150,
-        ),
-      ),
-      Text(
-        'Visualiza',
-        textAlign: TextAlign.center,
-        style: TextStyle(fontSize: 20, fontFamily: 'Raleway'),
-      ),
-    ])));
+    );
 /*
     return Background(
       child: ListView(children: [

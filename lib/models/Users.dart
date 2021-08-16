@@ -1,3 +1,4 @@
+import 'package:flutter_auth/constants.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
 import 'package:shared_preferences/shared_preferences.dart';
@@ -45,8 +46,8 @@ class Users {
   //Registrar un usuario
   postUser(String name, String password, String username, String email,
       String testResults) async {
-    http.Response response = await http
-        .post(Uri.http('10.0.2.2:8000', '/api/users/register'), body: {
+    http.Response response =
+        await http.post(Uri.http(ip, '/api/users/register'), body: {
       'name': name,
       'password': password,
       'confirmPassword': password,
@@ -58,8 +59,7 @@ class Users {
 
   //Obtener listado de usuarios
   getUsers() async {
-    http.Response response =
-        await http.get(Uri.http('10.0.2.2:8000', '/api/users'));
+    http.Response response = await http.get(Uri.http(ip, '/api/users'));
     var jsonResponse =
         convert.jsonDecode(response.body) as Map<String, dynamic>;
     List usersData = jsonResponse['data'];
@@ -89,14 +89,13 @@ class Users {
   }
 
   void getUserById(String id) async {
-    http.Response response =
-        await http.get(Uri.http('10.0.2.2:8000', '/api/$id'));
+    http.Response response = await http.get(Uri.http(ip, '/api/$id'));
   }
 
   //Modifica la variable resultadoTest
   static Future<List<dynamic>> getResultadoTest(String typeTest) async {
     http.Response response =
-        await http.get(Uri.http('10.0.2.2:8000', '/api/users/$id/$typeTest'));
+        await http.get(Uri.http(ip, '/api/users/$id/$typeTest'));
     var jsonResponse =
         convert.jsonDecode(response.body) as Map<String, dynamic>;
     List resultadoTest = jsonResponse['data'];

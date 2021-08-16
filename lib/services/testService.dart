@@ -1,3 +1,4 @@
+import 'package:flutter_auth/constants.dart';
 import 'package:flutter_auth/models/Test.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
@@ -18,7 +19,7 @@ class TestService {
 
     //Ruta con back funcionando /options/api/Test de depresión
     http.Response response =
-        await http.get(Uri.http('10.0.2.2:8000', 'api/options/$nameTest'));
+        await http.get(Uri.http(ip, 'api/options/$nameTest'));
     var jsonResponse =
         convert.jsonDecode(response.body) as Map<String, dynamic>;
 

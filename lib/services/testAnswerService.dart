@@ -1,3 +1,4 @@
+import 'package:flutter_auth/constants.dart';
 import 'package:flutter_auth/models/Answer.dart';
 import 'package:flutter_auth/models/TestAnswer.dart';
 import 'package:flutter_auth/models/Users.dart';
@@ -21,7 +22,7 @@ class TestAnswerService {
     if (answers != null) {
       try {
         http.Response response = await http.put(
-          Uri.http('10.0.2.2:8000', '/api/users/$userId/$typeTest'),
+          Uri.http(ip, '/api/users/$userId/$typeTest'),
           body: jsonString,
           headers: {'Content-type': 'application/json'},
         );
@@ -33,8 +34,8 @@ class TestAnswerService {
 
   Future<List<dynamic>> getResultadoTest(String nameTest) async {
     String userId = Users.id;
-    http.Response response = await http
-        .get(Uri.http('10.0.2.2:8000', '/api/users/$userId/$nameTest'));
+    http.Response response =
+        await http.get(Uri.http(ip, '/api/users/$userId/$nameTest'));
     var jsonResponse = jsonDecode(response.body) as Map<String, dynamic>;
     List<dynamic> resultadoTest = jsonResponse['data'];
     return resultadoTest;

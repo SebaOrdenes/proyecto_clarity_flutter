@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter_auth/constants.dart';
 import 'package:http/http.dart' as http;
 
 class Resultado {
@@ -36,8 +37,8 @@ class Resultado {
   }
 
   Future<Resultado> getResultado() async {
-    http.Response response = await http
-        .post(Uri.http('10.0.2.2:8000', 'api/users/statisticalMeasures'));
+    http.Response response =
+        await http.post(Uri.http(ip, 'api/users/statisticalMeasures'));
 
     Map<String, dynamic> usersData =
         new Map<String, dynamic>.from(json.decode(response.body));
@@ -51,8 +52,8 @@ class Resultado {
   }
 
   Future<Resultado> getResultado2() async {
-    http.Response response = await http
-        .post(Uri.http('10.0.2.2:8000', 'api/users/statisticalMeasures2'));
+    http.Response response =
+        await http.post(Uri.http(ip, 'api/users/statisticalMeasures2'));
 
     Map<String, dynamic> usersData =
         new Map<String, dynamic>.from(json.decode(response.body));

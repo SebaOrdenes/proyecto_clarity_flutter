@@ -46,6 +46,7 @@ class _BodyState extends State<Body> {
   }
 
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     if (Users.membership == 1) {
       return SafeArea(
           child: Container(
@@ -91,16 +92,55 @@ class _BodyState extends State<Body> {
             itemBuilder: (BuildContext context, int index) {
               return Container(
                 padding: const EdgeInsets.all(10),
-                child: GestureDetector(
-                  onTap: () {
-                    getLect(index);
-                  },
-                  child: Container(
-                    child: Image.asset(
-                      'assets/images/Banner${images[0]}.jpg',
-                      height: 200,
+                child: Column(
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        getLect(index);
+                      },
+                      child: Container(
+                        child: Image.asset(
+                          'assets/images/Banner${images[0]}.jpg',
+                          height: 200,
+                        ),
+                      ),
                     ),
-                  ),
+                    SizedBox(height: size.height * 0.05),
+                    Container(
+                      child: Image.asset(
+                        'assets/images/Bannerbloqueado2.jpg',
+                        height: 200,
+                      ),
+                    ),
+                    SizedBox(height: size.height * 0.05),
+                    Container(
+                      child: Image.asset(
+                        'assets/images/Bannerbloqueado3.jpg',
+                        height: 200,
+                      ),
+                    ),
+                    SizedBox(height: size.height * 0.05),
+                    Container(
+                      child: Image.asset(
+                        'assets/images/Bannerbloqueado4.jpg',
+                        height: 200,
+                      ),
+                    ),
+                    SizedBox(height: size.height * 0.05),
+                    Container(
+                      child: Image.asset(
+                        'assets/images/Bannerbloqueado5.jpg',
+                        height: 200,
+                      ),
+                    ),
+                    SizedBox(height: size.height * 0.05),
+                    Container(
+                      child: Image.asset(
+                        'assets/images/Bannerbloqueado6.jpg',
+                        height: 200,
+                      ),
+                    ),
+                  ],
                 ),
               );
             },
