@@ -127,7 +127,7 @@ class _BodyState extends State<Body> {
                 },
               ),
               SizedBox(height: size.height * 0.03),
-              GestureDetector(
+              /* GestureDetector(
                 onTap: () {
                   setNameTest("Test de depresión");
                   Navigator.push(
@@ -140,7 +140,7 @@ class _BodyState extends State<Body> {
                   );
                 },
                 child: Text('Deseas probar nuestros test? Haz click aqui'),
-              )
+              )*/
             ],
           ),
         ),
