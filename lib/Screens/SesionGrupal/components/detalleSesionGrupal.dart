@@ -4,36 +4,43 @@ import 'package:flutter_auth/Screens/Tratamiento/tratamiento_screen.dart';
 import 'package:flutter_auth/components/rounded_button.dart';
 import 'package:flutter_auth/models/Especialista.dart';
 import 'package:flutter_auth/constants.dart';
+import 'package:flutter_auth/models/SesionGrupal.dart';
 import 'package:flutter_auth/models/Users.dart';
 import 'package:flutter_auth/models/Workshop.dart';
+import 'package:flutter_auth/services/sesionGrupalService.dart';
 import 'package:flutter_auth/services/workshopService.dart';
+import 'package:intl/intl.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
-class DetalleWorkshop extends StatefulWidget {
+class DetalleSesionGrupal extends StatefulWidget {
   @override
-  _DetalleWorkshopState createState() => _DetalleWorkshopState();
+  _DetalleSesionGrupalState createState() => _DetalleSesionGrupalState();
 }
 
-class _DetalleWorkshopState extends State<DetalleWorkshop> {
+class _DetalleSesionGrupalState extends State<DetalleSesionGrupal> {
   Especialista especialista;
-  Workshop workshop;
+  SesionGrupal sesionGrupal;
   String ruta = "assets/images/main_top.png";
-  String workshopDate;
-  String workshopHour;
+  String sesionGrupalDate;
+  String sesionGrupalHour;
   String textConfirm; //Texto descriptivo
+  String spanishDate = ""; //Nombre del día
 
   bool loading = false; //Permite mostrar circulo de carga
 
   @override
   void initState() {
     super.initState();
-    workshop = WorkshopService.workshop;
-    especialista = WorkshopService.workshop.especialista;
-    String workshopDate = workshop.hour;
-    this.workshopDate = getDatefromDateTime(workshopDate);
-    this.workshopDate = invertDate(this.workshopDate);
-    this.workshopHour = getTimeFromDateTime(workshopDate);
+    initializeDateFormatting(); //Formato español
+    sesionGrupal = SesionGrupalService.sesionGrupal;
+    especialista = SesionGrupalService.sesionGrupal.especialista;
+    String sesionGrupalDate = sesionGrupal.hour;
+    this.spanishDate = getDateName(sesionGrupalDate);
+    this.sesionGrupalDate = getDatefromDateTime(sesionGrupalDate);
+    this.sesionGrupalDate = invertDate(this.sesionGrupalDate);
+    this.sesionGrupalHour = getTimeFromDateTime(sesionGrupalDate);
     this.textConfirm =
-        "${Users.name}, gracias por solicitar un Workshop. Para poder finalizar su solicitud debe presionar el siguiente botón.";
+        "${Users.name}, gracias por solicitar una Sesión grupal. Para poder finalizar su solicitud debe presionar el siguiente botón.";
   }
 
   //Obtener fecha
@@ -51,10 +58,18 @@ class _DetalleWorkshopState extends State<DetalleWorkshop> {
     return date.split("-").reversed.join("-");
   }
 
+  getDateName(String date){
+
+    DateTime dateAux = DateTime.parse(date);
+    String dateSpanish = DateFormat('EEEE','es').format(dateAux);
+    return dateSpanish;
+  }
+
   //Realizar solicitud del workshop
-  addParticipantWokshop() async {
+  addParticipantSesionGrupal() async {
     setLoading(true);
-    await WorkshopService.addParticipantWorkshop(workshop.id, Users.id);
+    await SesionGrupalService.addParticipanSesionGrupal(
+        sesionGrupal.id, Users.id);
     setLoading(false);
     Navigator.push(
       context,
@@ -209,7 +224,7 @@ class _DetalleWorkshopState extends State<DetalleWorkshop> {
 
                 //Tipo de sesión
                 Text(
-                  "Workshop",
+                  "Sesión grupal",
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 15,
@@ -256,7 +271,7 @@ class _DetalleWorkshopState extends State<DetalleWorkshop> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Nombre: ${this.workshop.title}",
+                "Tópico: ${this.sesionGrupal.topic}",
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 15.0,
@@ -266,7 +281,7 @@ class _DetalleWorkshopState extends State<DetalleWorkshop> {
                 textAlign: TextAlign.left,
               ),
               Text(
-                "Descripción: ${this.workshop.description}",
+                "N° de sesiones: ${this.sesionGrupal.numerSession}",
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 15.0,
@@ -276,7 +291,7 @@ class _DetalleWorkshopState extends State<DetalleWorkshop> {
                 textAlign: TextAlign.left,
               ),
               Text(
-                "Participantes: ${this.workshop.totalCapacity} personas",
+                "Participantes: ${this.sesionGrupal.totalCapacity} personas",
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 15.0,
@@ -286,7 +301,7 @@ class _DetalleWorkshopState extends State<DetalleWorkshop> {
                 textAlign: TextAlign.left,
               ),
               Text(
-                "Fecha: ${this.workshopDate} ",
+                "Fecha: ${this.spanishDate} ${this.sesionGrupalDate} ",
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 15.0,
@@ -296,7 +311,7 @@ class _DetalleWorkshopState extends State<DetalleWorkshop> {
                 textAlign: TextAlign.left,
               ),
               Text(
-                "Hora: ${this.workshopHour} hrs",
+                "Hora: ${this.sesionGrupalHour} hrs",
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 15.0,
@@ -305,6 +320,7 @@ class _DetalleWorkshopState extends State<DetalleWorkshop> {
                 ),
                 textAlign: TextAlign.left,
               ),
+
             ],
           ),
         ),
@@ -331,11 +347,11 @@ class _DetalleWorkshopState extends State<DetalleWorkshop> {
   storeWorkshopPetition() {
     return RoundedButton(
       loading: loading,
-      text: "Solicitar Workshop",
-     
+      text: "Solicitar Sesión",
+
       press: () {
-        if (workshop.totalCapacity > 0) {
-          addParticipantWokshop();
+        if (sesionGrupal.totalCapacity > 0) {
+          addParticipantSesionGrupal();
         } else {
           setState(
             () {

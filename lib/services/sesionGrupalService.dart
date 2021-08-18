@@ -26,7 +26,7 @@ class SesionGrupalService {
         int totalCapacity = resultado["total_capacity"];
         String hour = resultado["hour"];
         String idCollaborator = resultado["id_Collaborator"];
-        int numberSession = resultado["numberOfSession"];
+        int numberSession = resultado["numberOfSessions"];
         Especialista especialista =
             await EspecialistaService.getEspecialista(idCollaborator);
         List<dynamic> participants = resultado["participants"];
@@ -39,13 +39,14 @@ class SesionGrupalService {
           listaSesionGrupal.add(sesionGrupal);
         }
       }
+      print("lista grupal: ${listaSesionGrupal}");
     } catch (e) {
       print(e);
     }
   }
 
   //Agregar participante al workshop solicitado
-  static addSesionGrupal(String sesionGrupaId, String userId) async {
+  static addParticipanSesionGrupal(String sesionGrupaId, String userId) async {
     try {
       http.Response response = await http.put(
         Uri.http(ip, '/api/groupSession/addParticipant/$sesionGrupaId/$userId'),

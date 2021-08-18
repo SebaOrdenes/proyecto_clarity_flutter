@@ -1,5 +1,6 @@
 import 'package:flutter_auth/constants.dart';
 import 'package:flutter_auth/models/Especialista.dart';
+import 'package:flutter_auth/models/Users.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
@@ -96,18 +97,22 @@ class EspecialistaService {
     especialista = esp;
   }
 
-  static updateHourOTO(String id, String date) async {
-    print(date);
+  static updateHourOTO(String idCollaborator, String date) async {
+
     //Modificando el tipo se sato para que coincida con la Base de Datos
-    String auxDate = DateTime.parse(date).toUtc().toString();
+    String auxDate = date.toString().substring(0,16);
+    print(Users.username);
+    print("$idCollaborator");
     print(auxDate);
     try {
       http.Response response = await http.put(
-        Uri.http('10.0.2.2:8000', '/api/collaborators/addHour/$id/0'),
+        Uri.http(ip, '/api/collaborators/addHourForOTOS/$idCollaborator'),
         body: {
-          "hourForOTOS": auxDate,
+          "hour": auxDate,
+          "username": Users.username.toString(),
         },
       );
+      print(response.body);
     } catch (e) {
       print(e);
     }

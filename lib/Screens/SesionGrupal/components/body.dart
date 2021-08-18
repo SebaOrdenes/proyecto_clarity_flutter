@@ -5,8 +5,10 @@ import 'package:flutter_auth/components/calendar.dart';
 import 'package:flutter_auth/models/SesionGrupal.dart';
 import 'package:flutter_auth/models/Users.dart';
 
-import 'package:flutter_auth/services/SesionGrupalService.dart';
+import 'package:flutter_auth/services/sesionGrupalService.dart';
 import 'package:flutter_auth/constants.dart';
+
+import '../detalleSesionGrupal_screen.dart';
 
 //import '../detalleWorkshop_screen.dart';
 
@@ -39,6 +41,8 @@ class _BodyState extends State<Body> {
     this.textFilter = "Filtrar por:";
     this.iconFilter = Icons.calendar_today;
     this.stateFilter = false;
+    print("prueba 3: ${ this.listSesionGrupal }");
+
   }
 
   //Obtención de lista de workshop
@@ -175,7 +179,7 @@ class _BodyState extends State<Body> {
               left: 20,
             ),
             child: Text(
-              "Workshops",
+              "Sesiones Grupales",
               style: TextStyle(
                 fontSize: 20.0,
                 height: 1.4,
@@ -306,7 +310,7 @@ class _BodyState extends State<Body> {
     }
     return Container(
       margin: EdgeInsets.only(left: 10, right: 10),
-      child: Text("Seleeción de workshop",
+      child: Text("Selección de la sesión grupal",
           style: TextStyle(
             fontFamily: 'Raleway',
           )),
@@ -332,7 +336,7 @@ class _BodyState extends State<Body> {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return null;
+                      return DetalleSesionGrupalScreen();
                     },
                   ),
                 );
@@ -383,7 +387,7 @@ class _BodyState extends State<Body> {
                           Container(
                             margin: EdgeInsets.only(top: 10),
                             child: Text(
-                              this.listSesionGrupal[i].id,
+                              this.listSesionGrupal[i].topic,
                               style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 17,

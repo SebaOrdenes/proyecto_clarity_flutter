@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_auth/Screens/Especialistas/especialistas_screen.dart';
-import 'package:flutter_auth/Screens/Layout/components/background.dart';
 import 'package:flutter_auth/Screens/SesionGrupal/sesionGrupal_screen.dart';
 import 'package:flutter_auth/Screens/Videos/videos_screen.dart';
-import 'package:flutter_auth/Screens/Tratamiento/components/videos.dart';
 import 'package:flutter_auth/Screens/Workshop/workshop_screen.dart';
 import 'package:flutter_auth/services/especialistaService.dart';
 import 'package:flutter_auth/services/sesionGrupalService.dart';
@@ -59,9 +57,8 @@ class _BodyState extends State<Body> {
   //Cambiar a vista Sesion grupal
   getSesionGrupal() async {
     sesionGrupalService = new SesionGrupalService();
-    print(SesionGrupalService.listaSesionGrupal);
-
     await sesionGrupalService.getSesionesGrupales();
+    print("prueba 2: ${SesionGrupalService.listaSesionGrupal}");
 
     Navigator.push(
       context,
@@ -147,7 +144,9 @@ class _BodyState extends State<Body> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           InkWell(
-            onTap: () {},
+            onTap: () {
+              return getSesionGrupal();
+            },
             child: Container(
               padding: EdgeInsets.all(5.0),
               child: Image.asset(
@@ -172,7 +171,7 @@ class _BodyState extends State<Body> {
           ),
         ],
       ),
-    ])));
+    ],),),);
     /*Background(
       child: Stack(
         children: <Widget>[

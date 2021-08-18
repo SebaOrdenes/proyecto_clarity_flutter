@@ -68,6 +68,8 @@ class _DetalleState extends State<Detalle> {
   //Obteniendo lista de listas con fecha y hora no disponible
   //Salida: [[fecha,hora],[fecha,hora]...]
   dateToList(List date) {
+    print(date);
+    print(date.map((e) => DateTime.parse(e).toUtc()));
     this.listDateTime = date.map(
         (e) => e.toString().substring(0, e.toString().length - 1).split("T"));
   }
@@ -83,7 +85,7 @@ class _DetalleState extends State<Detalle> {
   }
 
   List<String> getNowDate() {
-    DateTime now = new DateTime.now().toUtc();
+    DateTime now = new DateTime.now();
 
     this.actualDay = now.day;
     this.actualMonth = now.month;
@@ -91,7 +93,7 @@ class _DetalleState extends State<Detalle> {
     this.actualHour = now.hour;
 
     this.completeActualDate =
-        new DateTime(now.year, now.month, now.day).toUtc();
+        new DateTime(now.year, now.month, now.day);
 
     List<String> newDate = completeActualDate.toString().split("-");
 

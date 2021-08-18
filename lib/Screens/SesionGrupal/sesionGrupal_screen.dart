@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_auth/Screens/Workshop/components/body.dart';
+import 'package:flutter_auth/Screens/SesionGrupal/components/body.dart';
 import 'package:flutter_auth/Screens/Layout/menu_lateral.dart';
 import '../../constants.dart';
 
@@ -10,7 +10,7 @@ class SesionGrupalScreen extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          'Workshop',
+          'Sesión grupal',
           style: TextStyle(
             color: Colors.black,
             fontFamily: 'Raleway',

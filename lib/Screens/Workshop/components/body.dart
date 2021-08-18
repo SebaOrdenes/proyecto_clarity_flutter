@@ -33,6 +33,7 @@ class _BodyState extends State<Body> {
   void initState() {
     super.initState();
     this.listWorkshop = WorkshopService.listaWorkshop;
+    print(this.listWorkshop);
     this.originalListWorkshop = WorkshopService.listaWorkshop;
     this.textFilter = "Filtrar por:";
     this.iconFilter = Icons.calendar_today;
