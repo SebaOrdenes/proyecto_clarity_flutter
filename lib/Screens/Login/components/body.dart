@@ -85,64 +85,64 @@ class _BodyState extends State<Body> {
     Size size = MediaQuery.of(context).size;
     return Background(
       child: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            SizedBox(height: size.height * 0.5),
-            SizedBox(height: size.height * 0.03),
-
-            RoundedInputField(
-              hintText: "Tu nombre de usuario",
-              //             helperText: "$menssage",
-              onChanged: (value) {
-                setState(() => {this.username = value});
-              },
-            ),
-
-            RoundedPasswordField(
-              helperText: "$menssage",
-              onChanged: (value) {
-                {
-                  setState(() => {this.password = value});
-                }
-              },
-            ),
-            RoundedButton(
-              text: "Iniciar sesión",
-              loading: loading,
-              press: () {
-                loginUser(); //Login Usuaria
-              },
-            ),
-            SizedBox(height: size.height * 0.03),
-            AlreadyHaveAnAccountCheck(
-              press: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return SignUpScreen();
-                    },
-                  ),
-                );
-              },
-            ),
-            SizedBox(height: size.height * 0.03),
-            GestureDetector(
-              onTap: () {
-                setNameTest("Test de depresión");
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return TestScreen();
-                    },
-                  ),
-                );
-              },
-              child: Text('Deseas probar nuestros test? Haz click aqui'),
-            )
-          ],
+        child: Container(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              SizedBox(height: size.height * 0.5),
+              SizedBox(height: size.height * 0.03),
+              RoundedInputField(
+                hintText: "Tu nombre de usuario",
+                //             helperText: "$menssage",
+                onChanged: (value) {
+                  setState(() => {this.username = value});
+                },
+              ),
+              RoundedPasswordField(
+                helperText: "$menssage",
+                onChanged: (value) {
+                  {
+                    setState(() => {this.password = value});
+                  }
+                },
+              ),
+              RoundedButton(
+                text: "Iniciar sesión",
+                loading: loading,
+                press: () {
+                  loginUser(); //Login Usuaria
+                },
+              ),
+              SizedBox(height: size.height * 0.03),
+              AlreadyHaveAnAccountCheck(
+                press: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return SignUpScreen();
+                      },
+                    ),
+                  );
+                },
+              ),
+              SizedBox(height: size.height * 0.03),
+              GestureDetector(
+                onTap: () {
+                  setNameTest("Test de depresión");
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return TestScreen();
+                      },
+                    ),
+                  );
+                },
+                child: Text('Deseas probar nuestros test? Haz click aqui'),
+              )
+            ],
+          ),
         ),
       ),
     );
