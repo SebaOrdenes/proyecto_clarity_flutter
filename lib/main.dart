@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_auth/Screens/Revitalizar/components/escuchar_screen.dart';
 import 'package:flutter_auth/Screens/Welcome/welcome_screen.dart';
 import 'package:flutter_auth/constants.dart';
 import 'package:flutter_auth/Screens/Welcome/splashScreen.dart';
+
+import 'Screens/Revitalizar/components/audios.dart';
 
 void main() => runApp(MyApp());
 
@@ -20,8 +23,8 @@ class MyApp extends StatelessWidget {
         const Locale('es'),
         const Locale('en'),
       ],
+      //home: AudioPlayerUrl(),
       home: SplashScreen(),
-      //home: AdminScreen(),
       //home: TratamientoScreen(),
       //home: ParaTiScreen(),
     );

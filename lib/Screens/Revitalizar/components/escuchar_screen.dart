@@ -83,9 +83,7 @@ class EscucharScreen extends StatelessWidget {
               Text(
                 'Esta actividad te puede ayudar a:',
                 style: TextStyle(
-                    fontSize: 16,
-                    fontFamily: 'Raleway',
-                    color: kDeepOrangeColor),
+                    fontSize: 16, fontFamily: 'Raleway', color: kPinkOscuro),
                 textAlign: TextAlign.justify,
               ),
               SizedBox(height: size.height * 0.02),
@@ -97,7 +95,52 @@ class EscucharScreen extends StatelessWidget {
                     fontSize: 14, fontFamily: 'Raleway', color: Colors.black26),
                 textAlign: TextAlign.justify,
               ),
-              VideoPlayerScreen(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return AudioPlayerUrl();
+                          },
+                        ),
+                      );
+                    },
+                    child: Container(
+                      padding: EdgeInsets.all(5.0),
+                      child: Image.asset(
+                        'assets/images/PAZ.jpg',
+                        width: 150,
+                        height: 150,
+                      ),
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return AudioPlayerUrl();
+                          },
+                        ),
+                      );
+                    },
+                    child: Container(
+                      padding: EdgeInsets.all(5.0),
+                      child: Image.asset(
+                        'assets/images/RELAX.jpg',
+                        width: 150,
+                        height: 150,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              //AudioPlayerUrl(),
             ],
           ),
         ),

@@ -34,29 +34,6 @@ class Body extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                           builder: (context) {
-                            return RespirarScreen();
-                          },
-                        ),
-                      );
-                    },
-                    child: Image.asset(
-                      'assets/images/respira.png',
-                      width: 100,
-                      height: 100,
-                    ),
-                  ),
-                  Text(
-                    'Respirar',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 20, fontFamily: 'Raleway'),
-                  ),
-                  SizedBox(height: size.height * 0.01),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) {
                             return EscucharScreen();
                           },
                         ),
@@ -70,6 +47,20 @@ class Body extends StatelessWidget {
                   ),
                   Text(
                     'Escucha',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 20, fontFamily: 'Raleway'),
+                  ),
+                  SizedBox(height: size.height * 0.01),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Image.asset(
+                      'assets/images/respira.png',
+                      width: 100,
+                      height: 100,
+                    ),
+                  ),
+                  Text(
+                    'Respirar',
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 20, fontFamily: 'Raleway'),
                   ),
