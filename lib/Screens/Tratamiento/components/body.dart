@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_auth/Screens/Especialistas/especialistas_screen.dart';
 import 'package:flutter_auth/Screens/Layout/components/background.dart';
+import 'package:flutter_auth/Screens/SesionGrupal/sesionGrupal_screen.dart';
 import 'package:flutter_auth/Screens/Videos/videos_screen.dart';
+import 'package:flutter_auth/Screens/Tratamiento/components/videos.dart';
+import 'package:flutter_auth/Screens/Workshop/workshop_screen.dart';
 import 'package:flutter_auth/services/especialistaService.dart';
+import 'package:flutter_auth/services/sesionGrupalService.dart';
+import 'package:flutter_auth/services/workshopService.dart';
 
 import '../../../constants.dart';
 
@@ -14,20 +19,55 @@ class Body extends StatefulWidget {
 
 class _BodyState extends State<Body> {
   EspecialistaService especialistaService;
+  WorkshopService workshopService;
+  SesionGrupalService sesionGrupalService;
 
   //Cambiar a vista especialistas
   getEspecialistas() async {
     especialistaService = new EspecialistaService();
     print(EspecialistaService.listaEspecialistas);
-    if (EspecialistaService.state == false) {
-      await especialistaService.getEspecialistas();
-      EspecialistaService.state = true;
-    }
+
+    await especialistaService.getEspecialistas();
+
     Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) {
           return EspecialistasScreen();
+        },
+      ),
+    );
+  }
+
+  //Cambiar a vista workshop
+  getWorkshops() async {
+    workshopService = new WorkshopService();
+    print(WorkshopService.listaWorkshop);
+
+    await workshopService.getWorkshops();
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) {
+          return WorkshopScreen();
+        },
+      ),
+    );
+  }
+
+  //Cambiar a vista Sesion grupal
+  getSesionGrupal() async {
+    sesionGrupalService = new SesionGrupalService();
+    print(SesionGrupalService.listaSesionGrupal);
+
+    await sesionGrupalService.getSesionesGrupales();
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) {
+          return SesionGrupalScreen();
         },
       ),
     );
@@ -90,14 +130,7 @@ class _BodyState extends State<Body> {
           ),
           InkWell(
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return getEspecialistas();
-                  },
-                ),
-              );
+              return getEspecialistas();
             },
             child: Container(
               padding: EdgeInsets.all(5.0),
@@ -125,7 +158,9 @@ class _BodyState extends State<Body> {
             ),
           ),
           InkWell(
-            onTap: () {},
+            onTap: () {
+              return getWorkshops();
+            },
             child: Container(
               padding: EdgeInsets.all(5.0),
               child: Image.asset(
@@ -199,7 +234,9 @@ class _BodyState extends State<Body> {
               top: 400,
               left: 200,
               child: InkWell(
-                onTap: null,
+                onTap: () {
+                  getWorkshops();
+                },
                 child: Container(
                   padding: EdgeInsets.all(12.0),
                   child: Image.asset(

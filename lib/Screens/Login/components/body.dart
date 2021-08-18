@@ -90,6 +90,7 @@ class _BodyState extends State<Body> {
           children: <Widget>[
             SizedBox(height: size.height * 0.5),
             SizedBox(height: size.height * 0.03),
+
             RoundedInputField(
               hintText: "Tu nombre de usuario",
               //             helperText: "$menssage",
@@ -97,6 +98,7 @@ class _BodyState extends State<Body> {
                 setState(() => {this.username = value});
               },
             ),
+
             RoundedPasswordField(
               helperText: "$menssage",
               onChanged: (value) {

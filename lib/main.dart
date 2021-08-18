@@ -16,6 +16,10 @@ class MyApp extends StatelessWidget {
         primaryColor: kPrimaryColor,
         scaffoldBackgroundColor: Colors.white,
       ),
+      supportedLocales: [
+        const Locale('es'),
+        const Locale('en'),
+      ],
       home: SplashScreen(),
       //home: AdminScreen(),
       //home: TratamientoScreen(),

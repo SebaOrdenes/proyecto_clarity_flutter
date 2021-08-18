@@ -7,6 +7,8 @@ class RoundedButton extends StatelessWidget {
   final Color color, textColor;
   final double dimension;
   final bool loading; //permite mostrar circulo de carga
+  final double height;
+  final double fontSize;
   const RoundedButton({
     Key key,
     this.text,
@@ -15,14 +17,17 @@ class RoundedButton extends StatelessWidget {
     this.textColor = Colors.black,
     this.dimension = 0.8,
     this.loading = false,
+    this.height = 60,
+    this.fontSize = 14,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 10),
+      margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
       width: size.width * dimension,
+      height: height,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(29),
         // ignore: deprecated_member_use
@@ -35,7 +40,8 @@ class RoundedButton extends StatelessWidget {
               children: [
                 Text(
                   text,
-                  style: TextStyle(color: textColor, fontFamily: 'Raleway'),
+                    
+                  style: TextStyle(color: textColor, fontFamily: 'Raleway', fontSize: fontSize,),
                 ),
                 //Si se ha realizado alguna busqueda
                 if (loading)

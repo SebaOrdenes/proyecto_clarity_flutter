@@ -43,7 +43,7 @@ class _BodyState extends State<Body> {
               ),
             ),
             Container(
-              padding: const EdgeInsets.all(30),
+              padding: const EdgeInsets.all(20),
               child: GestureDetector(
                 onTap: () {},
                 child: RoundedButton(

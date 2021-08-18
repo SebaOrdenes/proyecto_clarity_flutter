@@ -30,8 +30,8 @@ dependencies:
   flutter_svg: ^0.19.1
   http: any
   shared_preferences: ^2.0.6
-  calendar_timeline: ^0.7.1
   better_player: ^0.0.48
+  table_calendar: ^3.0.2
 
 dev_dependencies:
   flutter_test:

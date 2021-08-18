@@ -47,6 +47,7 @@ class _BodyState extends State<Body> {
     String nameTest = TestService.name;
     String typeTest = "1";
     if (nameTest == "Test quincenal") typeTest = "2";
+
     //Guardando los resultados de las respuestas
     await testService.storeTestAnswerUser(typeTest, answers);
     List testResult = await testService.getResultadoTest(nameTest);

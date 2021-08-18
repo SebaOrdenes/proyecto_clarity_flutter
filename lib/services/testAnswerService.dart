@@ -14,10 +14,12 @@ class TestAnswerService {
     TestAnswer testAnswer = new TestAnswer();
     List<Answer> answers = testAnswer.getTestAnswers(idAnswers);
 
+    print(typeTest);
     String userId = Users.id;
     Map<String, dynamic> map = testAnswer.toJson();
     Map<String, dynamic> args = {"data": map};
     var jsonString = jsonEncode(args);
+    print(userId);
 
     if (answers != null) {
       try {
@@ -26,6 +28,7 @@ class TestAnswerService {
           body: jsonString,
           headers: {'Content-type': 'application/json'},
         );
+        print("response: $response");
       } catch (e) {
         print(e);
       }
