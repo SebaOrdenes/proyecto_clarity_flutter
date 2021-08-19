@@ -28,19 +28,40 @@ class LoginService {
     });
     Map<String, dynamic> jsonResponse =
         convert.jsonDecode(response.body) as Map<String, dynamic>;
-
+    print(jsonResponse);
     String id = jsonResponse['data']['_id'];
-    String name = jsonResponse['data']['name'];
-    String username = jsonResponse['data']['username'];
-    String email = jsonResponse['data']['email'];
-    List<Map<String, dynamic>> testResults =
-        jsonResponse['data']['testResults'];
-    int categoryInitialTest = jsonResponse['data']['categoryInitialTest'];
-    int scoreInitialTest = jsonResponse['data']['scoreInitialTest'];
-    int membership = jsonResponse['data']['membership'];
+    String name = jsonResponse['data']["name"];
+    String username = jsonResponse['data']["username"];
+    String email = jsonResponse['data']["email"];
+    int categoryInitialTest = jsonResponse['data']["categoryInitialTest"];
+    int scoreInitialTest = jsonResponse['data']["ScoreInitialTest"];
+    int categoryBiweeklyTest = jsonResponse['data']["categoryBiweeklyTest"];
+    double scoreBiweeklyTest =
+        jsonResponse['data']["ScoreBiweeklyTest"].toDouble();
+    List<dynamic> listSesion1_1 = jsonResponse['data']["listSesion1_1"];
+    List<dynamic> listGroupSession = jsonResponse['data']["listGroupSession"];
+    List<dynamic> listWorkshops = jsonResponse['data']["listWorkshops"];
+    int role = jsonResponse['data']["role"];
+    int membership = jsonResponse['data']["membership"];
 
-    Users user = new Users(name, username, email, testResults,
-        categoryInitialTest, scoreInitialTest, membership);
+    List<Map<String, dynamic>> testResults =
+        jsonResponse['data']["testResults"];
+    print(jsonResponse);
+    Users user = new Users(
+        name,
+        username,
+        email,
+        testResults,
+        categoryInitialTest,
+        scoreInitialTest,
+        categoryBiweeklyTest,
+        scoreBiweeklyTest,
+        listSesion1_1,
+        listGroupSession,
+        listWorkshops,
+        role,
+        membership);
+
     user.setId(id);
   }
 }

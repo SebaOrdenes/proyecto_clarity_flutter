@@ -56,6 +56,7 @@ class _DetalleWorkshopState extends State<DetalleWorkshop> {
     setLoading(true);
     await WorkshopService.addParticipantWorkshop(workshop.id, Users.id);
     setLoading(false);
+    Users.listWorkshops.add(Users.id);
     Navigator.push(
       context,
       MaterialPageRoute(
@@ -332,7 +333,6 @@ class _DetalleWorkshopState extends State<DetalleWorkshop> {
     return RoundedButton(
       loading: loading,
       text: "Solicitar Workshop",
-     
       press: () {
         if (workshop.totalCapacity > 0) {
           addParticipantWokshop();

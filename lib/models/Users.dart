@@ -11,6 +11,12 @@ class Users {
   static List<Map<String, dynamic>> testResults;
   static int categoryInitialTest;
   static int scoreInitialTest;
+  static int categoryBiweeklyTest;
+  static double scoreBiweeklyTest;
+  static List<dynamic> listSesion1_1;
+  static List<dynamic> listGroupSession;
+  static List<dynamic> listWorkshops;
+  static int role;
   static int membership;
 
   Map<String, dynamic> validationLog;
@@ -25,6 +31,12 @@ class Users {
       List<Map<String, dynamic>> resultadoTest,
       int categoriaTestInicial,
       int puntajeTestInicial,
+      int categoriaTestQuincenal,
+      double puntajeTestQuincenal,
+      List<dynamic> lista1_1,
+      List<dynamic> listaSesionGrupal,
+      List<dynamic> listaWorkshop,
+      int rol,
       int membresia) {
     name = nombre;
     username = nombreUsuaria;
@@ -32,6 +44,12 @@ class Users {
     testResults = resultadoTest;
     categoryInitialTest = categoriaTestInicial;
     scoreInitialTest = puntajeTestInicial;
+    categoryBiweeklyTest = categoriaTestQuincenal;
+    scoreBiweeklyTest = puntajeTestQuincenal;
+    listSesion1_1 = lista1_1;
+    listGroupSession = listaSesionGrupal;
+    listWorkshops = listaWorkshop;
+    role = rol;
     membership = membresia;
   }
 
@@ -69,11 +87,29 @@ class Users {
       String email = usersData[i]["email"];
       int categoryInitialTest = usersData[i]["categoryInitialTest"];
       int scoreInitialTest = usersData[i]["ScoreInitialTest"];
+      int categoryBiweeklyTest = usersData[i]["categoryBiweeklyTest"];
+      double scoreBiweeklyTest = usersData[i]["ScoreBiweeklyTest"];
+      List<dynamic> listSesion1_1 = usersData[i]["listSesion1_1"];
+      List<dynamic> listGroupSession = usersData[i]["listGroupSession"];
+      List<dynamic> listWorkshops = usersData[i]["listWorkshops"];
+      int role = usersData[i]["role"];
       int membership = usersData[i]["membership"];
 
       List<Map<String, dynamic>> testResults = usersData[i]["testResults"];
-      Users userNew = new Users(name, username, email, testResults,
-          categoryInitialTest, scoreInitialTest, membership);
+      Users userNew = new Users(
+          name,
+          username,
+          email,
+          testResults,
+          categoryInitialTest,
+          scoreInitialTest,
+          categoryBiweeklyTest,
+          scoreBiweeklyTest,
+          listSesion1_1,
+          listGroupSession,
+          listWorkshops,
+          role,
+          membership);
       this.users.add(userNew);
     }
   }

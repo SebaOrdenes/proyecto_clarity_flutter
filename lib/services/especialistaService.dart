@@ -30,7 +30,7 @@ class EspecialistaService {
       }
 
       List<dynamic> role = resultado["role"];
-      String speciality = "psicologa";
+      String speciality = "Psicóloga";
       List<dynamic> hoursUnAvailableFCIOTOS =
           resultado["hoursUnAvailableFCIOTOS"];
       List<dynamic> hoursUnAvailableFAIGS = resultado["hoursUnAvailableFAIGS"];
@@ -71,7 +71,7 @@ class EspecialistaService {
       }
 
       List<dynamic> role = resultado["role"];
-      String speciality = "psicologa";
+      String speciality = "Psicóloga";
       List<dynamic> hoursUnAvailableFCIOTOS =
           resultado["hoursUnAvailableFCIOTOS"];
       List<dynamic> hoursUnAvailableFAIGS = resultado["hoursUnAvailableFAIGS"];

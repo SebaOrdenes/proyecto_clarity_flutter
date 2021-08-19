@@ -2,33 +2,74 @@ import 'package:flutter/material.dart';
 import 'package:flutter_auth/components/text_field_container.dart';
 import 'package:flutter_auth/constants.dart';
 
-class RoundedPasswordField extends StatelessWidget {
+class RoundedPasswordField extends StatefulWidget {
   final ValueChanged<String> onChanged;
   final String helperText;
+  final bool obscureText;
 
   const RoundedPasswordField({
     Key key,
     this.onChanged,
     this.helperText,
+    this.obscureText = true,
   }) : super(key: key);
+  @override
+  _RoundedPasswordField createState() => _RoundedPasswordField();
+}
+
+class _RoundedPasswordField extends State<RoundedPasswordField> {
+  ValueChanged<String> onChanged;
+  String helperText;
+  bool obscureText;
+  IconData visibility;
+  String tooltip;
+
+  void initState() {
+    super.initState();
+    this.onChanged = widget.onChanged;
+    this.helperText = widget.helperText;
+    this.obscureText = widget.obscureText;
+    this.visibility = Icons.visibility;
+    this.tooltip = "Mostrar contraseña";
+  }
 
   @override
   Widget build(BuildContext context) {
     return TextFieldContainer(
       child: TextField(
-        obscureText: true,
+        obscureText: obscureText,
         onChanged: onChanged,
         cursorColor: kPrimaryColor,
         decoration: InputDecoration(
           helperText: helperText,
-          hintText: "Password",
+          hintText: "Contraseña",
           icon: Icon(
             Icons.lock,
             color: kPrimaryColor,
           ),
-          suffixIcon: Icon(
-            Icons.visibility,
-            color: kPrimaryColor,
+          suffixIcon: IconButton(
+            splashColor:
+                Colors.transparent, //No muestra circulo tras presionar botón
+            tooltip: this.tooltip,
+            icon: Icon(
+              this.visibility,
+              color: kPrimaryColor,
+            ),
+            onPressed: () {
+              setState(
+                () {
+                  if (this.obscureText == true) {
+                    this.obscureText = false;
+                    this.visibility = Icons.visibility_off;
+                    this.tooltip = "Mostrar contraseña";
+                  } else {
+                    this.obscureText = true;
+                    this.visibility = Icons.visibility;
+                    this.tooltip = "Ocultar contraseña";
+                  }
+                },
+              );
+            },
           ),
           // border: InputBorder.none,
         ),

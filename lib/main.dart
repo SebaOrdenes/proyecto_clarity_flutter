@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: kPrimaryColor,
         scaffoldBackgroundColor: Colors.white,
+        dividerColor: Colors.black,
       ),
 
       //home: AudioPlayerUrl(),

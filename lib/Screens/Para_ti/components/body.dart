@@ -48,6 +48,7 @@ class Body extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 InkWell(
+                  highlightColor: Colors.white,
                   onTap: () {
                     Navigator.push(
                       context,
@@ -68,6 +69,7 @@ class Body extends StatelessWidget {
                   ),
                 ),
                 InkWell(
+                  highlightColor: Colors.white,
                   onTap: () {
                     Navigator.push(
                       context,
@@ -93,6 +95,7 @@ class Body extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 InkWell(
+                  highlightColor: Colors.white,
                   onTap: () {
                     Navigator.push(
                       context,
@@ -113,6 +116,7 @@ class Body extends StatelessWidget {
                   ),
                 ),
                 InkWell(
+                  highlightColor: Colors.white,
                   onTap: () {
                     Navigator.push(
                       context,

@@ -58,10 +58,9 @@ class _DetalleSesionGrupalState extends State<DetalleSesionGrupal> {
     return date.split("-").reversed.join("-");
   }
 
-  getDateName(String date){
-
+  getDateName(String date) {
     DateTime dateAux = DateTime.parse(date);
-    String dateSpanish = DateFormat('EEEE','es').format(dateAux);
+    String dateSpanish = DateFormat('EEEE', 'es').format(dateAux);
     return dateSpanish;
   }
 
@@ -71,6 +70,7 @@ class _DetalleSesionGrupalState extends State<DetalleSesionGrupal> {
     await SesionGrupalService.addParticipanSesionGrupal(
         sesionGrupal.id, Users.id);
     setLoading(false);
+    Users.listGroupSession.add(Users.id);
     Navigator.push(
       context,
       MaterialPageRoute(
@@ -250,7 +250,7 @@ class _DetalleSesionGrupalState extends State<DetalleSesionGrupal> {
         Container(
           margin: EdgeInsets.only(left: 20, bottom: 20, right: 20),
           child: Text(
-            "Descripción del Workshop solicitado",
+            "Descripción de la sesión grupal solicitada",
             style: TextStyle(
               color: Colors.black,
               fontSize: 15.0,
@@ -320,7 +320,6 @@ class _DetalleSesionGrupalState extends State<DetalleSesionGrupal> {
                 ),
                 textAlign: TextAlign.left,
               ),
-
             ],
           ),
         ),
@@ -348,7 +347,6 @@ class _DetalleSesionGrupalState extends State<DetalleSesionGrupal> {
     return RoundedButton(
       loading: loading,
       text: "Solicitar Sesión",
-
       press: () {
         if (sesionGrupal.totalCapacity > 0) {
           addParticipantSesionGrupal();

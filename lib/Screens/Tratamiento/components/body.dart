@@ -74,104 +74,114 @@ class _BodyState extends State<Body> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return SafeArea(
-        child: Center(
-            child: ListView(children: [
-      SizedBox(height: size.height * 0.05),
-      Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage('assets/images/fondo.jpeg'), fit: BoxFit.cover),
-        ),
-        child: Column(
+      child: Center(
+        child: ListView(
           children: [
-            Image.asset(
-              'assets/images/Tratamiento1.png',
-              width: 200,
-              height: 110,
-            ),
-            Text(
-              'Hemos integrado diferentes alternativas psicoterapéuticas '
-              'para acompañarte en tu camino de transformación.',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: kPrimaryColor,
-                fontFamily: 'Raleway',
-                fontSize: 15,
+            SizedBox(height: size.height * 0.05),
+            Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/images/fondo.jpeg'),
+                  fit: BoxFit.cover,
+                ),
               ),
+              child: Column(
+                children: [
+                  Image.asset(
+                    'assets/images/Tratamiento1.png',
+                    width: 200,
+                    height: 110,
+                  ),
+                  Text(
+                    'Hemos integrado diferentes alternativas psicoterapéuticas '
+                    'para acompañarte en tu camino de transformación.',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: kPrimaryColor,
+                      fontFamily: 'Raleway',
+                      fontSize: 15,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                InkWell(
+                  highlightColor: Colors.white,
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return VideoScreen();
+                        },
+                      ),
+                    );
+                  },
+                  child: Container(
+                    padding: EdgeInsets.all(5.0),
+                    child: Image.asset(
+                      'assets/images/Individual.png',
+                      width: 150,
+                      height: 150,
+                    ),
+                  ),
+                ),
+                InkWell(
+                  highlightColor: Colors.white,
+                  onTap: () {
+                    return getEspecialistas();
+                  },
+                  child: Container(
+                    padding: EdgeInsets.all(5.0),
+                    child: Image.asset(
+                      'assets/images/Especialista.png',
+                      width: 150,
+                      height: 150,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                InkWell(
+                  highlightColor: Colors.white,
+                  onTap: () {
+                    return getSesionGrupal();
+                  },
+                  child: Container(
+                    padding: EdgeInsets.all(5.0),
+                    child: Image.asset(
+                      'assets/images/Grupos.png',
+                      width: 150,
+                      height: 150,
+                    ),
+                  ),
+                ),
+                InkWell(
+                  highlightColor: Colors.white,
+                  onTap: () {
+                    return getWorkshops();
+                  },
+                  child: Container(
+                    padding: EdgeInsets.all(5.0),
+                    child: Image.asset(
+                      'assets/images/Workshops.png',
+                      width: 150,
+                      height: 150,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
       ),
-      Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          InkWell(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return VideoScreen();
-                  },
-                ),
-              );
-            },
-            child: Container(
-              padding: EdgeInsets.all(5.0),
-              child: Image.asset(
-                'assets/images/Individual.png',
-                width: 150,
-                height: 150,
-              ),
-            ),
-          ),
-          InkWell(
-            onTap: () {
-              return getEspecialistas();
-            },
-            child: Container(
-              padding: EdgeInsets.all(5.0),
-              child: Image.asset(
-                'assets/images/Especialista.png',
-                width: 150,
-                height: 150,
-              ),
-            ),
-          ),
-        ],
-      ),
-      Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          InkWell(
-            onTap: () {
-              return getSesionGrupal();
-            },
-            child: Container(
-              padding: EdgeInsets.all(5.0),
-              child: Image.asset(
-                'assets/images/Grupos.png',
-                width: 150,
-                height: 150,
-              ),
-            ),
-          ),
-          InkWell(
-            onTap: () {
-              return getWorkshops();
-            },
-            child: Container(
-              padding: EdgeInsets.all(5.0),
-              child: Image.asset(
-                'assets/images/Workshops.png',
-                width: 150,
-                height: 150,
-              ),
-            ),
-          ),
-        ],
-      ),
-    ],),),);
+    );
     /*Background(
       child: Stack(
         children: <Widget>[

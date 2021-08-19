@@ -9,6 +9,7 @@ import 'especialistaService.dart';
 
 class SesionGrupalService {
   static List<SesionGrupal> listaSesionGrupal = [];
+  static List<SesionGrupal> listaSesionByUserGrupal = [];
   static SesionGrupal sesionGrupal;
 
   getSesionesGrupales() async {
@@ -39,7 +40,39 @@ class SesionGrupalService {
           listaSesionGrupal.add(sesionGrupal);
         }
       }
-      print("lista grupal: ${listaSesionGrupal}");
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  static getSesionesByUserGrupales() async {
+    try {
+      listaSesionByUserGrupal = [];
+      http.Response response =
+          await http.get(Uri.http(ip, '/api/groupSession'));
+      var jsonResponse = jsonDecode(response.body) as Map<String, dynamic>;
+      List<dynamic> listSesionesGrupales = jsonResponse['data'];
+
+      for (Map<String, dynamic> resultado in listSesionesGrupales) {
+        String id = resultado["_id"];
+        int currentCapacity = resultado["current_capacity"];
+        String topic = resultado["topic"];
+        int totalCapacity = resultado["total_capacity"];
+        String hour = resultado["hour"];
+        String idCollaborator = resultado["id_Collaborator"];
+        int numberSession = resultado["numberOfSessions"];
+        Especialista especialista =
+            await EspecialistaService.getEspecialista(idCollaborator);
+        List<dynamic> participants = resultado["participants"];
+
+        //Si existe un especialista asignado y el usuario no se ha registrado en el workshop
+        if (especialista != null &&
+            participants.contains(Users.username) != false) {
+          SesionGrupal sesionGrupal = new SesionGrupal(id, topic, totalCapacity,
+              hour, especialista, numberSession, currentCapacity, participants);
+          listaSesionByUserGrupal.add(sesionGrupal);
+        }
+      }
     } catch (e) {
       print(e);
     }
