@@ -32,40 +32,42 @@ class EscucharScreen extends StatelessWidget {
           margin: EdgeInsets.all(20),
           child: ListView(
             children: [
-              SizedBox(height: size.height * 0.02),
               Container(
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage('assets/images/fondo.jpeg'),
-                      fit: BoxFit.cover),
-                ),
-                child: Column(
-                  children: [
-                    Text(
-                      'Date un minuto para renovar tu energía',
-                      style: TextStyle(
-                          fontSize: 20,
-                          fontFamily: 'Raleway',
-                          color: Colors.black),
-                      textAlign: TextAlign.center,
-                    ),
-                    RoundedButton(text: "Respira", press: () {})
-                  ],
-                ),
-              ),
-              Text(
-                '¿Necesitas una herramienta simple que te permita relajarte rápidamente?',
-                style: TextStyle(
-                    fontSize: 18, fontFamily: 'Raleway', color: Colors.black),
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(height: size.height * 0.02),
-              Text(
-                'La relajación es sin duda una de las claves más fáciles de aplicar, y eso requiere de un solo recurso que todos tenemos cuando vivimos, así que prepárate para escuchar las técnicas más efectivas para lograr la calma que necesitas y seguir con con los desafíos del día a día.',
-                style: TextStyle(
-                    fontSize: 14, fontFamily: 'Raleway', color: Colors.black26),
-                textAlign: TextAlign.justify,
-              ),
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage('assets/images/fondo.jpeg'),
+                        fit: BoxFit.cover),
+                  ),
+                  child: Column(
+                    children: [
+                      Text(
+                        'Armoniza tu mente\n',
+                        style: TextStyle(
+                            fontSize: 22,
+                            fontFamily: 'Raleway',
+                            color: Colors.black),
+                        textAlign: TextAlign.center,
+                      ),
+                      Text(
+                        '¿Necesitas un tiempo de descanso y cuentas con poco tiempo?',
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontFamily: 'Raleway',
+                            color: Colors.black),
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(height: size.height * 0.02),
+                      Text(
+                        'Las alternativas de relajación que encontrarás  te ayudarán a disminuir tensiones y renovar la energía mental.',
+                        style: TextStyle(
+                            fontSize: 15,
+                            fontFamily: 'Raleway',
+                            color: Colors.black26),
+                        textAlign: TextAlign.justify,
+                      ),
+                    ],
+                  )),
+
               SizedBox(height: size.height * 0.02),
               Text(
                 'Instrucciones',
@@ -74,9 +76,9 @@ class EscucharScreen extends StatelessWidget {
               ),
               SizedBox(height: size.height * 0.02),
               Text(
-                'Intenta los diferentes ejercicios de respiración y encuentra el que te haga sentir más cómoda.',
+                'Elige la música que quieras y  disfruta de la experiencia.',
                 style: TextStyle(
-                    fontSize: 14, fontFamily: 'Raleway', color: Colors.black26),
+                    fontSize: 15, fontFamily: 'Raleway', color: Colors.black26),
                 textAlign: TextAlign.justify,
               ),
               SizedBox(height: size.height * 0.02),
@@ -88,9 +90,9 @@ class EscucharScreen extends StatelessWidget {
               ),
               SizedBox(height: size.height * 0.02),
               Text(
-                '-Sentirte mas relajada. \n'
-                '-Oxigenar tu cuerpo y calmar tu mente. \n'
-                '-Conectar contigo misma y balancear tus emociones',
+                '-Reducir tensiones. \n'
+                '-Aliviar el cansancio mental y fisico. \n'
+                '-Sentirte más tranquila.',
                 style: TextStyle(
                     fontSize: 14, fontFamily: 'Raleway', color: Colors.black26),
                 textAlign: TextAlign.justify,

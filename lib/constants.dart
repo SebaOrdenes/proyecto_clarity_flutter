@@ -8,4 +8,4 @@ const kWhiteColor = Colors.white;
 const kPinkcolor = Color(0xFFFFCCBC);
 const kDeepOrangeColor = Color(0xFFFBE9E7);
 const kPinkOscuro = Color(0xFFEF9A9A);
-const ip = '54.208.67.8:8000';
+const ip = '44.196.177.168:8000';

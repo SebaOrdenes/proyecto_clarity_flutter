@@ -30,6 +30,7 @@ texto() {
 class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     /* String membresia;
     if (Users.membership == 0) {
       membresia = 'Usuario free';
@@ -42,6 +43,7 @@ class Body extends StatelessWidget {
         child: ListView(
           children: [
             texto(),
+            SizedBox(height: size.height * 0.05),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
