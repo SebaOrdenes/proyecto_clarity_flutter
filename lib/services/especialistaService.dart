@@ -66,8 +66,8 @@ class EspecialistaService {
         image = "assets/images/Ylyana Rodríguez.jpg";
       } else if (name == "María Lourdes Latorreo") {
         image = "assets/images/María Lourdes Latorre.jpeg";
-      } else if (name == "Hector Antillanca el satanico") {
-        image = "assets/images/hector.png";
+      } else if (name == "Sara Alfaro") {
+        image = "assets/images/Sara Alfaro.png";
       }
 
       List<dynamic> role = resultado["role"];
@@ -98,9 +98,8 @@ class EspecialistaService {
   }
 
   static updateHourOTO(String idCollaborator, String date) async {
-
     //Modificando el tipo se sato para que coincida con la Base de Datos
-    String auxDate = date.toString().substring(0,16);
+    String auxDate = date.toString().substring(0, 16);
     print(Users.username);
     print("$idCollaborator");
     print(auxDate);
