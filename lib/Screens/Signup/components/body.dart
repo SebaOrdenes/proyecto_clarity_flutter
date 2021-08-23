@@ -61,12 +61,21 @@ class _BodyState extends State<Body> {
           children: <Widget>[
             SizedBox(height: size.height * 0.43),
             RoundedInputField(
-              hintText: "Nombre de Usuario",
+              icon: Icons.person_outline_rounded,
+              hintText: "Tu nombre y apellido",
               onChanged: (value) {
-                setState(() => {this.name = value, this.username = value});
+                setState(() => {this.name = value});
               },
             ),
             RoundedInputField(
+              icon: Icons.spa_outlined,
+              hintText: "Nombre de Usuario",
+              onChanged: (value) {
+                setState(() => {this.username = value});
+              },
+            ),
+            RoundedInputField(
+              icon: Icons.alternate_email_rounded,
               hintText: "Tu Email",
               onChanged: (value) {
                 setState(() => {this.email = value});

@@ -44,7 +44,7 @@ class _RoundedPasswordField extends State<RoundedPasswordField> {
           helperText: helperText,
           hintText: "Contraseña",
           icon: Icon(
-            Icons.lock,
+            Icons.lock_outline_rounded,
             color: kPrimaryColor,
           ),
           suffixIcon: IconButton(

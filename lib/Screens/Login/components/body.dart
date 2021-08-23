@@ -3,7 +3,6 @@ import 'package:flutter_auth/Screens/Admin/admin_screen.dart';
 import 'package:flutter_auth/Screens/Login/components/background.dart';
 import 'package:flutter_auth/Screens/Para_ti/para_ti_screen.dart';
 import 'package:flutter_auth/Screens/Signup/signup_screen.dart';
-import 'package:flutter_auth/Screens/Test/test_screen.dart';
 import 'package:flutter_auth/components/already_have_an_account_acheck.dart';
 import 'package:flutter_auth/components/rounded_button.dart';
 import 'package:flutter_auth/components/rounded_input_field.dart';
@@ -89,9 +88,9 @@ class _BodyState extends State<Body> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              SizedBox(height: size.height * 0.5),
-              SizedBox(height: size.height * 0.03),
+              SizedBox(height: size.height * 0.53),
               RoundedInputField(
+                icon: Icons.person_outline_rounded,
                 hintText: "Tu nombre de usuario",
                 //             helperText: "$menssage",
                 onChanged: (value) {
