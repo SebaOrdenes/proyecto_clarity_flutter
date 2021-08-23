@@ -59,31 +59,33 @@ class _BodyState extends State<Body> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            SizedBox(height: size.height * 0.43),
+            SizedBox(height: size.height * 0.3),
             RoundedInputField(
               icon: Icons.person_outline_rounded,
-              hintText: "Tu nombre y apellido",
+              hintText: "Nombre",
               onChanged: (value) {
-                setState(() => {this.name = value});
+                setState(() => {this.name = value.trim()});
               },
             ),
             RoundedInputField(
+              helperText: 'Nombre que usarás para ingresar',
               icon: Icons.spa_outlined,
-              hintText: "Nombre de Usuario",
+              hintText: "Usuario",
               onChanged: (value) {
-                setState(() => {this.username = value});
+                setState(() => {this.username = value.trim()});
               },
             ),
             RoundedInputField(
               icon: Icons.alternate_email_rounded,
               hintText: "Tu Email",
               onChanged: (value) {
-                setState(() => {this.email = value});
+                setState(() => {this.email = value.trim()});
               },
             ),
             RoundedPasswordField(
+              helperText: 'Contraseña mínima 8 caracteres',
               onChanged: (value) {
-                setState(() => {this.password = value});
+                setState(() => {this.password = value.trim()});
               },
             ),
             RoundedButton(
@@ -93,7 +95,6 @@ class _BodyState extends State<Body> {
                 createUser();
               },
             ),
-            SizedBox(height: size.height * 0.03),
             AlreadyHaveAnAccountCheck(
               login: false,
               press: () {

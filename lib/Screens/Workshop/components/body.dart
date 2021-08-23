@@ -208,7 +208,7 @@ class _BodyState extends State<Body> {
   }
 
   showCalendarFilter() {
-    Size size = MediaQuery.of(context).size;
+    //Size size = MediaQuery.of(context).size;
     return Container(
       //Contenedor de filtros
       margin: EdgeInsets.only(

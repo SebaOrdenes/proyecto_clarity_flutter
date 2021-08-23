@@ -13,8 +13,7 @@ class TestService {
     Test test = new Test(nameTest);
     List<String> alternatives = []; //Lista de alternativas
     List<String> listId = [];
-    List<String> querys = [];
-    String query = null;
+    String query;
     String item;
 
     //Ruta con back funcionando /options/api/Test de depresión

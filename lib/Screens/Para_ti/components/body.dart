@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_auth/Screens/Informacion/informacion_screen.dart';
 import 'package:flutter_auth/Screens/Medicion/medicion_screen.dart';

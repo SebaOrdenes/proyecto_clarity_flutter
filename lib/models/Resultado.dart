@@ -36,6 +36,7 @@ class Resultado {
     menssageScore1 = menssageScore1;
   }
 
+  // ignore: missing_return
   Future<Resultado> getResultado() async {
     http.Response response =
         await http.post(Uri.http(ip, 'api/users/statisticalMeasures'));
@@ -51,6 +52,7 @@ class Resultado {
     //print(menssageCategoryThree);
   }
 
+  // ignore: missing_return
   Future<Resultado> getResultado2() async {
     http.Response response =
         await http.post(Uri.http(ip, 'api/users/statisticalMeasures2'));

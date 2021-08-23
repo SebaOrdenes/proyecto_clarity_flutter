@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_auth/Screens/Layout/components/background.dart';
+import 'package:flutter_auth/services/testService.dart';
 
 import '../../../constants.dart';
 
@@ -20,7 +20,7 @@ class _BodyState extends State<Body> {
   @override
   void initState() {
     super.initState();
-    print("Soy un resultado: ${widget.testResult}");
+    //print("Soy un resultado: ${widget.testResult}");
     testResults = widget.testResult;
     setText(testResults);
   }
@@ -33,68 +33,101 @@ class _BodyState extends State<Body> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Center(
-        child: ListView(
-          children: [
-            Container(
-              margin: EdgeInsets.only(right: 10, left: 10, top: 10, bottom: 1),
-              //padding: const EdgeInsets.all(5),
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage('assets/images/fondo.jpeg'),
-                    fit: BoxFit.cover),
-              ),
-              child: Text(
-                "$reply",
-                textAlign: TextAlign.justify,
-                style: TextStyle(
-                  color: kPrimaryColor,
-                  fontFamily: 'Raleway',
-                  fontSize: 20,
+    if (TestService.name == 'Test quincenal') {
+      return SafeArea(
+        child: Center(
+          child: ListView(
+            children: [
+              Container(
+                margin:
+                    EdgeInsets.only(right: 10, left: 10, top: 10, bottom: 1),
+                //padding: const EdgeInsets.all(5),
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage('assets/images/fondo.jpeg'),
+                      fit: BoxFit.cover),
+                ),
+                child: Text(
+                  "Resultado: \n\n$reply",
+                  textAlign: TextAlign.justify,
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontFamily: 'Raleway',
+                    fontSize: 20,
+                  ),
                 ),
               ),
-            ),
-            Container(
-              margin: EdgeInsets.only(right: 10, left: 10, top: 10, bottom: 1),
-              //padding: const EdgeInsets.all(5),
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage('assets/images/fondo.jpeg'),
-                    fit: BoxFit.cover),
-              ),
-              child: Text(
-                "$description",
-                textAlign: TextAlign.justify,
-                style: TextStyle(
-                  color: kPrimaryColor,
-                  fontFamily: 'Raleway',
-                  fontSize: 20,
-                ),
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.only(right: 10, left: 10, top: 10, bottom: 1),
-              //padding: const EdgeInsets.all(5),
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage('assets/images/fondo.jpeg'),
-                    fit: BoxFit.cover),
-              ),
-              child: Text(
-                "$route",
-                textAlign: TextAlign.justify,
-                style: TextStyle(
-                  color: kPrimaryColor,
-                  fontFamily: 'Raleway',
-                  fontSize: 20,
-                ),
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
-      ),
-    );
+      );
+    } else {
+      return SafeArea(
+        child: Center(
+          child: ListView(
+            children: [
+              Container(
+                margin:
+                    EdgeInsets.only(right: 10, left: 10, top: 10, bottom: 1),
+                //padding: const EdgeInsets.all(5),
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage('assets/images/fondo.jpeg'),
+                      fit: BoxFit.cover),
+                ),
+                child: Text(
+                  "Resultado: $reply",
+                  textAlign: TextAlign.justify,
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontFamily: 'Raleway',
+                    fontSize: 20,
+                  ),
+                ),
+              ),
+              Container(
+                margin:
+                    EdgeInsets.only(right: 20, left: 20, top: 10, bottom: 1),
+                //padding: const EdgeInsets.all(5),
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage('assets/images/fondo.jpeg'),
+                      fit: BoxFit.cover),
+                ),
+                child: Text(
+                  "$route",
+                  textAlign: TextAlign.justify,
+                  style: TextStyle(
+                      color: kPrimaryColor,
+                      fontFamily: 'Raleway',
+                      fontSize: 17,
+                      height: 1.5),
+                ),
+              ),
+              Container(
+                margin:
+                    EdgeInsets.only(right: 25, left: 25, top: 10, bottom: 1),
+                //padding: const EdgeInsets.all(5),
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage('assets/images/fondo.jpeg'),
+                      fit: BoxFit.cover),
+                ),
+                child: Text(
+                  "$description",
+                  textAlign: TextAlign.justify,
+                  style: TextStyle(
+                    color: Colors.black45,
+                    fontFamily: 'Raleway',
+                    fontSize: 12,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
   }
 }
     /* Background(

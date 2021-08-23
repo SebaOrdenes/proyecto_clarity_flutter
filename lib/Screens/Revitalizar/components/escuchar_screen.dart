@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_auth/Screens/Revitalizar/components/audios.dart';
-import 'package:flutter_auth/components/rounded_button.dart';
 
 import '../../../constants.dart';
 

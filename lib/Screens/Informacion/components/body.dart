@@ -9,7 +9,6 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  @override
   List<int> images = [];
   Lectura lectura = new Lectura('', '', '', null, null);
   //metodo para llamar a getlectura con un await

@@ -50,6 +50,7 @@ class Lectura {
     return name;
   }
 
+  // ignore: missing_return
   Future<Lectura> getLecturas(int index) async {
     var nombre;
     var n = nombreLectura(index, nombre);

@@ -6,9 +6,7 @@ import 'package:flutter_auth/models/Especialista.dart';
 import 'package:flutter_auth/constants.dart';
 import 'package:flutter_auth/models/SesionGrupal.dart';
 import 'package:flutter_auth/models/Users.dart';
-import 'package:flutter_auth/models/Workshop.dart';
 import 'package:flutter_auth/services/sesionGrupalService.dart';
-import 'package:flutter_auth/services/workshopService.dart';
 import 'package:intl/intl.dart';
 import 'package:intl/date_symbol_data_local.dart';
 

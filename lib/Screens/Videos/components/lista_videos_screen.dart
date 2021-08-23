@@ -8,7 +8,7 @@ import '../../../constants.dart';
 class VideoListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    //Size size = MediaQuery.of(context).size;
     if (Users.membership == 1) {
       return Scaffold(
         backgroundColor: kDeepOrangeColor,
@@ -247,7 +247,7 @@ class VideoListScreen extends StatelessWidget {
 List<BetterPlayerDataSource> createDataSet(int index) {
   Video video = listaVideos[index];
   String url = video.url;
-  List dataSourceList = List<BetterPlayerDataSource>();
+  List dataSourceList = <BetterPlayerDataSource>[];
   dataSourceList.add(
     BetterPlayerDataSource(
       BetterPlayerDataSourceType.network,

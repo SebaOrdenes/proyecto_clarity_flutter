@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_auth/Screens/Admin/components/background.dart';
-import 'package:flutter_auth/Screens/Para_ti/para_ti_screen.dart';
 import 'package:flutter_auth/components/calendar.dart';
 import 'package:flutter_auth/components/rounded_button.dart';
-
 import 'package:flutter_auth/constants.dart';
 import 'package:flutter_auth/models/SesionGrupal.dart';
 import 'package:flutter_auth/models/Users.dart';
-import 'package:flutter_auth/services/loginService.dart';
 import 'package:flutter_auth/services/sesionGrupalService.dart';
-import 'package:flutter_auth/services/sesionOTOService.dart';
 import 'package:flutter_auth/services/workshopService.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:http/http.dart' as http;
@@ -53,6 +49,7 @@ class _BodyState extends State<Body> {
     setState(() {
       loading = true;
     });
+    // ignore: unused_local_variable
     http.Response response = await http.post(
       Uri.http(ip, '/api/users/updateMembership'),
       body: {

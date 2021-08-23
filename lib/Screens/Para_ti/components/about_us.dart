@@ -3,16 +3,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_auth/Screens/Layout/menu_lateral.dart';
 import 'package:flutter_auth/Screens/Videos/components/lista_videos_screen.dart';
-import 'package:flutter_auth/models/Users.dart';
-import 'package:flutter_auth/models/Videos.dart';
+
 import '../../../constants.dart';
 
 class AboutUsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-
-    Video video = listaVideos[2];
 
     return Scaffold(
       drawer: MenuLateral(),

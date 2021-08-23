@@ -64,15 +64,18 @@ class Users {
   //Registrar un usuario
   postUser(String name, String password, String username, String email,
       String testResults) async {
-    http.Response response =
-        await http.post(Uri.http(ip, '/api/users/register'), body: {
-      'name': name,
-      'password': password,
-      'confirmPassword': password,
-      'email': email,
-      'testResults': testResults,
-      'username': username,
-    });
+    // ignore: unused_local_variable
+    http.Response response = await http.post(
+      Uri.http(ip, '/api/users/register'),
+      body: {
+        'name': name,
+        'password': password,
+        'confirmPassword': password,
+        'email': email,
+        'testResults': testResults,
+        'username': username,
+      },
+    );
   }
 
   //Obtener listado de usuarios
@@ -125,6 +128,7 @@ class Users {
   }
 
   void getUserById(String id) async {
+    // ignore: unused_local_variable
     http.Response response = await http.get(Uri.http(ip, '/api/$id'));
   }
 
@@ -141,7 +145,9 @@ class Users {
 
   Future<void> mostrarDatosGuardados() async {
     preferences = await SharedPreferences.getInstance();
+    // ignore: await_only_futures
     id = await preferences.getString('idUser');
+    // ignore: await_only_futures
     name = await preferences.getString('name');
     print(id);
   }

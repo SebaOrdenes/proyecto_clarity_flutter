@@ -94,14 +94,14 @@ class _BodyState extends State<Body> {
                 hintText: "Tu nombre de usuario",
                 //             helperText: "$menssage",
                 onChanged: (value) {
-                  setState(() => {this.username = value});
+                  setState(() => {this.username = value.trim()});
                 },
               ),
               RoundedPasswordField(
                 helperText: "$menssage",
                 onChanged: (value) {
                   {
-                    setState(() => {this.password = value});
+                    setState(() => {this.password = value.trim()});
                   }
                 },
               ),

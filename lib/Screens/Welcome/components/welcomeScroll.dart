@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_auth/Screens/Tratamiento/components/videos.dart';
 
 class WelcomeScroll extends StatelessWidget {
   @override

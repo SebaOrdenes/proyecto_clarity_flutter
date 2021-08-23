@@ -30,7 +30,7 @@ class _MenuLateralState extends State<MenuLateral> {
     super.initState();
     setState(() {
       name = Users.getName();
-      print("soy un nombre: $name");
+      //print("soy un nombre: $name");
     });
 
     mostrarDatosGuardados();
@@ -50,13 +50,12 @@ class _MenuLateralState extends State<MenuLateral> {
               children: <Widget>[
                 Container(
                   width: 100,
-                  height: 100,
+                  height: 80,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    //image: DecorationImage(
-                    //  image: NetworkImage(
-                    //    'https://images.app.goo.gl/f5WNPUWswzehUpJT7'),
-                    //fit: BoxFit.fill),
+                    image: DecorationImage(
+                        image: AssetImage("assets/images/ESPERANZA.jpg"),
+                        fit: BoxFit.fill),
                   ),
                 ),
                 Text(
@@ -156,7 +155,7 @@ class _MenuLateralState extends State<MenuLateral> {
         ListTile(
           leading: Icon(Icons.open_in_new),
           title: Text(
-            'About us',
+            'Quiénes somos',
             style: TextStyle(fontSize: 18, fontFamily: 'Raleway'),
           ),
           onTap: () {

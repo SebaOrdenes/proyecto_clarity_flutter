@@ -41,8 +41,7 @@ class _BodyState extends State<Body> {
     this.textFilter = "Filtrar por:";
     this.iconFilter = Icons.calendar_today;
     this.stateFilter = false;
-    print("prueba 3: ${ this.listSesionGrupal }");
-
+    print("prueba 3: ${this.listSesionGrupal}");
   }
 
   //Obtención de lista de workshop
@@ -213,7 +212,7 @@ class _BodyState extends State<Body> {
   }
 
   showCalendarFilter() {
-    Size size = MediaQuery.of(context).size;
+    //Size size = MediaQuery.of(context).size;
     return Container(
       //Contenedor de filtros
       margin: EdgeInsets.only(

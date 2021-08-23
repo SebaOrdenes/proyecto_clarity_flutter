@@ -71,7 +71,7 @@ class VideoPlayer extends StatelessWidget {
 List<BetterPlayerDataSource> createDataSet() {
   Video video = listaVideos[0];
   String url = video.url;
-  List dataSourceList = List<BetterPlayerDataSource>();
+  List dataSourceList = <BetterPlayerDataSource>[];
   dataSourceList.add(
     BetterPlayerDataSource(
       BetterPlayerDataSourceType.network,

@@ -47,7 +47,6 @@ class _BodyState extends State<Body> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Background(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -84,7 +83,7 @@ class _BodyState extends State<Body> {
   }
 
   getEspecialistas() {
-    Size size = MediaQuery.of(context).size;
+    // Size size = MediaQuery.of(context).size;
     List<Widget> widgets = [];
     for (int index = 0; index < especialistas.length; index++) {
       widgets.add(

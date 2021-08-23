@@ -1,5 +1,4 @@
 import 'Especialista.dart';
-import 'Users.dart';
 
 class SesionOTO {
   String id;

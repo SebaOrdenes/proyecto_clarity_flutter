@@ -68,7 +68,7 @@ class _BodyState extends State<Body> {
   }
 
   List<BetterPlayerDataSource> createDataSet() {
-    List dataSourceList = List<BetterPlayerDataSource>();
+    List dataSourceList = <BetterPlayerDataSource>[];
     dataSourceList.add(
       BetterPlayerDataSource(
         BetterPlayerDataSourceType.network,
