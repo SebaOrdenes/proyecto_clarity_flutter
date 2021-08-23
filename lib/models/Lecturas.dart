@@ -21,6 +21,9 @@ class Lectura {
     readingByDay = readingByDay;
     titlesByDay = titlesByDay;
   }
+  //si se añaden nuevas lecturas a la DB añadir un nuevo caso con el nuevo titulo para que se muestre
+  //ademmas recordar añadir nueva imagen de nueva lectura como BannerX
+  //donde X es el numero nuevo, hasta el 24/08/2021 este numero corresponde a 5
   String nombreLectura(int id, String name) {
     if (id == 0) {
       name = "Amor propio";

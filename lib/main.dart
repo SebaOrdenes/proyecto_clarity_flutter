@@ -16,11 +16,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
         dividerColor: Colors.black,
       ),
-
-      //home: AudioPlayerUrl(),
       home: SplashScreen(),
-      //home: TratamientoScreen(),
-      //home: ParaTiScreen(),
     );
   }
 }

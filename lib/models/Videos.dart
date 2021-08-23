@@ -9,6 +9,10 @@ class Video {
       {@required this.titulo, @required this.descripcion, @required this.url});
 }
 
+//insertar links de videos en caso que se siga utilizando la api de google(o alguna otra api, que entregue un link de visualización),
+//si no, cambiar esto por algun llamado a DB desde aqui
+//aqui deberia añadir en "url" el llamado a la DB con las direcciones nuevas de los videos en alguna otra api
+//o modificar directamente para retornar el video, lo que conllevaria a modificar el modelo video, especificamente en la url (ya no tendría url, solo serpia el llamado a la DB donde estaría almacenado)
 List<Video> listaVideos = [
   Video(
       titulo: 'Dia 1',
