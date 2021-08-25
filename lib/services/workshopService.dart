@@ -60,9 +60,9 @@ class WorkshopService {
         Especialista especialista =
             await EspecialistaService.getEspecialista(idCollaborator);
 
-        //Si existe un especialista asignado y el usuario no se ha registrado en el workshop
+        //Si existe un especialista asignado y el usuario ha solicitado el workshop
         if (especialista != null &&
-            participants.contains(Users.username) != false) {
+            participants.contains(Users.username) == true) {
           Workshop workshop = new Workshop(id, title, description,
               totalCapacity, hour, idCollaborator, participants, especialista);
           listaWorkshopByUser.add(workshop);

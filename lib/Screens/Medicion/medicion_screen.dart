@@ -1,23 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_auth/Screens/Medicion/components/body.dart';
 import 'package:flutter_auth/Screens/Layout/menu_lateral.dart';
+import 'package:flutter_auth/components/app_bar.dart';
 import '../../constants.dart';
 
 class MedicionScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.black),
-        centerTitle: true,
-        title: Text(
-          'Medicion',
-          style: TextStyle(
-            color: Colors.black,
-            fontFamily: 'Raleway',
-          ),
-        ),
-        backgroundColor: kDeepOrangeColor,
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(50.0),
+        child: AppBarComponent(titleText: "Medición"),
       ),
       drawer: MenuLateral(),
       body: Body(),

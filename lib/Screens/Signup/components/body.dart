@@ -7,6 +7,7 @@ import 'package:flutter_auth/components/rounded_input_field.dart';
 import 'package:flutter_auth/components/rounded_password_field.dart';
 import 'package:flutter_auth/models/Users.dart';
 import 'package:flutter_auth/services/registroService.dart';
+import 'package:http/http.dart' as http;
 
 class Body extends StatefulWidget {
   @override
@@ -15,40 +16,85 @@ class Body extends StatefulWidget {
 
 class _BodyState extends State<Body> {
   Users user;
-  String name;
-  String password;
-  String username;
-  String email;
+  String name = "";
+  String password = "";
+  String username = "";
+  String email = "";
   String testResults = "0";
+  String helperName = "Tu nombre y apellido";
+  String helperPassword = "Contraseña mínima de 8 caracteres";
+  String helperUserName ="Nombre que usarás para ingresar";
+  String helperEmail = "Tu correo electrónico";
+  String errorTextName = "";
+  String errorTextUserName = "";
+  String errorTextEmail = "";
+  String errorTextPassword = "";
 
   bool loading = false; //circulo de carga
 
   //Se crea el usuario y se guarda en la base de datos
   void createUser() async {
-    setState(() {
-      loading = true;
-    });
-    await guardarUserData();
+    if(this.name != "" && this.username != "" && this.email != "" && this.password != ""){
+      setState(() {
+        loading = true;
+      });
+     String menssage =  await guardarUserData();
+      setState(() {
+        loading = false;
+      });
+      //Si el usuario ha sido creado
+      if(menssage != "Usuario no creado"){
+        Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) {
+            return LoginScreen();
+          },
+        ),
+      );
+      }
+      else{
+        setState(() {
+          errorTextUserName = "Usuaria existente";
+        });
+      }
 
-    setState(() {
-      loading = false;
-    });
-
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(
-        builder: (context) {
-          return LoginScreen();
-        },
-      ),
-    );
+    }
+    else {
+      setHelper();
+    }
   }
 
   //Se guarda el usuario en la base de datos
-  Future<void> guardarUserData() async {
+  Future<String> guardarUserData() async {
     RegistroService registro = new RegistroService();
-    await registro.postUser(
+    Map<String, dynamic> response = await registro.postUser(
         this.name, this.password, this.username, this.email, this.testResults);
+    return response["menssage"];
+  }
+
+  //Comprueba si se han enviado todos los datos
+  setHelper(){
+    if(this.name == ""){
+      setState(() {
+       this.errorTextName = "Campo vacío: debes ingresar un nombre";
+      });
+    }
+    if(this.username == ""){
+      setState(() {
+        this.errorTextUserName = "Campo vacío: debes ingresar una usuaria";
+      });
+    }
+    if(this.email == ""){
+      setState(() {
+        this.errorTextEmail = "Campo vacío: debes ingresar un correo";
+      });
+    }
+    if(this.password == ""){
+      setState(() {
+        this.errorTextPassword = "Campo vacío: debes ingresar una contraseña";
+      });
+    }
   }
 
   @override
@@ -61,6 +107,8 @@ class _BodyState extends State<Body> {
           children: <Widget>[
             SizedBox(height: size.height * 0.3),
             RoundedInputField(
+              helperText: helperName,
+              errorText: errorTextName,
               icon: Icons.person_outline_rounded,
               hintText: "Nombre",
               onChanged: (value) {
@@ -68,7 +116,8 @@ class _BodyState extends State<Body> {
               },
             ),
             RoundedInputField(
-              helperText: 'Nombre que usarás para ingresar',
+              helperText: helperUserName,
+              errorText: this.errorTextUserName,
               icon: Icons.spa_outlined,
               hintText: "Usuario",
               onChanged: (value) {
@@ -76,6 +125,8 @@ class _BodyState extends State<Body> {
               },
             ),
             RoundedInputField(
+              helperText: helperEmail,
+              errorText: errorTextEmail,
               icon: Icons.alternate_email_rounded,
               hintText: "Tu Email",
               onChanged: (value) {
@@ -83,7 +134,8 @@ class _BodyState extends State<Body> {
               },
             ),
             RoundedPasswordField(
-              helperText: 'Contraseña mínima 8 caracteres',
+              helperText: helperPassword,
+              errorText: errorTextPassword,
               onChanged: (value) {
                 setState(() => {this.password = value.trim()});
               },

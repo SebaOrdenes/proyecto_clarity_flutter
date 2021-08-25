@@ -18,16 +18,16 @@ class SesionOTOService {
     sesionOTOS = new SesionOTO(id, date, hour, especialista);
   }
 
+  //Obtiene la sesión 1-1 por usuario
   static getOTOSByUser() async {
     try {
       listaSessionsOTOByUser = [];
       http.Response response = await http.get(Uri.http(ip, '/api/otos'));
       var jsonResponse = jsonDecode(response.body) as Map<String, dynamic>;
       List<dynamic> listSessionsOTO = jsonResponse['data'];
-      print(listSessionsOTO);
       for (Map<String, dynamic> resultado in listSessionsOTO) {
         String id = resultado["_id"];
-        String idCollaborator = resultado["id_Collaborator"];
+        String idCollaborator = resultado["id_collaborator"];
         String hour = resultado["hour"];
         String username = resultado["username"];
 

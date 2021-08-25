@@ -6,12 +6,14 @@ class RoundedPasswordField extends StatefulWidget {
   final ValueChanged<String> onChanged;
   final String helperText;
   final bool obscureText;
+  final String errorText;
 
   const RoundedPasswordField({
     Key key,
     this.onChanged,
     this.helperText,
     this.obscureText = true,
+    this.errorText,
   }) : super(key: key);
   @override
   _RoundedPasswordField createState() => _RoundedPasswordField();
@@ -23,6 +25,7 @@ class _RoundedPasswordField extends State<RoundedPasswordField> {
   bool obscureText;
   IconData visibility;
   String tooltip;
+  String errorText;
 
   void initState() {
     super.initState();
@@ -31,6 +34,7 @@ class _RoundedPasswordField extends State<RoundedPasswordField> {
     this.obscureText = widget.obscureText;
     this.visibility = Icons.visibility;
     this.tooltip = "Mostrar contraseña";
+    this.errorText = widget.errorText;
   }
 
   @override
@@ -42,6 +46,7 @@ class _RoundedPasswordField extends State<RoundedPasswordField> {
         cursorColor: kPrimaryColor,
         decoration: InputDecoration(
           helperText: helperText,
+          errorText: errorText,
           hintText: "Contraseña",
           icon: Icon(
             Icons.lock_outline_rounded,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_auth/Screens/Lecturas/components/body.dart';
+import 'package:flutter_auth/components/app_bar.dart';
 
 import '../../constants.dart';
 
@@ -7,15 +8,9 @@ class LecturaScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.black),
-        centerTitle: true,
-        title: Text(
-          'Lectura diaria',
-          textAlign: TextAlign.center,
-          style: TextStyle(color: Colors.black, fontFamily: 'Raleway'),
-        ),
-        backgroundColor: kWhiteColor,
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(50.0),
+        child: AppBarComponent(titleText: "Lectura diaria"),
       ),
       //drawer: MenuLateral(),
       body: Body(),

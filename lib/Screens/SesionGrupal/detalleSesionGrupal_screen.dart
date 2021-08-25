@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_auth/components/app_bar.dart';
 import '../../constants.dart';
 import 'package:flutter_auth/Screens/Layout/menu_lateral.dart';
 
@@ -9,13 +10,9 @@ class DetalleSesionGrupalScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(
-          'Detalle de la Sesión Grupal',
-          style: TextStyle(color: Colors.black, fontFamily: 'Raleway'),
-        ),
-        backgroundColor: kDeepOrangeColor,
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(50.0),
+          child: AppBarComponent(titleText: "Detalle de la Sesión"),
       ),
       drawer: MenuLateral(),
       body: DetalleSesionGrupal(),

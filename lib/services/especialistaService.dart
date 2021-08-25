@@ -25,8 +25,8 @@ class EspecialistaService {
         image = "assets/images/Ylyana Rodríguez.jpg";
       } else if (name == "María Lourdes Latorreo") {
         image = "assets/images/María Lourdes Latorre.jpeg";
-      } else if (name == "Hector Antillanca el satanico") {
-        image = "assets/images/hector.png";
+      } else if (name == "Sara Alfaro") {
+        image = "assets/images/Sara Alfaro.png";
       }
 
       List<dynamic> role = resultado["role"];

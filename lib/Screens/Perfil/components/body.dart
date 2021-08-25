@@ -6,6 +6,7 @@ import 'package:flutter_auth/constants.dart';
 import 'package:flutter_auth/models/SesionGrupal.dart';
 import 'package:flutter_auth/models/Users.dart';
 import 'package:flutter_auth/services/sesionGrupalService.dart';
+import 'package:flutter_auth/services/sesionOTOService.dart';
 import 'package:flutter_auth/services/workshopService.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:http/http.dart' as http;
@@ -38,13 +39,13 @@ class _BodyState extends State<Body> {
   }
 
   getSessions() async {
-    await SesionGrupalService.getSesionesByUserGrupales();
+    await SesionGrupalService.getSesionesGrupalesByUser();
     await WorkshopService.getWorkshopsByUser();
-
-    //await SesionOTOService.getOTOSByUser();
-    print("aca");
+    await SesionOTOService.getOTOSByUser();
+    print(SesionGrupalService.listaSesionGrupalByUser[0].hour);
   }
 
+  //Actualizar la membresía de usuario
   updateMembership() async {
     setState(() {
       loading = true;
@@ -64,7 +65,7 @@ class _BodyState extends State<Body> {
     });
   }
 
-  postUserRole() async {}
+
 
   @override
   Widget build(BuildContext context) {
@@ -234,7 +235,7 @@ class _BodyState extends State<Body> {
     );
   }
 
-  //Información de la usuaria
+  //Calendario
   buildCalendar() {
     Size size = MediaQuery.of(context).size;
     return Container(
