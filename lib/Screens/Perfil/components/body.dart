@@ -22,27 +22,29 @@ class _BodyState extends State<Body> {
   int lengthSession1_1 = 0;
   int lengthGroupSession = 0;
   int lengthWorkshops = 0;
-  List<SesionGrupal> listaSesionGrupal = [];
   bool loading;
   bool stateButtonPremium = false;
+  List<dynamic> listEventsByDay;
 
   @override
   void initState() {
     super.initState();
-    this.lengthSession1_1 = Users.listSesion1_1.length;
-    this.lengthGroupSession = Users.listGroupSession.length;
-    this.lengthWorkshops = Users.listWorkshops.length;
-    this.loading = false;
     getSessions();
+    this.loading = false;
+
 
     //SesionOTOService.getOTOSByUser(user);
   }
 
+  //Obtener las sesiones de las usuarias
   getSessions() async {
-    await SesionGrupalService.getSesionesGrupalesByUser();
-    await WorkshopService.getWorkshopsByUser();
-    await SesionOTOService.getOTOSByUser();
-    print(SesionGrupalService.listaSesionGrupalByUser[0].hour);
+
+    setState(() {
+      this.lengthSession1_1 = SesionOTOService.listaSessionsOTOByUser.length;
+      this.lengthGroupSession = SesionGrupalService.listaSesionGrupalByUser.length;
+      this.lengthWorkshops = WorkshopService.listaWorkshopByUser.length;
+    });
+
   }
 
   //Actualizar la membresía de usuario
@@ -64,8 +66,6 @@ class _BodyState extends State<Body> {
       stateButtonPremium = true;
     });
   }
-
-
 
   @override
   Widget build(BuildContext context) {

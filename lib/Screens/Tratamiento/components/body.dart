@@ -3,6 +3,7 @@ import 'package:flutter_auth/Screens/Especialistas/especialistas_screen.dart';
 import 'package:flutter_auth/Screens/SesionGrupal/sesionGrupal_screen.dart';
 import 'package:flutter_auth/Screens/Videos/videos_screen.dart';
 import 'package:flutter_auth/Screens/Workshop/workshop_screen.dart';
+import 'package:flutter_auth/components/loading_page.dart';
 import 'package:flutter_auth/services/especialistaService.dart';
 import 'package:flutter_auth/services/sesionGrupalService.dart';
 import 'package:flutter_auth/services/workshopService.dart';
@@ -25,7 +26,12 @@ class _BodyState extends State<Body> {
     especialistaService = new EspecialistaService();
     print(EspecialistaService.listaEspecialistas);
 
+    //Inicio de carga
+    LoadingPage loadingPage = LoadingPage(context);
+    loadingPage.show();
     await especialistaService.getEspecialistas();
+    //Fin de carga
+    loadingPage.close();
 
     Navigator.push(
       context,
@@ -40,9 +46,13 @@ class _BodyState extends State<Body> {
   //Cambiar a vista workshop
   getWorkshops() async {
     workshopService = new WorkshopService();
-    print(WorkshopService.listaWorkshop);
 
+    //Inicio de carga
+    LoadingPage loadingPage = LoadingPage(context);
+    loadingPage.show();
     await workshopService.getWorkshops();
+    //Fin de carga
+    loadingPage.close();
 
     Navigator.push(
       context,
@@ -57,8 +67,13 @@ class _BodyState extends State<Body> {
   //Cambiar a vista Sesion grupal
   getSesionGrupal() async {
     sesionGrupalService = new SesionGrupalService();
+
+    //Inicio de carga
+    LoadingPage loadingPage = LoadingPage(context);
+    loadingPage.show();
     await sesionGrupalService.getSesionesGrupales();
-    print("prueba 2: ${SesionGrupalService.listaSesionGrupal}");
+    //Fin de carga
+    loadingPage.close();
 
     Navigator.push(
       context,
