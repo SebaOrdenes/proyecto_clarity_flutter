@@ -105,6 +105,15 @@ class _AudioPlayerUrlState extends State<AudioPlayerUrl> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.black),
+        centerTitle: true,
+        title: Text(
+          'Audio',
+          style: TextStyle(color: Colors.black, fontFamily: 'Raleway'),
+        ),
+        backgroundColor: kDeepOrangeColor,
+      ),
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(

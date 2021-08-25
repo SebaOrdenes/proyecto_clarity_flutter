@@ -2,7 +2,7 @@ import 'package:better_player/better_player.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_auth/Screens/Layout/menu_lateral.dart';
-import 'package:flutter_auth/Screens/Videos/components/lista_videos_screen.dart';
+import 'package:flutter_auth/models/Videos.dart';
 
 import '../../../constants.dart';
 
@@ -35,7 +35,7 @@ class AboutUsScreen extends StatelessWidget {
                   betterPlayerConfiguration: BetterPlayerConfiguration(),
                   betterPlayerPlaylistConfiguration:
                       BetterPlayerPlaylistConfiguration(),
-                  betterPlayerDataSourceList: createDataSet(2)),
+                  betterPlayerDataSourceList: createDataSetVideoPresentacion()),
             ),
             Container(
               child: Text(
@@ -52,7 +52,7 @@ class AboutUsScreen extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(20),
               child: Text(
-                'Clarity es una solución simple y altamente efectiva para el manejo de la depresión en mujeres que deseen experimentar bienestar y felicidad en sus vidas',
+                'Clarity es una solución simple y altamente efectiva para el manejo de la depresión en mujeres que deseen experimentar bienestar y felicidad en sus vidas.',
                 textAlign: TextAlign.justify,
                 style: TextStyle(
                     color: Colors.black,
@@ -66,4 +66,17 @@ class AboutUsScreen extends StatelessWidget {
       ),
     );
   }
+}
+
+List<BetterPlayerDataSource> createDataSetVideoPresentacion() {
+  //Video video = Video.listaVideos[index];
+  String url = Video.videoPresentacion.url;
+  List dataSourceList = <BetterPlayerDataSource>[];
+  dataSourceList.add(
+    BetterPlayerDataSource(
+      BetterPlayerDataSourceType.network,
+      url,
+    ),
+  );
+  return dataSourceList;
 }

@@ -24,9 +24,9 @@ class VideoListScreen extends StatelessWidget {
         ),
 
         body: ListView.builder(
-            itemCount: listaVideos.length,
+            itemCount: Video.listaVideos.length,
             itemBuilder: (context, index) {
-              Video video = listaVideos[index];
+              Video video = Video.listaVideos[index];
               return Card(
                 child: Container(
                   padding: const EdgeInsets.all(5),
@@ -123,7 +123,7 @@ class VideoListScreen extends StatelessWidget {
         body: ListView.builder(
             itemCount: 1,
             itemBuilder: (context, index) {
-              Video video = listaVideos[index];
+              Video video = Video.listaVideos[index];
               return Column(
                 children: [
                   Card(
@@ -245,7 +245,7 @@ class VideoListScreen extends StatelessWidget {
 }
 
 List<BetterPlayerDataSource> createDataSet(int index) {
-  Video video = listaVideos[index];
+  Video video = Video.listaVideos[index];
   String url = video.url;
   List dataSourceList = <BetterPlayerDataSource>[];
   dataSourceList.add(

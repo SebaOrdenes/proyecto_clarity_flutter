@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_auth/Screens/Welcome/welcome_screen.dart';
+import 'package:flutter_auth/models/Videos.dart';
 import 'package:flutter_auth/services/testService.dart';
 
 //Clase SplashScreen del tipo Stateful
@@ -22,6 +23,10 @@ class _SplashScreenState extends State<SplashScreen> {
 
   //Obteniendo datos antes de cargar la aplicación
   Future<void> getData() async {
+    Video videoPresentacion = new Video(descripcion: '', titulo: '', url: '');
+    await videoPresentacion.getVideoPresentacion();
+
+    setText("Obteniendo Video presentación");
     TestService testService = new TestService();
     await testService.getPreguntas("Test de depresión");
     await testService.getPreguntas("Test quincenal");

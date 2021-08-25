@@ -4,6 +4,7 @@ import 'package:flutter_auth/Screens/SesionGrupal/sesionGrupal_screen.dart';
 import 'package:flutter_auth/Screens/Videos/videos_screen.dart';
 import 'package:flutter_auth/Screens/Workshop/workshop_screen.dart';
 import 'package:flutter_auth/components/loading_page.dart';
+import 'package:flutter_auth/models/Videos.dart';
 import 'package:flutter_auth/services/especialistaService.dart';
 import 'package:flutter_auth/services/sesionGrupalService.dart';
 import 'package:flutter_auth/services/workshopService.dart';
@@ -20,6 +21,19 @@ class _BodyState extends State<Body> {
   EspecialistaService especialistaService;
   WorkshopService workshopService;
   SesionGrupalService sesionGrupalService;
+
+  getVideos() async {
+    Video videos = new Video(descripcion: '', titulo: '', url: '');
+    await videos.getVideos();
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) {
+          return VideoScreen();
+        },
+      ),
+    );
+  }
 
   //Cambiar a vista especialistas
   getEspecialistas() async {
@@ -126,14 +140,7 @@ class _BodyState extends State<Body> {
                 InkWell(
                   highlightColor: Colors.white,
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return VideoScreen();
-                        },
-                      ),
-                    );
+                    getVideos();
                   },
                   child: Container(
                     padding: EdgeInsets.all(5.0),

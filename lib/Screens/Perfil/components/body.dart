@@ -3,7 +3,6 @@ import 'package:flutter_auth/Screens/Admin/components/background.dart';
 import 'package:flutter_auth/components/calendar.dart';
 import 'package:flutter_auth/components/rounded_button.dart';
 import 'package:flutter_auth/constants.dart';
-import 'package:flutter_auth/models/SesionGrupal.dart';
 import 'package:flutter_auth/models/Users.dart';
 import 'package:flutter_auth/services/sesionGrupalService.dart';
 import 'package:flutter_auth/services/sesionOTOService.dart';
@@ -32,19 +31,17 @@ class _BodyState extends State<Body> {
     getSessions();
     this.loading = false;
 
-
     //SesionOTOService.getOTOSByUser(user);
   }
 
   //Obtener las sesiones de las usuarias
   getSessions() async {
-
     setState(() {
       this.lengthSession1_1 = SesionOTOService.listaSessionsOTOByUser.length;
-      this.lengthGroupSession = SesionGrupalService.listaSesionGrupalByUser.length;
+      this.lengthGroupSession =
+          SesionGrupalService.listaSesionGrupalByUser.length;
       this.lengthWorkshops = WorkshopService.listaWorkshopByUser.length;
     });
-
   }
 
   //Actualizar la membresía de usuario

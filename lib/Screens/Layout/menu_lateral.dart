@@ -172,7 +172,7 @@ class _MenuLateralState extends State<MenuLateral> {
         ListTile(
           leading: Icon(Icons.arrow_back),
           title: Text(
-            'Logout',
+            'Salir',
             style: TextStyle(fontSize: 18, fontFamily: 'Raleway'),
           ),
           onTap: () {

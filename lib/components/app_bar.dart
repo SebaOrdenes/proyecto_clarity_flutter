@@ -48,7 +48,7 @@ class _AppBarComponentState extends State<AppBarComponent> {
 
   pushPefilScreen() async {
     //Inicio de carga
-    LoadingPage loadingPage = LoadingPage(context);
+    LoadingPage loadingPage = new LoadingPage(context);
     loadingPage.show();
 
     //Llamado a perfil de usuario con sesiones agendadas
